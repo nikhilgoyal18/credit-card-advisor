@@ -66,7 +66,7 @@ async function refreshRewards() {
             source_last_verified: new Date().toISOString(),
             notes: rule.notes || null,
           },
-          { onConflict: "idx_reward_rules_card_rule" }
+          { onConflict: "card_id,rule_id" }
         );
 
         if (error) {
