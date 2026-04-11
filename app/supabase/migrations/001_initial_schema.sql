@@ -133,6 +133,7 @@ CREATE TABLE public.reward_rules (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
 );
 
+CREATE UNIQUE INDEX idx_reward_rules_card_rule ON public.reward_rules(card_id, rule_id);
 CREATE INDEX idx_reward_rules_card ON public.reward_rules(card_id);
 CREATE INDEX idx_reward_rules_quarterly ON public.reward_rules(quarterly_rotating);
 
