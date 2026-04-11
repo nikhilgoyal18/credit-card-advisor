@@ -1,0 +1,18 @@
+{
+  "name": "credit-card-rewards-refresh",
+  "version": "1.0.0",
+  "description": "Daily refresh of credit card reward rates from official sources",
+  "type": "module",
+  "scripts": {
+    "refresh": "tsx refresh-rewards.ts"
+  },
+  "dependencies": {
+    "groq-sdk": "^0.8.0",
+    "@supabase/supabase-js": "^2.43.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
