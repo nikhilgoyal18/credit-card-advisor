@@ -51,11 +51,14 @@ export default function Home() {
     setLoading(true);
     try {
       const response = await fetch(`/api/merchants/search?q=${encodeURIComponent(query)}`);
-      const data = await response.json();
 
-      if (response.ok) {
-        setMerchants(data.data || []);
+      if (!response.ok) {
+        console.error(`Search failed with status ${response.status}`);
+        return;
       }
+
+      const data = await response.json();
+      setMerchants(data.data || []);
     } catch (error) {
       console.error('Search error:', error);
     } finally {

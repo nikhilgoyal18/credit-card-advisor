@@ -217,7 +217,15 @@ export default function WalletPage() {
               <h2 className="text-lg font-bold text-gray-900 mb-4">Add a Card</h2>
 
               {getAvailableCards().length === 0 ? (
-                <p className="text-gray-600 mb-4">You've added all available cards!</p>
+                <div>
+                  <p className="text-gray-600 mb-6">You've added all available cards!</p>
+                  <button
+                    onClick={() => setShowAddCard(false)}
+                    className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
+                  >
+                    Close
+                  </button>
+                </div>
               ) : (
                 <>
                   <div className="space-y-2 max-h-96 overflow-y-auto mb-6">

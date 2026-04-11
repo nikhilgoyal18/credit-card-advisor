@@ -140,7 +140,6 @@ export async function GET(request: NextRequest) {
       .slice(0, limit)
       .map(({ _relevance, ...rest }) => rest);
 
-    // Validate response
     const response = {
       data: results,
       query,
