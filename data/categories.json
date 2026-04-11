@@ -1,0 +1,80 @@
+{
+  "categories": [
+    {
+      "id": "GROCERY",
+      "display_name": "Grocery Stores",
+      "description": "Supermarkets, grocery chains, and food retailers"
+    },
+    {
+      "id": "DINING",
+      "display_name": "Dining & Restaurants",
+      "description": "Restaurants, cafes, bars, and food delivery"
+    },
+    {
+      "id": "TRAVEL_GENERAL",
+      "display_name": "Travel (General)",
+      "description": "Travel purchases not otherwise specified"
+    },
+    {
+      "id": "TRAVEL_HOTELS",
+      "display_name": "Hotels & Lodging",
+      "description": "Hotels, motels, vacation rentals, resorts"
+    },
+    {
+      "id": "TRAVEL_AIRLINES",
+      "display_name": "Airlines & Airfare",
+      "description": "Airlines, airfare, and flight bookings"
+    },
+    {
+      "id": "TRAVEL_PORTAL",
+      "display_name": "Travel Portal",
+      "description": "Card-specific travel booking portals (e.g., Chase Travel, Amex Travel)"
+    },
+    {
+      "id": "STREAMING",
+      "display_name": "Streaming & Subscriptions",
+      "description": "Streaming services (Netflix, Spotify, etc.) and subscriptions"
+    },
+    {
+      "id": "ENTERTAINMENT",
+      "display_name": "Entertainment & Events",
+      "description": "Movie theaters, concerts, events, tickets"
+    },
+    {
+      "id": "GAS_STATIONS",
+      "display_name": "Gas Stations & Fuel",
+      "description": "Gas stations, fuel, and vehicle fuel"
+    },
+    {
+      "id": "DRUGSTORES",
+      "display_name": "Drugstores & Pharmacies",
+      "description": "Pharmacies, drugstores, medical supplies"
+    },
+    {
+      "id": "HOME_IMPROVEMENT",
+      "display_name": "Home Improvement",
+      "description": "Hardware stores, home improvement retailers"
+    },
+    {
+      "id": "TRANSIT",
+      "display_name": "Transit & Transportation",
+      "description": "Rideshare, parking, tolls, public transit, trains"
+    },
+    {
+      "id": "DEPARTMENT_STORES",
+      "display_name": "Department & Retail Stores",
+      "description": "Department stores, general retail, shopping"
+    },
+    {
+      "id": "WHOLESALE_CLUBS",
+      "display_name": "Wholesale Clubs",
+      "description": "Costco, Sam's Club, and other warehouse clubs (explicitly separate from GROCERY)"
+    },
+    {
+      "id": "GENERAL",
+      "display_name": "General / Everything Else",
+      "description": "All other purchases and merchants not categorized above"
+    }
+  ],
+  "notes": "WHOLESALE_CLUBS is intentionally separate from GROCERY because Amex explicitly excludes warehouse clubs from the 4x grocery earn rate. DINING is used instead of RESTAURANTS to match issuer language."
+}

@@ -1,0 +1,172 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://credit-card-advisor.example.com/schemas/card.schema.json",
+  "title": "Credit Card Product Schema",
+  "description": "Schema for supported credit card products (Chase, Amex, Capital One)",
+  "type": "object",
+  "required": [
+    "id",
+    "issuer_id",
+    "name",
+    "network",
+    "reward_unit",
+    "base_earn_rate",
+    "reward_rules"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Unique identifier for the card product (e.g., 'chase_freedom_flex', 'amex_gold')"
+    },
+    "issuer_id": {
+      "type": "string",
+      "enum": ["chase", "amex", "capital_one"],
+      "description": "The card issuer"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the card (e.g., 'Chase Freedom Flex', 'American Express Gold Card')"
+    },
+    "network": {
+      "type": "string",
+      "enum": ["visa", "mastercard", "amex", "discover"],
+      "description": "Card network"
+    },
+    "reward_unit": {
+      "type": "string",
+      "enum": ["cashback_percent", "points_multiplier"],
+      "description": "How rewards are earned: as cashback percentage or as points/miles multiplier"
+    },
+    "reward_currency": {
+      "type": "string",
+      "description": "For points_multiplier cards: the name of the reward currency (e.g., 'Ultimate Rewards', 'Membership Rewards', 'Miles')"
+    },
+    "base_earn_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Base earn rate for non-category purchases. For cashback: percentage. For points: multiplier."
+    },
+    "reward_rules": {
+      "type": "array",
+      "description": "Array of reward rules for different categories or merchants",
+      "items": {
+        "$ref": "#/definitions/RewardRule"
+      },
+      "minItems": 1
+    }
+  },
+  "definitions": {
+    "RewardRule": {
+      "type": "object",
+      "required": [
+        "rule_id",
+        "earn_rate",
+        "earn_type"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Unique identifier for this rule within the card"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Merchant categories this rule applies to (from the category enum)"
+        },
+        "earn_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Reward rate for this rule. For cashback: %. For points: multiplier."
+        },
+        "earn_type": {
+          "type": "string",
+          "enum": ["cashback_percent", "points_multiplier"],
+          "description": "Type of earn rate (should match card's reward_unit)"
+        },
+        "merchant_specific": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Specific merchant IDs where this rule takes precedence over category rules"
+        },
+        "quarterly_rotating": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this is a rotating quarterly category (e.g., Chase Freedom)"
+        },
+        "quarterly_config": {
+          "type": "object",
+          "description": "Configuration for quarterly rotating rules",
+          "properties": {
+            "activation_required": {
+              "type": "boolean",
+              "description": "Whether user must activate this category to earn the bonus rate"
+            },
+            "current_quarter_categories": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Categories included in the current active quarter"
+            },
+            "current_quarter_start": {
+              "type": "string",
+              "format": "date",
+              "description": "Start date of current quarter (YYYY-MM-DD)"
+            },
+            "current_quarter_end": {
+              "type": "string",
+              "format": "date",
+              "description": "End date of current quarter (YYYY-MM-DD)"
+            }
+          }
+        },
+        "excluded_merchants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Merchant IDs explicitly excluded from this rule"
+        },
+        "excluded_categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Categories explicitly excluded from this rule (e.g., WHOLESALE_CLUBS excluded from Amex Gold 4x grocery)"
+        },
+        "valid_from": {
+          "type": "string",
+          "format": "date",
+          "description": "Rule start date (YYYY-MM-DD), if time-bound"
+        },
+        "valid_until": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Rule end date (ISO 8601), if time-bound"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Public issuer page where this rule is documented"
+        },
+        "source_last_verified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the source page was last checked and verified (ISO 8601)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes about this rule (edge cases, clarifications, etc.)"
+        }
+      }
+    }
+  }
+}
