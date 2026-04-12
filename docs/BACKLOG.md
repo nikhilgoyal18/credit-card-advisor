@@ -50,7 +50,7 @@ Status tracking for features built, in progress, and deferred. Updated as develo
 
 | Feature | Status | Notes |
 |---------|--------|-------|
-| Location-based nearby merchants | `[ BACKLOG ]` | Google Places API, graceful degradation if denied |
+| Location-based nearby merchants | `[ DONE ]` | OpenStreetMap Overpass API (no key), explicit detect button, shows all OSM merchants (DB-matched first, OSM-only as search fallback), radius picker (200m–20km) |
 | Custom point valuations | `[ BACKLOG ]` | User can set point value > 1 cent (e.g., travel points worth 2 cpp) |
 | Spend cap tracking | `[ BACKLOG ]` | Track bonus category spend, show blended rate when cap reached |
 | Saved merchants | `[ BACKLOG ]` | Cache last 10 merchant searches, suggest by location |
@@ -62,7 +62,10 @@ Status tracking for features built, in progress, and deferred. Updated as develo
 | App installation prompt | `[ BACKLOG ]` | "Install app to home screen" for PWA |
 | Dark mode | `[ BACKLOG ]` | User preference toggle |
 | Analytics | `[ BACKLOG ]` | Track recommendation sessions, card usage patterns |
-| Onboarding UX | `[ BACKLOG ]` | Tutorial, card category explanation, example recommendations |
+| Onboarding UX | `[ BACKLOG ]` | Redirect new users to /wallet after signup, or show inline prompt on home page when wallet is empty; tutorial, card category explanation, example recommendations |
+| Nearby API response caching | `[ BACKLOG ]` | Cache-Control header on /api/merchants/nearby keyed on rounded lat/lng; prevent redundant Overpass calls when user taps detect repeatedly |
+| Expand merchant catalog | `[ BACKLOG ]` | Current seed has ~200 merchants; more entries = more "Tap to see your best card" hits vs. "Search for this merchant" fallbacks from location detection |
+| Radius preference persistence | `[ BACKLOG ]` | Persist last-used radius to localStorage so it survives page reloads |
 
 ---
 

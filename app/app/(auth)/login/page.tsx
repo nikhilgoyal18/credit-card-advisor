@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
+import { Button } from '@/app/components/Button';
+import { Input } from '@/app/components/Input';
+import { CreditCardIcon, AlertCircleIcon } from '@/app/components/icons';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -37,61 +40,54 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">
-        Credit Card Advisor
-      </h1>
-      <p className="text-gray-600 text-center mb-8">
-        Find your best card for every purchase
-      </p>
+    <div className="bg-white rounded-2xl shadow-2xl shadow-indigo-900/20 p-8">
+      <div className="text-center mb-8">
+        <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-indigo-500 to-violet-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-500/30">
+          <CreditCardIcon className="h-6 w-6 text-white" />
+        </div>
+        <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
+        <p className="text-gray-500 text-sm mt-1">Sign in to your CardAdvisor account</p>
+      </div>
 
       <form onSubmit={handleLogin} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Email
-          </label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@example.com"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-            required
-          />
-        </div>
+        <Input
+          label="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@example.com"
+          required
+        />
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Password
-          </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="••••••••"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-            required
-          />
-        </div>
+        <Input
+          label="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="••••••••"
+          required
+        />
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
-            {error}
+          <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm flex items-start gap-2">
+            <AlertCircleIcon className="h-4 w-4 flex-shrink-0 mt-0.5" />
+            <span>{error}</span>
           </div>
         )}
 
-        <button
+        <Button
           type="submit"
-          disabled={loading}
-          className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50"
+          variant="primary"
+          size="full"
+          isLoading={loading}
         >
           {loading ? 'Signing in...' : 'Sign In'}
-        </button>
+        </Button>
       </form>
 
-      <div className="mt-6 text-center text-gray-600">
+      <div className="mt-6 text-center text-gray-600 text-sm">
         Don't have an account?{' '}
-        <Link href="/signup" className="text-blue-600 hover:underline font-medium">
+        <Link href="/signup" className="text-indigo-600 hover:text-indigo-700 font-medium">
           Sign up
         </Link>
       </div>

@@ -116,6 +116,73 @@ export const MerchantSearchResponseSchema = z.object({
 
 export type MerchantSearchResponse = z.infer<typeof MerchantSearchResponseSchema>;
 
+/**
+ * GET /api/merchants/nearby query parameters
+ */
+export const NearbyMerchantsQuerySchema = z.object({
+  lat: z.coerce.number().min(-90).max(90),
+  lng: z.coerce.number().min(-180).max(180),
+  radius: z.coerce.number().min(50).max(20000).default(200),
+});
+
+export type NearbyMerchantsQuery = z.infer<typeof NearbyMerchantsQuerySchema>;
+
+/**
+ * Category-level reward estimate for OSM-only merchants.
+ * Used when the merchant isn't in our DB but we can infer category from OSM tags.
+ */
+export const CategoryEstimateSchema = z.object({
+  category: CategoryEnum,
+  best_rate: z.number(),
+  earn_type: EarnTypeEnum,
+  card_name: z.string(),
+});
+
+export type CategoryEstimate = z.infer<typeof CategoryEstimateSchema>;
+
+/**
+ * GET /api/merchants/nearby response (single merchant in results)
+ * Unlike MerchantResult, primary_category is nullable for OSM-only merchants
+ * that have no entry in our database.
+ */
+export const NearbyMerchantResultSchema = z.object({
+  id: z.string(),
+  canonical_name: z.string(),
+  primary_category: CategoryEnum.nullable(),
+  aliases: z.array(z.string()),
+  has_rewards: z.boolean(),
+  // Present on OSM-only merchants when we can infer a category reward estimate
+  category_estimate: CategoryEstimateSchema.nullable().optional(),
+});
+
+export type NearbyMerchantResult = z.infer<typeof NearbyMerchantResultSchema>;
+
+/**
+ * GET /api/merchants/nearby response
+ */
+export const NearbyMerchantsResponseSchema = z.object({
+  data: z.array(NearbyMerchantResultSchema),
+  count: z.number().int().min(0),
+});
+
+export type NearbyMerchantsResponse = z.infer<typeof NearbyMerchantsResponseSchema>;
+
+/**
+ * Single entry in the "recently visited" banner.
+ * Derived from the recommendations event log joined with merchants.
+ * card_name is pre-parsed from explanation via split(' earns ')[0].
+ */
+export const RecentVisitSchema = z.object({
+  merchant_id: z.string(),
+  canonical_name: z.string(),
+  card_name: z.string(),
+  effective_rate: z.number(),
+  earn_type: EarnTypeEnum,
+  visited_at: z.string(),
+});
+
+export type RecentVisit = z.infer<typeof RecentVisitSchema>;
+
 // ============================================================================
 // Database Schemas
 // ============================================================================
@@ -202,7 +269,7 @@ export type UserCard = z.infer<typeof UserCardSchema>;
 export const ErrorResponseSchema = z.object({
   error: z.string(),
   code: z.string(),
-  details: z.record(z.any()).optional(),
+  details: z.record(z.string(), z.any()).optional(),
 });
 
 export type ErrorResponse = z.infer<typeof ErrorResponseSchema>;

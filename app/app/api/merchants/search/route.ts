@@ -6,71 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { MerchantSearchQuerySchema, MerchantSearchResponseSchema } from '@/lib/validation/schemas';
-
-/**
- * Simple fuzzy matching function
- * Returns true if needle is a fuzzy match for haystack
- */
-function fuzzyMatch(needle: string, haystack: string): boolean {
-  const needleLower = needle.toLowerCase();
-  const haystackLower = haystack.toLowerCase();
-
-  if (haystackLower.includes(needleLower)) {
-    return true;
-  }
-
-  // Character-by-character fuzzy match
-  let needleIdx = 0;
-  for (let i = 0; i < haystackLower.length; i++) {
-    if (haystackLower[i] === needleLower[needleIdx]) {
-      needleIdx++;
-    }
-    if (needleIdx === needleLower.length) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-/**
- * Calculate relevance score for sorting
- */
-function calculateRelevance(query: string, canonical: string, aliases: string[]): number {
-  const queryLower = query.toLowerCase();
-  const canonicalLower = canonical.toLowerCase();
-
-  let score = 0;
-
-  // Exact match on canonical name = highest score
-  if (canonicalLower === queryLower) {
-    score += 1000;
-  }
-
-  // Starts with query
-  if (canonicalLower.startsWith(queryLower)) {
-    score += 500;
-  }
-
-  // Contains query as substring
-  if (canonicalLower.includes(queryLower)) {
-    score += 200;
-  }
-
-  // Check aliases
-  for (const alias of aliases) {
-    const aliasLower = alias.toLowerCase();
-    if (aliasLower === queryLower) {
-      score += 800;
-    } else if (aliasLower.startsWith(queryLower)) {
-      score += 300;
-    } else if (aliasLower.includes(queryLower)) {
-      score += 100;
-    }
-  }
-
-  return score;
-}
+import { fuzzyMatch, calculateRelevance } from '@/lib/merchants/fuzzy';
 
 export async function GET(request: NextRequest) {
   try {
