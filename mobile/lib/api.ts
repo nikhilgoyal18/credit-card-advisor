@@ -18,7 +18,7 @@ export async function searchMerchants(query: string): Promise<Merchant[]> {
   );
   if (!res.ok) throw new Error(`Search failed: ${res.status}`);
   const json = await res.json();
-  return json.results ?? json;
+  return json.data ?? [];
 }
 
 export async function getRecommendations(merchantId: string): Promise<RecommendResponse> {
@@ -38,14 +38,14 @@ export async function getNearbyMerchants(lat: number, lng: number): Promise<Merc
   );
   if (!res.ok) throw new Error(`Nearby failed: ${res.status}`);
   const json = await res.json();
-  return json.results ?? json;
+  return json.data ?? [];
 }
 
 export async function getWalletCards(): Promise<Card[]> {
   const { data, error } = await supabase
     .from('user_cards')
     .select('card_id, cards(id, name, issuer_id)')
-    .order('position');
+    .order('display_order');
   if (error) throw error;
   return (data ?? []).map((row: any) => row.cards);
 }
@@ -55,7 +55,7 @@ export async function addCardToWallet(cardId: string): Promise<void> {
   if (!user) throw new Error('Not authenticated');
   const { error } = await supabase
     .from('user_cards')
-    .insert({ user_id: user.id, card_id: cardId, position: 999 });
+    .insert({ user_id: user.id, card_id: cardId, display_order: 999 });
   if (error) throw error;
 }
 
