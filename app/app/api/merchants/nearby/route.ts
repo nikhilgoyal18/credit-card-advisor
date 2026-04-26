@@ -276,19 +276,34 @@ out center tags ${resultCap};
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), fetchTimeoutMs);
 
-      const overpassRes = await fetch('https://overpass-api.de/api/interpreter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `data=${encodeURIComponent(overpassQuery)}`,
-        signal: controller.signal,
-      });
+      const OVERPASS_SERVERS = [
+        'https://overpass-api.de/api/interpreter',
+        'https://overpass.kumi.systems/api/interpreter',
+        'https://overpass.openstreetmap.ru/api/interpreter',
+      ];
+
+      let overpassRes: Response | null = null;
+      for (const server of OVERPASS_SERVERS) {
+        try {
+          const r = await fetch(server, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `data=${encodeURIComponent(overpassQuery)}`,
+            signal: controller.signal,
+          });
+          if (r.ok) { overpassRes = r; break; }
+          const body = await r.text().catch(() => '');
+          console.warn(`Overpass ${server} HTTP ${r.status}:`, body.slice(0, 200));
+        } catch (e) {
+          console.warn(`Overpass ${server} failed:`, e);
+        }
+      }
 
       clearTimeout(timeoutId);
 
-      if (!overpassRes.ok) {
-        const body = await overpassRes.text().catch(() => '');
-        console.error(`Overpass HTTP ${overpassRes.status} (radius=${radius}m):`, body.slice(0, 500));
-        return NextResponse.json({ data: [], count: 0, timed_out: false });
+      if (!overpassRes) {
+        console.error(`All Overpass servers failed (radius=${radius}m)`);
+        return NextResponse.json({ data: [], count: 0, timed_out: false, error: 'overpass_unavailable' });
       }
 
       {

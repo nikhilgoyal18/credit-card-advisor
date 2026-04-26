@@ -38,8 +38,10 @@ export async function getNearbyMerchants(lat: number, lng: number, radius = 1000
     `${BASE_URL}/api/merchants/nearby?lat=${lat}&lng=${lng}&radius=${radius}`,
     { headers: await authHeaders() }
   );
-  if (!res.ok) throw new Error(`Nearby failed: ${res.status}`);
   const json = await res.json();
+  if (!res.ok) throw new Error(`Nearby failed: ${res.status} — ${JSON.stringify(json)}`);
+  console.log('[nearby] response:', JSON.stringify(json).slice(0, 300));
+  if (json.data?.length === 0) throw new Error(`Empty — timed_out:${json.timed_out}, count:${json.count}, error:${json.error ?? 'none'}`);
   return json.data ?? [];
 }
 
