@@ -30,6 +30,9 @@ export const CategoryEnum = z.enum([
   'DEPARTMENT_STORES',
   'WHOLESALE_CLUBS',
   'PHONE_WIRELESS',
+  'CLOTHING_STORES',
+  'SPORTS_APPAREL',
+  'SHOE_STORES',
   'GENERAL',
 ]);
 

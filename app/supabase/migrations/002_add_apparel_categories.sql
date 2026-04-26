@@ -1,0 +1,7 @@
+-- Add CLOTHING_STORES, SPORTS_APPAREL, SHOE_STORES, PHONE_WIRELESS to category_enum
+-- These were previously lumped under DEPARTMENT_STORES incorrectly
+
+ALTER TYPE public.category_enum ADD VALUE IF NOT EXISTS 'PHONE_WIRELESS';
+ALTER TYPE public.category_enum ADD VALUE IF NOT EXISTS 'CLOTHING_STORES';
+ALTER TYPE public.category_enum ADD VALUE IF NOT EXISTS 'SPORTS_APPAREL';
+ALTER TYPE public.category_enum ADD VALUE IF NOT EXISTS 'SHOE_STORES';

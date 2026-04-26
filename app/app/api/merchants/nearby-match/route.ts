@@ -16,7 +16,10 @@ function osmTagToCategory(tag: string | undefined): string | null {
   const t = tag.toLowerCase();
   if (['restaurant','cafe','fast_food','bar','pub','food_court','ice_cream','bakery','deli','biergarten'].includes(t)) return 'DINING';
   if (['supermarket','convenience','greengrocer','butcher','seafood','fishmonger','confectionery'].includes(t)) return 'GROCERY';
-  if (['clothes','clothing','fashion','boutique','shoes','jewelry','accessories','watches','bag','leather','second_hand','vintage','tailor','fabric','department_store','mall','variety_store'].includes(t)) return 'DEPARTMENT_STORES';
+  if (['department_store','mall'].includes(t)) return 'DEPARTMENT_STORES';
+  if (['clothes','clothing','fashion','boutique','jewelry','accessories','watches','bag','leather','second_hand','vintage','tailor','fabric','variety_store'].includes(t)) return 'CLOTHING_STORES';
+  if (['shoes'].includes(t)) return 'SHOE_STORES';
+  if (['sports','outdoor','fitness','bicycle','golf'].includes(t)) return 'SPORTS_APPAREL';
   if (['fuel'].includes(t)) return 'GAS_STATIONS';
   if (['pharmacy','chemist'].includes(t)) return 'DRUGSTORES';
   if (['hardware','garden','flooring','paint','kitchen','bathroom','doityourself'].includes(t)) return 'HOME_IMPROVEMENT';

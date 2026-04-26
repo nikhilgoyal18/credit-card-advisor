@@ -74,9 +74,15 @@ function mapOsmTagsToCategory(tags: Record<string, string>): Category {
       return 'GROCERY';
     if (['pharmacy','chemist','herbalist'].includes(shop))
       return 'DRUGSTORES';
-    if (['clothes','clothing','fashion','boutique','shoes','jewelry','accessories','watches','bag',
-         'leather','second_hand','vintage','tailor','fabric','department_store','mall','variety_store'].includes(shop))
+    if (['department_store','mall'].includes(shop))
       return 'DEPARTMENT_STORES';
+    if (['clothes','clothing','fashion','boutique','jewelry','accessories','watches','bag',
+         'leather','second_hand','vintage','tailor','fabric','variety_store'].includes(shop))
+      return 'CLOTHING_STORES';
+    if (['shoes'].includes(shop))
+      return 'SHOE_STORES';
+    if (['sports','outdoor','fitness','bicycle','golf'].includes(shop))
+      return 'SPORTS_APPAREL';
     if (['hardware','garden','flooring','paint','kitchen','bathroom','lighting','appliance',
          'furniture','interior_decoration','doityourself'].includes(shop))
       return 'HOME_IMPROVEMENT';

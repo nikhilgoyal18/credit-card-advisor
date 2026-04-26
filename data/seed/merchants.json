@@ -2,894 +2,1501 @@
   {
     "id": "whole_foods_market",
     "canonical_name": "Whole Foods Market",
-    "aliases": ["Whole Foods", "WFM", "WHOLEFDS", "Whole Foods Market Inc"],
+    "aliases": [
+      "Whole Foods",
+      "WFM",
+      "WHOLEFDS",
+      "Whole Foods Market Inc"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false,
     "notes": "Premium grocery chain, owned by Amazon. Often included in Chase Freedom/Flex rotating categories."
   },
   {
     "id": "kroger",
     "canonical_name": "Kroger",
-    "aliases": ["Kroger Co", "Ralphs", "Fred Meyer", "QFC", "Smith's", "Fry's", "King Soopers", "Mariano's", "Dillons", "Gerbes", "KROGR"],
+    "aliases": [
+      "Kroger Co",
+      "Ralphs",
+      "Fred Meyer",
+      "QFC",
+      "Smith's",
+      "Fry's",
+      "King Soopers",
+      "Mariano's",
+      "Dillons",
+      "Gerbes",
+      "KROGR"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false
   },
   {
     "id": "trader_joes",
     "canonical_name": "Trader Joe's",
-    "aliases": ["Trader Joes", "TJ's", "TRADERJOES"],
+    "aliases": [
+      "Trader Joes",
+      "TJ's",
+      "TRADERJOES"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false
   },
   {
     "id": "aldi",
     "canonical_name": "Aldi",
-    "aliases": ["Aldi Süd", "Aldi Nord", "ALDI US"],
+    "aliases": [
+      "Aldi Süd",
+      "Aldi Nord",
+      "ALDI US"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false
   },
   {
     "id": "costco",
     "canonical_name": "Costco",
-    "aliases": ["Costco Warehouse", "Costco.com", "COSTCO"],
+    "aliases": [
+      "Costco Warehouse",
+      "Costco.com",
+      "COSTCO"
+    ],
     "primary_category": "WHOLESALE_CLUBS",
     "secondary_categories": [],
-    "mcc_codes": ["5411", "5942"],
+    "mcc_codes": [
+      "5411",
+      "5942"
+    ],
     "is_online_only": false,
     "notes": "Warehouse club. Explicitly EXCLUDED from Amex Gold 4x grocery earn."
   },
   {
     "id": "sams_club",
     "canonical_name": "Sam's Club",
-    "aliases": ["Sams Club", "Sam's Warehouse Club", "SAMSCLUB"],
+    "aliases": [
+      "Sams Club",
+      "Sam's Warehouse Club",
+      "SAMSCLUB"
+    ],
     "primary_category": "WHOLESALE_CLUBS",
     "secondary_categories": [],
-    "mcc_codes": ["5411", "5942"],
+    "mcc_codes": [
+      "5411",
+      "5942"
+    ],
     "is_online_only": false,
     "notes": "Warehouse club. Explicitly EXCLUDED from Amex Gold 4x grocery earn."
   },
   {
     "id": "target",
     "canonical_name": "Target",
-    "aliases": ["Target Corp", "Target Stores", "Target.com", "TARGET"],
+    "aliases": [
+      "Target Corp",
+      "Target Stores",
+      "Target.com",
+      "TARGET"
+    ],
     "primary_category": "GROCERY",
-    "secondary_categories": ["GENERAL"],
-    "mcc_codes": ["5411", "5399"],
+    "secondary_categories": [
+      "GENERAL"
+    ],
+    "mcc_codes": [
+      "5411",
+      "5399"
+    ],
     "is_online_only": false,
     "notes": "Super-target format has grocery. Online also available."
   },
   {
     "id": "walmart",
     "canonical_name": "Walmart",
-    "aliases": ["Walmart Inc", "Walmart Stores", "Walmart.com", "WALMART", "Walmart Supercenter"],
+    "aliases": [
+      "Walmart Inc",
+      "Walmart Stores",
+      "Walmart.com",
+      "WALMART",
+      "Walmart Supercenter"
+    ],
     "primary_category": "GROCERY",
-    "secondary_categories": ["GENERAL"],
-    "mcc_codes": ["5411", "5399"],
+    "secondary_categories": [
+      "GENERAL"
+    ],
+    "mcc_codes": [
+      "5411",
+      "5399"
+    ],
     "is_online_only": false,
     "notes": "Supercenter format includes grocery. Note: Some cards exclude superstores from grocery earn."
   },
   {
     "id": "publix",
     "canonical_name": "Publix",
-    "aliases": ["Publix Super Market", "Publix Markets", "PUBLIX"],
+    "aliases": [
+      "Publix Super Market",
+      "Publix Markets",
+      "PUBLIX"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false,
     "notes": "Regional chain in southeastern US."
   },
   {
     "id": "heb",
     "canonical_name": "H-E-B",
-    "aliases": ["HEB", "H.E.B", "H-E-B Grocery Company"],
+    "aliases": [
+      "HEB",
+      "H.E.B",
+      "H-E-B Grocery Company"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false,
     "notes": "Regional chain in Texas."
   },
   {
     "id": "wegmans",
     "canonical_name": "Wegmans",
-    "aliases": ["Wegmans Food Markets", "WEGMANS"],
+    "aliases": [
+      "Wegmans Food Markets",
+      "WEGMANS"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false
   },
   {
     "id": "meijer",
     "canonical_name": "Meijer",
-    "aliases": ["Meijer Inc", "MEIJER"],
+    "aliases": [
+      "Meijer Inc",
+      "MEIJER"
+    ],
     "primary_category": "GROCERY",
-    "secondary_categories": ["GENERAL"],
-    "mcc_codes": ["5411", "5399"],
+    "secondary_categories": [
+      "GENERAL"
+    ],
+    "mcc_codes": [
+      "5411",
+      "5399"
+    ],
     "is_online_only": false,
     "notes": "Regional chain in Midwest. Superstore format."
   },
   {
     "id": "stop_and_shop",
     "canonical_name": "Stop & Shop",
-    "aliases": ["Stop and Shop", "STOPNSHOP"],
+    "aliases": [
+      "Stop and Shop",
+      "STOPNSHOP"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false
   },
   {
     "id": "giant_food",
     "canonical_name": "Giant Food",
-    "aliases": ["Giant Food Stores", "GIANT"],
+    "aliases": [
+      "Giant Food Stores",
+      "GIANT"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false
   },
   {
     "id": "shoprite",
     "canonical_name": "ShopRite",
-    "aliases": ["Shop Rite", "Wakefern", "SHOPRITE"],
+    "aliases": [
+      "Shop Rite",
+      "Wakefern",
+      "SHOPRITE"
+    ],
     "primary_category": "GROCERY",
     "secondary_categories": [],
-    "mcc_codes": ["5411"],
+    "mcc_codes": [
+      "5411"
+    ],
     "is_online_only": false
   },
   {
     "id": "mcdonalds",
     "canonical_name": "McDonald's",
-    "aliases": ["McDonalds", "McDonald's Corp", "MCD", "MCDONALDS"],
+    "aliases": [
+      "McDonalds",
+      "McDonald's Corp",
+      "MCD",
+      "MCDONALDS"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "starbucks",
     "canonical_name": "Starbucks",
-    "aliases": ["Starbucks Coffee", "Starbucks Inc", "SBUX", "STARBUCKS"],
+    "aliases": [
+      "Starbucks Coffee",
+      "Starbucks Inc",
+      "SBUX",
+      "STARBUCKS"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814", "5499"],
+    "mcc_codes": [
+      "5814",
+      "5499"
+    ],
     "is_online_only": false
   },
   {
     "id": "chipotle",
     "canonical_name": "Chipotle Mexican Grill",
-    "aliases": ["Chipotle", "CMG", "CHIPOTLE"],
+    "aliases": [
+      "Chipotle",
+      "CMG",
+      "CHIPOTLE"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "subway",
     "canonical_name": "Subway",
-    "aliases": ["Subway Inc", "Subway Restaurant", "SUBWAY"],
+    "aliases": [
+      "Subway Inc",
+      "Subway Restaurant",
+      "SUBWAY"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "dominos",
     "canonical_name": "Domino's Pizza",
-    "aliases": ["Dominos", "Domino's Inc", "DOMINOS"],
+    "aliases": [
+      "Dominos",
+      "Domino's Inc",
+      "DOMINOS"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "pizza_hut",
     "canonical_name": "Pizza Hut",
-    "aliases": ["Pizza Hut Inc", "PIZZAHUT"],
+    "aliases": [
+      "Pizza Hut Inc",
+      "PIZZAHUT"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "taco_bell",
     "canonical_name": "Taco Bell",
-    "aliases": ["Taco Bell Corp", "TACOBELL"],
+    "aliases": [
+      "Taco Bell Corp",
+      "TACOBELL"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "wendys",
     "canonical_name": "Wendy's",
-    "aliases": ["Wendy's Co", "WENDYS"],
+    "aliases": [
+      "Wendy's Co",
+      "WENDYS"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "burger_king",
     "canonical_name": "Burger King",
-    "aliases": ["Burger King Corp", "BURGERKING"],
+    "aliases": [
+      "Burger King Corp",
+      "BURGERKING"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "panera_bread",
     "canonical_name": "Panera Bread",
-    "aliases": ["Panera Co", "PANERA"],
+    "aliases": [
+      "Panera Co",
+      "PANERA"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "chick_fil_a",
     "canonical_name": "Chick-fil-A",
-    "aliases": ["Chick-fil-A Inc", "Chick fil A", "CFA", "CHICKFILA"],
+    "aliases": [
+      "Chick-fil-A Inc",
+      "Chick fil A",
+      "CFA",
+      "CHICKFILA"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "dunkin",
     "canonical_name": "Dunkin'",
-    "aliases": ["Dunkin Donuts", "Dunkin Brands", "DUNKIN"],
+    "aliases": [
+      "Dunkin Donuts",
+      "Dunkin Brands",
+      "DUNKIN"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "kfc",
     "canonical_name": "KFC",
-    "aliases": ["Kentucky Fried Chicken", "KFC Corp", "KENTUCKY FRIED CHICKEN"],
+    "aliases": [
+      "Kentucky Fried Chicken",
+      "KFC Corp",
+      "KENTUCKY FRIED CHICKEN"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "popeyes",
     "canonical_name": "Popeyes Louisiana Kitchen",
-    "aliases": ["Popeyes", "POPEYES"],
+    "aliases": [
+      "Popeyes",
+      "POPEYES"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "five_guys",
     "canonical_name": "Five Guys",
-    "aliases": ["Five Guys Burgers", "FIVEGUYS"],
+    "aliases": [
+      "Five Guys Burgers",
+      "FIVEGUYS"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "shake_shack",
     "canonical_name": "Shake Shack",
-    "aliases": ["Shake Shack Inc", "SHAKESHACK"],
+    "aliases": [
+      "Shake Shack Inc",
+      "SHAKESHACK"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false
   },
   {
     "id": "in_n_out",
     "canonical_name": "In-N-Out Burger",
-    "aliases": ["In and Out", "In N Out", "INNOUT"],
+    "aliases": [
+      "In and Out",
+      "In N Out",
+      "INNOUT"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5814"],
+    "mcc_codes": [
+      "5814"
+    ],
     "is_online_only": false,
     "notes": "Regional chain, primarily West Coast."
   },
   {
     "id": "olive_garden",
     "canonical_name": "Olive Garden",
-    "aliases": ["Olive Garden Italian", "OLIVEGARDEN"],
+    "aliases": [
+      "Olive Garden Italian",
+      "OLIVEGARDEN"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5812"],
+    "mcc_codes": [
+      "5812"
+    ],
     "is_online_only": false
   },
   {
     "id": "red_lobster",
     "canonical_name": "Red Lobster",
-    "aliases": ["Red Lobster Inc", "REDLOBSTER"],
+    "aliases": [
+      "Red Lobster Inc",
+      "REDLOBSTER"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5812"],
+    "mcc_codes": [
+      "5812"
+    ],
     "is_online_only": false
   },
   {
     "id": "applebees",
     "canonical_name": "Applebee's",
-    "aliases": ["Applebees Bar and Grill", "APPLEBEES"],
+    "aliases": [
+      "Applebees Bar and Grill",
+      "APPLEBEES"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5812"],
+    "mcc_codes": [
+      "5812"
+    ],
     "is_online_only": false
   },
   {
     "id": "buffalo_wild_wings",
     "canonical_name": "Buffalo Wild Wings",
-    "aliases": ["BDubs", "BWW", "Buffalo Wings", "BDUBS"],
+    "aliases": [
+      "BDubs",
+      "BWW",
+      "Buffalo Wings",
+      "BDUBS"
+    ],
     "primary_category": "DINING",
-    "secondary_categories": ["ENTERTAINMENT"],
-    "mcc_codes": ["5812"],
+    "secondary_categories": [
+      "ENTERTAINMENT"
+    ],
+    "mcc_codes": [
+      "5812"
+    ],
     "is_online_only": false
   },
   {
     "id": "chilis",
     "canonical_name": "Chili's Bar & Grill",
-    "aliases": ["Chilis", "Chillis", "CHILIS"],
+    "aliases": [
+      "Chilis",
+      "Chillis",
+      "CHILIS"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5812"],
+    "mcc_codes": [
+      "5812"
+    ],
     "is_online_only": false
   },
   {
     "id": "texas_roadhouse",
     "canonical_name": "Texas Roadhouse",
-    "aliases": ["TEXASROADHOUSE"],
+    "aliases": [
+      "TEXASROADHOUSE"
+    ],
     "primary_category": "DINING",
     "secondary_categories": [],
-    "mcc_codes": ["5812"],
+    "mcc_codes": [
+      "5812"
+    ],
     "is_online_only": false
   },
   {
     "id": "united_airlines",
     "canonical_name": "United Airlines",
-    "aliases": ["United", "UAL", "United Air Lines", "UNITEDAIR"],
+    "aliases": [
+      "United",
+      "UAL",
+      "United Air Lines",
+      "UNITEDAIR"
+    ],
     "primary_category": "TRAVEL_AIRLINES",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["4511"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "4511"
+    ],
     "is_online_only": false
   },
   {
     "id": "delta_airlines",
     "canonical_name": "Delta Air Lines",
-    "aliases": ["Delta", "DAL", "DELTAAIR"],
+    "aliases": [
+      "Delta",
+      "DAL",
+      "DELTAAIR"
+    ],
     "primary_category": "TRAVEL_AIRLINES",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["4511"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "4511"
+    ],
     "is_online_only": false
   },
   {
     "id": "american_airlines",
     "canonical_name": "American Airlines",
-    "aliases": ["American", "AAL", "American Air Lines", "AMERICANAIR"],
+    "aliases": [
+      "American",
+      "AAL",
+      "American Air Lines",
+      "AMERICANAIR"
+    ],
     "primary_category": "TRAVEL_AIRLINES",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["4511"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "4511"
+    ],
     "is_online_only": false
   },
   {
     "id": "southwest_airlines",
     "canonical_name": "Southwest Airlines",
-    "aliases": ["Southwest", "SWA", "SOUTHWEST"],
+    "aliases": [
+      "Southwest",
+      "SWA",
+      "SOUTHWEST"
+    ],
     "primary_category": "TRAVEL_AIRLINES",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["4511"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "4511"
+    ],
     "is_online_only": false
   },
   {
     "id": "marriott",
     "canonical_name": "Marriott International",
-    "aliases": ["Marriott Hotels", "Marriott Bonvoy", "MARRIOTT"],
+    "aliases": [
+      "Marriott Hotels",
+      "Marriott Bonvoy",
+      "MARRIOTT"
+    ],
     "primary_category": "TRAVEL_HOTELS",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["7011"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "7011"
+    ],
     "is_online_only": false
   },
   {
     "id": "hilton",
     "canonical_name": "Hilton Hotels",
-    "aliases": ["Hilton", "Hilton Honors", "HILTON"],
+    "aliases": [
+      "Hilton",
+      "Hilton Honors",
+      "HILTON"
+    ],
     "primary_category": "TRAVEL_HOTELS",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["7011"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "7011"
+    ],
     "is_online_only": false
   },
   {
     "id": "hyatt",
     "canonical_name": "Hyatt Hotels",
-    "aliases": ["Hyatt", "Hyatt Corp", "HYATT"],
+    "aliases": [
+      "Hyatt",
+      "Hyatt Corp",
+      "HYATT"
+    ],
     "primary_category": "TRAVEL_HOTELS",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["7011"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "7011"
+    ],
     "is_online_only": false
   },
   {
     "id": "airbnb",
     "canonical_name": "Airbnb",
-    "aliases": ["Airbnb Inc", "AIRBNB"],
+    "aliases": [
+      "Airbnb Inc",
+      "AIRBNB"
+    ],
     "primary_category": "TRAVEL_HOTELS",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["7011"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "7011"
+    ],
     "is_online_only": true
   },
   {
     "id": "booking_com",
     "canonical_name": "Booking.com",
-    "aliases": ["Booking", "BOOKING"],
+    "aliases": [
+      "Booking",
+      "BOOKING"
+    ],
     "primary_category": "TRAVEL_HOTELS",
-    "secondary_categories": ["TRAVEL_GENERAL"],
-    "mcc_codes": ["7011"],
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "7011"
+    ],
     "is_online_only": true
   },
   {
     "id": "expedia",
     "canonical_name": "Expedia",
-    "aliases": ["Expedia Inc", "EXPEDIA"],
+    "aliases": [
+      "Expedia Inc",
+      "EXPEDIA"
+    ],
     "primary_category": "TRAVEL_GENERAL",
-    "secondary_categories": ["TRAVEL_HOTELS", "TRAVEL_AIRLINES"],
-    "mcc_codes": ["7011"],
+    "secondary_categories": [
+      "TRAVEL_HOTELS",
+      "TRAVEL_AIRLINES"
+    ],
+    "mcc_codes": [
+      "7011"
+    ],
     "is_online_only": true
   },
   {
     "id": "uber",
     "canonical_name": "Uber",
-    "aliases": ["Uber Technologies", "Uber Rides", "UBER"],
+    "aliases": [
+      "Uber Technologies",
+      "Uber Rides",
+      "UBER"
+    ],
     "primary_category": "TRANSIT",
     "secondary_categories": [],
-    "mcc_codes": ["4121"],
+    "mcc_codes": [
+      "4121"
+    ],
     "is_online_only": true
   },
   {
     "id": "lyft",
     "canonical_name": "Lyft",
-    "aliases": ["Lyft Inc", "LYFT"],
+    "aliases": [
+      "Lyft Inc",
+      "LYFT"
+    ],
     "primary_category": "TRANSIT",
     "secondary_categories": [],
-    "mcc_codes": ["4121"],
+    "mcc_codes": [
+      "4121"
+    ],
     "is_online_only": true
   },
   {
     "id": "netflix",
     "canonical_name": "Netflix",
-    "aliases": ["Netflix Inc", "NETFLIX"],
+    "aliases": [
+      "Netflix Inc",
+      "NETFLIX"
+    ],
     "primary_category": "STREAMING",
     "secondary_categories": [],
-    "mcc_codes": ["4999"],
+    "mcc_codes": [
+      "4999"
+    ],
     "is_online_only": true
   },
   {
     "id": "hulu",
     "canonical_name": "Hulu",
-    "aliases": ["Hulu LLC", "HULU"],
+    "aliases": [
+      "Hulu LLC",
+      "HULU"
+    ],
     "primary_category": "STREAMING",
     "secondary_categories": [],
-    "mcc_codes": ["4999"],
+    "mcc_codes": [
+      "4999"
+    ],
     "is_online_only": true
   },
   {
     "id": "disney_plus",
     "canonical_name": "Disney+",
-    "aliases": ["Disney Plus", "Disney Plus Video Service", "DISNEYPLUS"],
+    "aliases": [
+      "Disney Plus",
+      "Disney Plus Video Service",
+      "DISNEYPLUS"
+    ],
     "primary_category": "STREAMING",
     "secondary_categories": [],
-    "mcc_codes": ["4999"],
+    "mcc_codes": [
+      "4999"
+    ],
     "is_online_only": true
   },
   {
     "id": "spotify",
     "canonical_name": "Spotify",
-    "aliases": ["Spotify AB", "SPOTIFY"],
+    "aliases": [
+      "Spotify AB",
+      "SPOTIFY"
+    ],
     "primary_category": "STREAMING",
     "secondary_categories": [],
-    "mcc_codes": ["4999"],
+    "mcc_codes": [
+      "4999"
+    ],
     "is_online_only": true
   },
   {
     "id": "apple_tv_plus",
     "canonical_name": "Apple TV+",
-    "aliases": ["Apple TV Plus", "Apple Music Subscription", "APPLETV"],
+    "aliases": [
+      "Apple TV Plus",
+      "Apple Music Subscription",
+      "APPLETV"
+    ],
     "primary_category": "STREAMING",
     "secondary_categories": [],
-    "mcc_codes": ["4999"],
+    "mcc_codes": [
+      "4999"
+    ],
     "is_online_only": true
   },
   {
     "id": "cvs",
     "canonical_name": "CVS Pharmacy",
-    "aliases": ["CVS", "CVS Health", "CVSPHARMACY"],
+    "aliases": [
+      "CVS",
+      "CVS Health",
+      "CVSPHARMACY"
+    ],
     "primary_category": "DRUGSTORES",
     "secondary_categories": [],
-    "mcc_codes": ["5912"],
+    "mcc_codes": [
+      "5912"
+    ],
     "is_online_only": false
   },
   {
     "id": "walgreens",
     "canonical_name": "Walgreens",
-    "aliases": ["Walgreens Boots Alliance", "WALGREENS"],
+    "aliases": [
+      "Walgreens Boots Alliance",
+      "WALGREENS"
+    ],
     "primary_category": "DRUGSTORES",
     "secondary_categories": [],
-    "mcc_codes": ["5912"],
+    "mcc_codes": [
+      "5912"
+    ],
     "is_online_only": false,
     "notes": "Named in Amex merchant guidance for additional rewards."
   },
   {
     "id": "rite_aid",
     "canonical_name": "Rite Aid",
-    "aliases": ["Rite Aid Corp", "RITEAID"],
+    "aliases": [
+      "Rite Aid Corp",
+      "RITEAID"
+    ],
     "primary_category": "DRUGSTORES",
     "secondary_categories": [],
-    "mcc_codes": ["5912"],
+    "mcc_codes": [
+      "5912"
+    ],
     "is_online_only": false
   },
   {
     "id": "shell_gas",
     "canonical_name": "Shell Gas Station",
-    "aliases": ["Shell", "Shell Oil", "SHELL"],
+    "aliases": [
+      "Shell",
+      "Shell Oil",
+      "SHELL"
+    ],
     "primary_category": "GAS_STATIONS",
     "secondary_categories": [],
-    "mcc_codes": ["5541"],
+    "mcc_codes": [
+      "5541"
+    ],
     "is_online_only": false
   },
   {
     "id": "bp_gas",
     "canonical_name": "BP Gas Station",
-    "aliases": ["BP", "British Petroleum", "BP Amoco", "BP STATION"],
+    "aliases": [
+      "BP",
+      "British Petroleum",
+      "BP Amoco",
+      "BP STATION"
+    ],
     "primary_category": "GAS_STATIONS",
     "secondary_categories": [],
-    "mcc_codes": ["5541"],
+    "mcc_codes": [
+      "5541"
+    ],
     "is_online_only": false
   },
   {
     "id": "chevron",
     "canonical_name": "Chevron",
-    "aliases": ["Chevron Corp", "CHEVRON"],
+    "aliases": [
+      "Chevron Corp",
+      "CHEVRON"
+    ],
     "primary_category": "GAS_STATIONS",
     "secondary_categories": [],
-    "mcc_codes": ["5541"],
+    "mcc_codes": [
+      "5541"
+    ],
     "is_online_only": false
   },
   {
     "id": "exxon_mobil",
     "canonical_name": "ExxonMobil",
-    "aliases": ["Exxon", "Mobil", "EXXON"],
+    "aliases": [
+      "Exxon",
+      "Mobil",
+      "EXXON"
+    ],
     "primary_category": "GAS_STATIONS",
     "secondary_categories": [],
-    "mcc_codes": ["5541"],
+    "mcc_codes": [
+      "5541"
+    ],
     "is_online_only": false
   },
   {
     "id": "amazon",
     "canonical_name": "Amazon",
-    "aliases": ["Amazon.com", "Amazon Inc", "AMAZON"],
+    "aliases": [
+      "Amazon.com",
+      "Amazon Inc",
+      "AMAZON"
+    ],
     "primary_category": "GENERAL",
     "secondary_categories": [],
-    "mcc_codes": ["5411", "5999", "5942"],
+    "mcc_codes": [
+      "5411",
+      "5999",
+      "5942"
+    ],
     "is_online_only": true,
     "notes": "Typically included in Chase Freedom quarterly categories."
   },
   {
     "id": "best_buy",
     "canonical_name": "Best Buy",
-    "aliases": ["Best Buy Co", "BESTBUY"],
+    "aliases": [
+      "Best Buy Co",
+      "BESTBUY"
+    ],
     "primary_category": "GENERAL",
     "secondary_categories": [],
-    "mcc_codes": ["5731"],
+    "mcc_codes": [
+      "5731"
+    ],
     "is_online_only": false
   },
   {
     "id": "home_depot",
     "canonical_name": "The Home Depot",
-    "aliases": ["Home Depot", "HD", "HOMEDEPOT"],
+    "aliases": [
+      "Home Depot",
+      "HD",
+      "HOMEDEPOT"
+    ],
     "primary_category": "HOME_IMPROVEMENT",
     "secondary_categories": [],
-    "mcc_codes": ["5211"],
+    "mcc_codes": [
+      "5211"
+    ],
     "is_online_only": false
   },
   {
     "id": "lowes",
     "canonical_name": "Lowe's",
-    "aliases": ["Lowes Home Improvement", "Lowes Co", "LOWES"],
+    "aliases": [
+      "Lowes Home Improvement",
+      "Lowes Co",
+      "LOWES"
+    ],
     "primary_category": "HOME_IMPROVEMENT",
     "secondary_categories": [],
-    "mcc_codes": ["5211"],
+    "mcc_codes": [
+      "5211"
+    ],
     "is_online_only": false
   },
   {
     "id": "amc_theaters",
     "canonical_name": "AMC Theaters",
-    "aliases": ["AMC Entertainment", "AMC", "AMCTHEATRES"],
+    "aliases": [
+      "AMC Entertainment",
+      "AMC",
+      "AMCTHEATRES"
+    ],
     "primary_category": "ENTERTAINMENT",
     "secondary_categories": [],
-    "mcc_codes": ["7832"],
+    "mcc_codes": [
+      "7832"
+    ],
     "is_online_only": false
   },
   {
     "id": "regal_cinemas",
     "canonical_name": "Regal Cinemas",
-    "aliases": ["Regal Entertainment", "Regal Movies", "REGAL"],
+    "aliases": [
+      "Regal Entertainment",
+      "Regal Movies",
+      "REGAL"
+    ],
     "primary_category": "ENTERTAINMENT",
     "secondary_categories": [],
-    "mcc_codes": ["7832"],
+    "mcc_codes": [
+      "7832"
+    ],
     "is_online_only": false
   },
   {
     "id": "ticketmaster",
     "canonical_name": "Ticketmaster",
-    "aliases": ["Ticketmaster Entertainment", "TICKETMASTER"],
+    "aliases": [
+      "Ticketmaster Entertainment",
+      "TICKETMASTER"
+    ],
     "primary_category": "ENTERTAINMENT",
     "secondary_categories": [],
-    "mcc_codes": ["7922"],
+    "mcc_codes": [
+      "7922"
+    ],
     "is_online_only": true
   },
   {
     "id": "nordstrom",
     "canonical_name": "Nordstrom",
-    "aliases": ["Nordstrom Inc", "Nordstrom Rack", "NORDSTROM"],
+    "aliases": [
+      "Nordstrom Inc",
+      "Nordstrom Rack",
+      "NORDSTROM"
+    ],
     "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5311"],
+    "mcc_codes": [
+      "5311"
+    ],
     "is_online_only": false
   },
   {
     "id": "macys",
     "canonical_name": "Macy's",
-    "aliases": ["Macys", "Macy's Inc", "MACYS"],
+    "aliases": [
+      "Macys",
+      "Macy's Inc",
+      "MACYS"
+    ],
     "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5311"],
+    "mcc_codes": [
+      "5311"
+    ],
     "is_online_only": false
   },
   {
     "id": "bloomingdales",
     "canonical_name": "Bloomingdale's",
-    "aliases": ["Bloomingdales", "BLOOMINGDALES"],
+    "aliases": [
+      "Bloomingdales",
+      "BLOOMINGDALES"
+    ],
     "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5311"],
+    "mcc_codes": [
+      "5311"
+    ],
     "is_online_only": false
   },
   {
     "id": "neiman_marcus",
     "canonical_name": "Neiman Marcus",
-    "aliases": ["Neiman Marcus Group", "NEIMANMARCUS"],
+    "aliases": [
+      "Neiman Marcus Group",
+      "NEIMANMARCUS"
+    ],
     "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5311"],
+    "mcc_codes": [
+      "5311"
+    ],
     "is_online_only": false
   },
   {
     "id": "saks_fifth_avenue",
     "canonical_name": "Saks Fifth Avenue",
-    "aliases": ["Saks", "Saks Inc", "SAKS"],
+    "aliases": [
+      "Saks",
+      "Saks Inc",
+      "SAKS"
+    ],
     "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5311"],
+    "mcc_codes": [
+      "5311"
+    ],
     "is_online_only": false
   },
   {
     "id": "zara",
     "canonical_name": "Zara",
-    "aliases": ["Zara USA", "Inditex", "ZARA"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Zara USA",
+      "Inditex",
+      "ZARA"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": false
   },
   {
     "id": "lululemon",
     "canonical_name": "Lululemon",
-    "aliases": ["lululemon athletica", "Lululemon Inc", "LULULEMON"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "lululemon athletica",
+      "Lululemon Inc",
+      "LULULEMON"
+    ],
+    "primary_category": "SPORTS_APPAREL",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": false
   },
   {
     "id": "hm",
     "canonical_name": "H&M",
-    "aliases": ["H and M", "H&M Group", "HM"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "H and M",
+      "H&M Group",
+      "HM"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "gap",
     "canonical_name": "Gap",
-    "aliases": ["Gap Inc", "Gap Stores", "GAP"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Gap Inc",
+      "Gap Stores",
+      "GAP"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "old_navy",
     "canonical_name": "Old Navy",
-    "aliases": ["Old Navy LLC", "OLDNAVY"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Old Navy LLC",
+      "OLDNAVY"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "banana_republic",
     "canonical_name": "Banana Republic",
-    "aliases": ["Banana Republic LLC", "BANANAREPUBLIC"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Banana Republic LLC",
+      "BANANAREPUBLIC"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "uniqlo",
     "canonical_name": "Uniqlo",
-    "aliases": ["UNIQLO Co", "Fast Retailing", "UNIQLO"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "UNIQLO Co",
+      "Fast Retailing",
+      "UNIQLO"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "forever_21",
     "canonical_name": "Forever 21",
-    "aliases": ["Forever21", "FOREVER21"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Forever21",
+      "FOREVER21"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "urban_outfitters",
     "canonical_name": "Urban Outfitters",
-    "aliases": ["Urban Outfitters Inc", "URBANOUTFITTERS", "UO"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Urban Outfitters Inc",
+      "URBANOUTFITTERS",
+      "UO"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": false
   },
   {
     "id": "anthropologie",
     "canonical_name": "Anthropologie",
-    "aliases": ["Anthropologie Group", "ANTHROPOLOGIE"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Anthropologie Group",
+      "ANTHROPOLOGIE"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": false
   },
   {
     "id": "free_people",
     "canonical_name": "Free People",
-    "aliases": ["Free People LLC", "FREEPEOPLE", "FP"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Free People LLC",
+      "FREEPEOPLE",
+      "FP"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": false
   },
   {
     "id": "express",
     "canonical_name": "Express",
-    "aliases": ["Express Inc", "EXPRESS"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Express Inc",
+      "EXPRESS"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "tj_maxx",
     "canonical_name": "TJ Maxx",
-    "aliases": ["TJX", "TJ Maxx Inc", "T.J.Maxx", "TJMAXX"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "TJX",
+      "TJ Maxx Inc",
+      "T.J.Maxx",
+      "TJMAXX"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "marshalls",
     "canonical_name": "Marshalls",
-    "aliases": ["Marshalls Inc", "MARSHALLS"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Marshalls Inc",
+      "MARSHALLS"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "ross",
     "canonical_name": "Ross Dress for Less",
-    "aliases": ["Ross Stores", "Ross", "ROSS"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Ross Stores",
+      "Ross",
+      "ROSS"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5651"],
+    "mcc_codes": [
+      "5651"
+    ],
     "is_online_only": false
   },
   {
     "id": "nike",
     "canonical_name": "Nike",
-    "aliases": ["Nike Inc", "Nike Store", "Nike.com", "NIKE"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Nike Inc",
+      "Nike Store",
+      "Nike.com",
+      "NIKE"
+    ],
+    "primary_category": "SPORTS_APPAREL",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": false
   },
   {
     "id": "adidas",
     "canonical_name": "Adidas",
-    "aliases": ["Adidas AG", "Adidas Store", "Adidas.com", "ADIDAS"],
+    "aliases": [
+      "Adidas AG",
+      "Adidas Store",
+      "Adidas.com",
+      "ADIDAS"
+    ],
     "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": false
   },
   {
     "id": "foot_locker",
     "canonical_name": "Foot Locker",
-    "aliases": ["Foot Locker Inc", "FOOTLOCKER"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Foot Locker Inc",
+      "FOOTLOCKER"
+    ],
+    "primary_category": "SHOE_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5661"],
+    "mcc_codes": [
+      "5661"
+    ],
     "is_online_only": false
   },
   {
     "id": "dsw",
     "canonical_name": "DSW",
-    "aliases": ["Designer Shoe Warehouse", "DSW Inc", "DSW Shoes"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Designer Shoe Warehouse",
+      "DSW Inc",
+      "DSW Shoes"
+    ],
+    "primary_category": "SHOE_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5661"],
+    "mcc_codes": [
+      "5661"
+    ],
     "is_online_only": false
   },
   {
     "id": "shein",
     "canonical_name": "SHEIN",
-    "aliases": ["Shein Group", "SHEIN.com"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "Shein Group",
+      "SHEIN.com"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": true
   },
   {
     "id": "asos",
     "canonical_name": "ASOS",
-    "aliases": ["ASOS.com", "ASOS plc"],
-    "primary_category": "DEPARTMENT_STORES",
+    "aliases": [
+      "ASOS.com",
+      "ASOS plc"
+    ],
+    "primary_category": "CLOTHING_STORES",
     "secondary_categories": [],
-    "mcc_codes": ["5699"],
+    "mcc_codes": [
+      "5699"
+    ],
     "is_online_only": true
   },
   {
     "id": "verizon",
     "canonical_name": "Verizon",
-    "aliases": ["Verizon Wireless", "Verizon Communications", "VERIZON"],
+    "aliases": [
+      "Verizon Wireless",
+      "Verizon Communications",
+      "VERIZON"
+    ],
     "primary_category": "PHONE_WIRELESS",
     "secondary_categories": [],
-    "mcc_codes": ["4814"],
+    "mcc_codes": [
+      "4814"
+    ],
     "is_online_only": false
   },
   {
     "id": "att",
     "canonical_name": "AT&T",
-    "aliases": ["AT&T Inc", "AT and T", "ATT"],
+    "aliases": [
+      "AT&T Inc",
+      "AT and T",
+      "ATT"
+    ],
     "primary_category": "PHONE_WIRELESS",
     "secondary_categories": [],
-    "mcc_codes": ["4814"],
+    "mcc_codes": [
+      "4814"
+    ],
     "is_online_only": false
   },
   {
     "id": "tmobile",
     "canonical_name": "T-Mobile",
-    "aliases": ["T Mobile", "T-Mobile USA", "TMOBILE"],
+    "aliases": [
+      "T Mobile",
+      "T-Mobile USA",
+      "TMOBILE"
+    ],
     "primary_category": "PHONE_WIRELESS",
     "secondary_categories": [],
-    "mcc_codes": ["4814"],
+    "mcc_codes": [
+      "4814"
+    ],
     "is_online_only": false
   }
 ]
