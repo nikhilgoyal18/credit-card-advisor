@@ -127,32 +127,30 @@ export default function HomeScreen() {
         </Pressable>
       </View>
 
-      {/* Radius picker — only shown when not doing a text search */}
-      {query.length === 0 && (
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.radiusRow} contentContainerStyle={styles.radiusContent}>
-          {RADIUS_OPTIONS.map((opt) => (
-            <Pressable
-              key={opt.value}
-              style={[styles.radiusChip, radius === opt.value && styles.radiusChipActive]}
-              onPress={() => handleRadiusChange(opt.value)}
-            >
-              <Text style={[styles.radiusChipText, radius === opt.value && styles.radiusChipTextActive]}>
-                {opt.label}
-              </Text>
-            </Pressable>
-          ))}
-        </ScrollView>
-      )}
-
       {error && <Text style={styles.error}>{error}</Text>}
 
       {loading ? (
-        <ActivityIndicator style={{ marginTop: 40 }} color="#6366f1" />
+        <ActivityIndicator style={{ marginTop: 24 }} color="#6366f1" />
       ) : (
         <FlatList
           data={results}
           keyExtractor={(item) => item.id}
           contentContainerStyle={styles.list}
+          ListHeaderComponent={query.length === 0 ? (
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.radiusRow} contentContainerStyle={styles.radiusContent}>
+              {RADIUS_OPTIONS.map((opt) => (
+                <Pressable
+                  key={opt.value}
+                  style={[styles.radiusChip, radius === opt.value && styles.radiusChipActive]}
+                  onPress={() => handleRadiusChange(opt.value)}
+                >
+                  <Text style={[styles.radiusChipText, radius === opt.value && styles.radiusChipTextActive]}>
+                    {opt.label}
+                  </Text>
+                </Pressable>
+              ))}
+            </ScrollView>
+          ) : null}
           renderItem={({ item }) => (
             <Pressable
               style={styles.card}
@@ -190,7 +188,7 @@ const styles = StyleSheet.create({
     borderRadius: 12, alignItems: 'center', justifyContent: 'center',
   },
   locateText: { fontSize: 20 },
-  list: { paddingHorizontal: 16, paddingBottom: 24 },
+  list: { paddingHorizontal: 16, paddingBottom: 24, paddingTop: 4 },
   card: {
     backgroundColor: '#fff', borderRadius: 12, padding: 16,
     marginBottom: 8, borderWidth: 1, borderColor: '#e2e8f0',
@@ -199,8 +197,8 @@ const styles = StyleSheet.create({
   category: { fontSize: 13, color: '#64748b', marginTop: 2 },
   hint: { textAlign: 'center', color: '#94a3b8', marginTop: 24, fontSize: 15, paddingHorizontal: 24 },
   error: { color: '#ef4444', paddingHorizontal: 16, marginBottom: 8, fontSize: 14 },
-  radiusRow: { height: 48, flexShrink: 0 },
-  radiusContent: { paddingHorizontal: 16, alignItems: 'center', flexDirection: 'row' },
+  radiusRow: { marginBottom: 8 },
+  radiusContent: { paddingHorizontal: 0, alignItems: 'center', flexDirection: 'row' },
   radiusChip: {
     paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8,
     backgroundColor: '#fff', borderWidth: 1, borderColor: '#e2e8f0',
