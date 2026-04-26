@@ -1,9 +1,27 @@
 import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
+import { cookies, headers } from 'next/headers';
 
 export async function createClient() {
-  const cookieStore = await cookies();
+  // Mobile clients send a Bearer token — use it directly.
+  const headerStore = await headers();
+  const authorization = headerStore.get('authorization');
+  if (authorization?.startsWith('Bearer ')) {
+    const token = authorization.slice(7);
+    return createSupabaseClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        global: {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+        auth: { persistSession: false },
+      }
+    );
+  }
 
+  // Web clients use cookie-based auth.
+  const cookieStore = await cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -18,9 +36,7 @@ export async function createClient() {
               cookieStore.set(name, value, options)
             );
           } catch {
-            // The `setAll` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
+            // Called from a Server Component — safe to ignore.
           }
         },
       },
