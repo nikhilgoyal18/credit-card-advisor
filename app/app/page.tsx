@@ -287,6 +287,9 @@ out center tags 200;`.trim();
             <Link href="/wallet" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
               Wallet
             </Link>
+            <Link href="/account" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
+              Account
+            </Link>
             <Button
               variant="ghost"
               size="sm"
