@@ -46,6 +46,12 @@ Status tracking for features built, in progress, and deferred. Updated as develo
 | User feedback queue | `[ BACKLOG ]` | Review corrections, 3-button triage |
 | Audit logging | `[ BACKLOG ]` | All admin writes logged with who/when/what |
 
+## Infrastructure (Backlog)
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Connect GitHub to Claude Code | `[ BACKLOG ]` | Needed so the quarterly Chase Freedom Flex cron (trig_01XbXU9pTcjrkaUNxDYmhPMg) can commit category updates automatically. Run `! /web-setup` or install GitHub App at https://claude.ai/code/onboarding?magic=github-app-setup |
+
 ## Future Enhancements (Backlog)
 
 | Feature | Status | Notes |

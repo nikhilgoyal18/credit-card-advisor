@@ -177,6 +177,20 @@ export default function RecommendPage() {
 
   const { data, merchant, disclaimer } = recommendations;
 
+  /** Extract raw earn rate from explanation text, e.g. "earns 3x on dining" → "3x" */
+  function getRawEarnLabel(explanation: string, earnType: string): string | null {
+    const match = explanation.match(/earns\s+([\d.]+)(x|%)/i);
+    if (!match) return null;
+    return `${match[1]}${earnType === 'cashback_percent' ? '%' : 'x'}`;
+  }
+
+  /** Split caveats into spend-limit (info) vs other (warning) */
+  function splitCaveats(caveats: string[]) {
+    const spendLimit = caveats.filter((c) => c.toLowerCase().includes('applies up to'));
+    const other = caveats.filter((c) => !c.toLowerCase().includes('applies up to'));
+    return { spendLimit, other };
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       {/* Header */}
@@ -253,14 +267,25 @@ export default function RecommendPage() {
                         </span>
 
                         {/* Hero rate */}
-                        <div className="flex items-baseline gap-2 mb-2">
-                          <span className="text-7xl font-black leading-none tracking-tight">
-                            {data[0].effective_rate}
-                          </span>
-                          <span className="text-3xl font-bold opacity-90 mt-1">
-                            {data[0].earn_type === 'cashback_percent' ? '%' : 'x'}
-                          </span>
-                        </div>
+                        {data[0].earn_type === 'cashback_percent' ? (
+                          <div className="flex items-baseline gap-2 mb-2">
+                            <span className="text-7xl font-black leading-none tracking-tight">
+                              {data[0].effective_rate}
+                            </span>
+                            <span className="text-3xl font-bold opacity-90 mt-1">%</span>
+                          </div>
+                        ) : (
+                          <div className="mb-2">
+                            <div className="flex items-baseline gap-2">
+                              <span className="text-7xl font-black leading-none tracking-tight">
+                                {getRawEarnLabel(data[0].explanation, data[0].earn_type) ?? data[0].effective_rate}
+                              </span>
+                            </div>
+                            <div className="text-white/70 text-sm font-medium mt-1">
+                              ≈{data[0].effective_rate.toFixed(1)}% effective value
+                            </div>
+                          </div>
+                        )}
 
                         {/* Card name */}
                         <div className="text-xl font-semibold text-white/95 mb-1">
@@ -272,12 +297,24 @@ export default function RecommendPage() {
                           {data[0].explanation}
                         </p>
 
-                        {/* Caveats */}
-                        {data[0].caveats.length > 0 && (
-                          <div className="mt-4 bg-black/20 rounded-xl p-3 text-sm text-white/85">
-                            ⚠ {data[0].caveats.join(' · ')}
-                          </div>
-                        )}
+                        {/* Caveats — spend limit as info (blue), others as warning */}
+                        {data[0].caveats.length > 0 && (() => {
+                          const { spendLimit, other } = splitCaveats(data[0].caveats);
+                          return (
+                            <div className="mt-4 space-y-2">
+                              {spendLimit.map((c, i) => (
+                                <div key={i} className="bg-blue-500/30 border border-blue-300/30 rounded-xl p-3 text-sm text-white/90">
+                                  ℹ {c}
+                                </div>
+                              ))}
+                              {other.length > 0 && (
+                                <div className="bg-black/20 rounded-xl p-3 text-sm text-white/85">
+                                  ⚠ {other.join(' · ')}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })()}
                       </div>
                     </div>
                   );
@@ -305,21 +342,37 @@ export default function RecommendPage() {
                         <div className="font-semibold text-gray-900 text-sm truncate">
                           {rec.explanation.split(' earns ')[0]}
                         </div>
-                        {rec.caveats.length > 0 && (
-                          <div className="text-xs text-amber-600 mt-0.5">⚠ {rec.caveats[0]}</div>
-                        )}
+                        {(() => {
+                          const { spendLimit, other } = splitCaveats(rec.caveats);
+                          return (
+                            <>
+                              {spendLimit.map((c, i) => (
+                                <div key={i} className="text-xs text-blue-600 mt-0.5">ℹ {c}</div>
+                              ))}
+                              {other.length > 0 && (
+                                <div className="text-xs text-amber-600 mt-0.5">⚠ {other[0]}</div>
+                              )}
+                            </>
+                          );
+                        })()}
                       </div>
 
                       {/* Rate badge */}
                       <div
-                        className={`flex-shrink-0 px-3 py-1.5 rounded-xl font-bold text-sm ${
+                        className={`flex-shrink-0 px-3 py-1.5 rounded-xl font-bold text-sm text-center ${
                           rec.earn_type === 'cashback_percent'
                             ? 'bg-emerald-50 text-emerald-700'
                             : 'bg-indigo-50 text-indigo-700'
                         }`}
                       >
-                        {rec.effective_rate}
-                        {rec.earn_type === 'cashback_percent' ? '%' : 'x'}
+                        {rec.earn_type === 'cashback_percent' ? (
+                          <>{rec.effective_rate}%</>
+                        ) : (
+                          <div>
+                            <div>{getRawEarnLabel(rec.explanation, rec.earn_type) ?? `${rec.effective_rate}x`}</div>
+                            <div className="text-[10px] font-normal opacity-70">≈{rec.effective_rate.toFixed(1)}%</div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}

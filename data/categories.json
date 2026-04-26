@@ -71,6 +71,11 @@
       "description": "Costco, Sam's Club, and other warehouse clubs (explicitly separate from GROCERY)"
     },
     {
+      "id": "PHONE_WIRELESS",
+      "display_name": "Phone & Wireless",
+      "description": "Cell phone bills, wireless plans, and phone services"
+    },
+    {
       "id": "GENERAL",
       "display_name": "General / Everything Else",
       "description": "All other purchases and merchants not categorized above"

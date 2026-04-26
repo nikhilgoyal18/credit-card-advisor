@@ -159,6 +159,36 @@ export default function WalletPage() {
     chase: 'from-[#003087] to-[#0050b3]',
     amex: 'from-[#007bc1] to-[#005b8e]',
     capital_one: 'from-[#d03027] to-[#9b1e1a]',
+    bank_of_america: 'from-[#c0392b] to-[#8e1a12]',
+    wells_fargo: 'from-[#c8922a] to-[#b22222]',
+  };
+
+  const issuerDisplayNames: Record<string, string> = {
+    chase: 'Chase',
+    amex: 'American Express',
+    capital_one: 'Capital One',
+    bank_of_america: 'Bank of America',
+    wells_fargo: 'Wells Fargo',
+  };
+
+  const issuerOrder = ['chase', 'amex', 'capital_one', 'bank_of_america', 'wells_fargo'];
+
+  /** Group an array of cards by issuer_id, preserving issuerOrder */
+  const groupCardsByIssuer = (cards: Card[]) => {
+    const grouped: { issuer: string; cards: Card[] }[] = [];
+    for (const issuer of issuerOrder) {
+      const issuerCards = cards.filter((c) => c.issuer_id === issuer);
+      if (issuerCards.length > 0) {
+        grouped.push({ issuer, cards: issuerCards });
+      }
+    }
+    // Any cards with unknown issuers go at the end
+    const knownIssuers = new Set(issuerOrder);
+    const unknown = cards.filter((c) => !knownIssuers.has(c.issuer_id));
+    if (unknown.length > 0) {
+      grouped.push({ issuer: 'other', cards: unknown });
+    }
+    return grouped;
   };
 
   if (loading) {
@@ -312,22 +342,31 @@ export default function WalletPage() {
                 </div>
               ) : (
                 <>
-                  <div className="space-y-2 max-h-96 overflow-y-auto mb-6">
-                    {getAvailableCards().map((card) => (
-                      <button
-                        key={card.id}
-                        onClick={() => setSelectedCardId(card.id)}
-                        className={`w-full text-left p-4 rounded-xl border transition-all ${
-                          selectedCardId === card.id
-                            ? 'bg-indigo-50 border-indigo-500 ring-2 ring-indigo-500/20'
-                            : 'bg-white border-gray-100 hover:border-indigo-200'
-                        }`}
-                      >
-                        <div className="font-semibold text-gray-900">{card.name}</div>
-                        <div className="text-sm text-gray-500 mt-1">
-                          {card.issuer_id.charAt(0).toUpperCase() + card.issuer_id.slice(1)}
+                  <div className="max-h-96 overflow-y-auto mb-6">
+                    {groupCardsByIssuer(getAvailableCards()).map(({ issuer, cards: issuerCards }) => (
+                      <div key={issuer} className="mb-3">
+                        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-1 mb-1.5">
+                          {issuerDisplayNames[issuer] ?? issuer}
                         </div>
-                      </button>
+                        <div className="space-y-1.5">
+                          {issuerCards.map((card) => (
+                            <button
+                              key={card.id}
+                              onClick={() => setSelectedCardId(card.id)}
+                              className={`w-full text-left p-3.5 rounded-xl border transition-all ${
+                                selectedCardId === card.id
+                                  ? 'bg-indigo-50 border-indigo-500 ring-2 ring-indigo-500/20'
+                                  : 'bg-white border-gray-100 hover:border-indigo-200'
+                              }`}
+                            >
+                              <div className="font-semibold text-gray-900 text-sm">{card.name}</div>
+                              <div className="text-xs text-gray-500 mt-0.5">
+                                {card.base_earn_rate}{card.reward_unit === 'cashback_percent' ? '% base' : 'x base'}
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
 

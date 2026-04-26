@@ -2,6 +2,23 @@ import { createClient } from "@supabase/supabase-js";
 import * as fs from "fs";
 import * as path from "path";
 
+// Load .env file from scripts directory
+const envPath = path.resolve(import.meta.dirname ?? ".", ".env");
+if (fs.existsSync(envPath)) {
+  const lines = fs.readFileSync(envPath, "utf-8").split("\n");
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const eq = trimmed.indexOf("=");
+    if (eq === -1) continue;
+    const key = trimmed.slice(0, eq).trim();
+    const value = trimmed.slice(eq + 1).trim();
+    if (key && value && !process.env[key]) {
+      process.env[key] = value;
+    }
+  }
+}
+
 interface RewardRule {
   rule_id: string;
   categories: string[];
@@ -16,11 +33,18 @@ interface RewardRule {
   valid_until?: string;
   source_url?: string;
   notes?: string;
+  spend_limit_amount?: number;
+  spend_limit_reset_period?: string;
 }
 
 interface Card {
   id: string;
+  issuer_id: string;
   name: string;
+  network: string;
+  reward_unit: string;
+  reward_currency?: string;
+  base_earn_rate: number;
   reward_rules: RewardRule[];
 }
 
@@ -39,11 +63,35 @@ async function refreshRewards() {
 
   console.log(`\n📊 Syncing rewards from seed data to Supabase...\n`);
 
-  let totalUpserted = 0;
+  let totalRulesUpserted = 0;
+  let totalCardsUpserted = 0;
   const results: { card: string; rules: number; success: boolean; error?: string }[] = [];
 
   for (const card of cardsData) {
     try {
+      // Step 1: Upsert card metadata first (prevents FK violation on reward_rules)
+      const { error: cardError } = await supabase.from("cards").upsert(
+        {
+          id: card.id,
+          issuer_id: card.issuer_id,
+          name: card.name,
+          network: card.network,
+          reward_unit: card.reward_unit,
+          reward_currency: card.reward_currency || null,
+          base_earn_rate: card.base_earn_rate,
+        },
+        { onConflict: "id" }
+      );
+
+      if (cardError) {
+        console.error(`  ❌ Failed to upsert card ${card.id}:`, cardError.message);
+        results.push({ card: card.name, rules: 0, success: false, error: cardError.message });
+        continue;
+      }
+
+      totalCardsUpserted++;
+
+      // Step 2: Upsert reward rules
       const rules = card.reward_rules || [];
       let upserted = 0;
 
@@ -65,6 +113,8 @@ async function refreshRewards() {
             source_url: rule.source_url || "seed-data",
             source_last_verified: new Date().toISOString(),
             notes: rule.notes || null,
+            spend_limit_amount: rule.spend_limit_amount || null,
+            spend_limit_reset_period: rule.spend_limit_reset_period || null,
           },
           { onConflict: "card_id,rule_id" }
         );
@@ -76,9 +126,9 @@ async function refreshRewards() {
         }
       }
 
-      console.log(`✅ ${card.name}: ${upserted}/${rules.length} rules synced`);
+      console.log(`✅ ${card.name}: card synced, ${upserted}/${rules.length} rules synced`);
       results.push({ card: card.name, rules: upserted, success: true });
-      totalUpserted += upserted;
+      totalRulesUpserted += upserted;
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : String(error);
       console.error(`❌ ${card.name}: ${errorMsg}`);
@@ -94,9 +144,10 @@ async function refreshRewards() {
     const status = r.success ? "✅" : "❌";
     console.log(`${status} ${r.card}: ${r.rules} rules${r.error ? ` (${r.error})` : ""}`);
   });
-  console.log(`\n📈 Total rules synced: ${totalUpserted}`);
+  console.log(`\n📇 Total cards synced: ${totalCardsUpserted}`);
+  console.log(`📈 Total rules synced: ${totalRulesUpserted}`);
   console.log(`⏰ Last sync: ${new Date().toISOString()}`);
-  console.log("📝 Update data/seed/cards.json to change rewards");
+  console.log(`📝 Update data/seed/cards.json to change rewards`);
   console.log("=".repeat(60) + "\n");
 }
 

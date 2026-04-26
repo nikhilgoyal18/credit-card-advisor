@@ -38,6 +38,8 @@ export interface RewardRule {
   source_url?: string;
   source_last_verified?: string;
   notes?: string;
+  spend_limit_amount?: number;
+  spend_limit_reset_period?: string;
 }
 
 export interface Merchant {
@@ -176,8 +178,23 @@ function scoreCard(
     explanation = `${card.name} earns ${effectiveRate}${earnType === 'cashback_percent' ? '%' : 'x'} on ${categoryName}.`;
   }
 
-  // Convert points to cash equivalent
-  const cashEquivalent = earnType === 'cashback_percent' ? effectiveRate : effectiveRate * 1.0;
+  // Add spend limit caveat if applicable
+  if (bestRule?.spend_limit_amount) {
+    const period = bestRule.spend_limit_reset_period || 'year';
+    caveats.unshift(
+      `${effectiveRate}${earnType === 'cashback_percent' ? '%' : 'x'} applies up to $${bestRule.spend_limit_amount.toLocaleString()}/${period}, then base rate`
+    );
+  }
+
+  // Convert points to cash equivalent using known point valuations
+  const POINT_VALUATIONS: Record<string, number> = {
+    'Ultimate Rewards': 1.8,   // Chase UR ~1.8¢/pt (conservative transfer value)
+    'Membership Rewards': 1.7, // Amex MR ~1.7¢/pt
+    'Miles': 1.7,              // Capital One Miles ~1.7¢/pt
+    'cashback': 1.0,
+  };
+  const pointValue = POINT_VALUATIONS[card.reward_currency ?? ''] ?? 1.0;
+  const cashEquivalent = earnType === 'cashback_percent' ? effectiveRate : effectiveRate * pointValue;
 
   return {
     rate: cashEquivalent,
