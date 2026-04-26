@@ -5,8 +5,11 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
-import { NearbyMerchantsQuerySchema, type NearbyMerchantResult, type CategoryEstimate } from '@/lib/validation/schemas';
+import { NearbyMerchantsQuerySchema, CategoryEnum, type NearbyMerchantResult, type CategoryEstimate } from '@/lib/validation/schemas';
+
+type Category = z.infer<typeof CategoryEnum>;
 import { calculateRelevance } from '@/lib/merchants/fuzzy';
 
 // Minimum relevance score to count as a match.
@@ -41,7 +44,7 @@ interface CardWithRules {
  * Maps OSM tags to our internal CategoryEnum values.
  * Returns null only if no recognizable commercial category can be inferred.
  */
-function mapOsmTagsToCategory(tags: Record<string, string>): string {
+function mapOsmTagsToCategory(tags: Record<string, string>): Category {
   const amenity = tags['amenity'];
   const shop    = tags['shop'];
   const tourism = tags['tourism'];
@@ -93,7 +96,7 @@ function mapOsmTagsToCategory(tags: Record<string, string>): string {
  * Returns the best reward estimate for a given category across the user's cards.
  */
 function getBestCategoryEstimate(
-  category: string,
+  category: (Category),
   cards: Map<string, CardWithRules>
 ): CategoryEstimate | null {
   if (cards.size === 0) return null;

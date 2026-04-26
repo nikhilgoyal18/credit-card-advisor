@@ -29,10 +29,11 @@ export const CategoryEnum = z.enum([
   'TRANSIT',
   'DEPARTMENT_STORES',
   'WHOLESALE_CLUBS',
+  'PHONE_WIRELESS',
   'GENERAL',
 ]);
 
-export const IssuerEnum = z.enum(['chase', 'amex', 'capital_one']);
+export const IssuerEnum = z.enum(['chase', 'amex', 'capital_one', 'bank_of_america', 'wells_fargo']);
 
 export const RewardUnitEnum = z.enum(['cashback_percent', 'points_multiplier']);
 
