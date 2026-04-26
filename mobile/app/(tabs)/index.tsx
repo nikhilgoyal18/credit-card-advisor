@@ -87,10 +87,25 @@ export default function HomeScreen() {
     }
   };
 
-  const handleRadiusChange = (newRadius: number) => {
+  const handleRadiusChange = async (newRadius: number) => {
     setRadius(newRadius);
     cache.radius = newRadius;
-    if (lastCoords) runNearbySearch(lastCoords.lat, lastCoords.lng, newRadius);
+    if (lastCoords) {
+      runNearbySearch(lastCoords.lat, lastCoords.lng, newRadius);
+    } else {
+      // No location yet — request it now
+      try {
+        const { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== 'granted') { setError('Location permission denied.'); return; }
+        const loc = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
+        const coords = { lat: loc.coords.latitude, lng: loc.coords.longitude };
+        setLastCoords(coords);
+        cache.coords = coords;
+        runNearbySearch(coords.lat, coords.lng, newRadius);
+      } catch (e: any) {
+        setError(`Location error: ${e?.message ?? e}`);
+      }
+    }
   };
 
   return (
@@ -184,8 +199,8 @@ const styles = StyleSheet.create({
   category: { fontSize: 13, color: '#64748b', marginTop: 2 },
   hint: { textAlign: 'center', color: '#94a3b8', marginTop: 48, fontSize: 15, paddingHorizontal: 24 },
   error: { color: '#ef4444', paddingHorizontal: 16, marginBottom: 8, fontSize: 14 },
-  radiusRow: { flexShrink: 0 },
-  radiusContent: { paddingHorizontal: 16, paddingVertical: 8, flexDirection: 'row' },
+  radiusRow: { height: 48, flexShrink: 0 },
+  radiusContent: { paddingHorizontal: 16, alignItems: 'center', flexDirection: 'row' },
   radiusChip: {
     paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8,
     backgroundColor: '#fff', borderWidth: 1, borderColor: '#e2e8f0',
