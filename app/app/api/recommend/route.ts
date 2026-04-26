@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { RecommendRequestSchema, RecommendResponseSchema } from '@/lib/validation/schemas';
-import { getRecommendations } from '@/lib/engine/recommend';
+import { getRecommendations, getRecommendationsByCategory } from '@/lib/engine/recommend';
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,29 +40,12 @@ export async function POST(request: NextRequest) {
     const validationResult = RecommendRequestSchema.safeParse(body);
     if (!validationResult.success) {
       return NextResponse.json(
-        {
-          error: 'merchant_id is required',
-          code: 'VALIDATION_ERROR',
-        },
+        { error: 'merchant_id or category is required', code: 'VALIDATION_ERROR' },
         { status: 400 }
       );
     }
 
-    const { merchant_id } = validationResult.data;
-
-    // Verify merchant exists
-    const { data: merchant, error: merchantError } = await supabase
-      .from('merchants')
-      .select('id, canonical_name, primary_category')
-      .eq('id', merchant_id)
-      .single();
-
-    if (merchantError || !merchant) {
-      return NextResponse.json(
-        { error: 'Merchant not found', code: 'NOT_FOUND' },
-        { status: 404 }
-      );
-    }
+    const { merchant_id, category } = validationResult.data;
 
     // Get user's cards
     const { data: userCards, error: userCardsError } = await supabase
@@ -77,24 +60,60 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const cardIds = (userCards || []).map((uc) => uc.card_id);
+
+    // Resolve merchant — try DB lookup first, fall back to category-based synthetic merchant
+    let merchant: { id: string | null; canonical_name: string; primary_category: string };
+    let recommendations;
+    let isCategoryFallback = false;
+
+    if (merchant_id) {
+      const { data: dbMerchant, error: merchantError } = await supabase
+        .from('merchants')
+        .select('id, canonical_name, primary_category')
+        .eq('id', merchant_id)
+        .single();
+
+      if (!merchantError && dbMerchant) {
+        merchant = dbMerchant;
+      } else if (category) {
+        // Merchant not in DB but category provided — use category fallback
+        merchant = {
+          id: null,
+          canonical_name: category.replace(/_/g, ' ').toLowerCase(),
+          primary_category: category,
+        };
+        isCategoryFallback = true;
+      } else {
+        return NextResponse.json(
+          { error: 'Merchant not found', code: 'NOT_FOUND' },
+          { status: 404 }
+        );
+      }
+    } else {
+      // Category-only request
+      merchant = {
+        id: null,
+        canonical_name: category!.replace(/_/g, ' ').toLowerCase(),
+        primary_category: category!,
+      };
+      isCategoryFallback = true;
+    }
+
     if (!userCards || userCards.length === 0) {
-      // Return empty recommendations if user has no cards
       return NextResponse.json({
         data: [],
-        merchant: {
-          id: merchant.id,
-          canonical_name: merchant.canonical_name,
-          primary_category: merchant.primary_category,
-        },
-        disclaimer:
-          'Final rewards may depend on issuer terms, merchant classification, and account-specific conditions.',
+        merchant: { id: merchant.id, canonical_name: merchant.canonical_name, primary_category: merchant.primary_category },
+        disclaimer: 'Final rewards may depend on issuer terms, merchant classification, and account-specific conditions.',
       });
     }
 
-    const cardIds = userCards.map((uc) => uc.card_id);
-
     // Get recommendations
-    const recommendations = await getRecommendations(merchant_id, cardIds);
+    if (isCategoryFallback) {
+      recommendations = await getRecommendationsByCategory(merchant.primary_category, cardIds);
+    } else {
+      recommendations = await getRecommendations(merchant_id!, cardIds);
+    }
 
     // Add last_verified_at and recommendation_type to each recommendation
     const enrichedRecommendations = recommendations.map((rec) => ({
@@ -103,8 +122,8 @@ export async function POST(request: NextRequest) {
       recommendation_type: 'best_likely_card' as const,
     }));
 
-    // Log recommendation to event table
-    if (recommendations.length > 0) {
+    // Log recommendation to event table (only for known DB merchants)
+    if (recommendations.length > 0 && merchant.id) {
       const topRecommendation = recommendations[0];
       const { error: logError } = await supabase.from('recommendations').insert({
         user_id: user.id,
@@ -118,7 +137,6 @@ export async function POST(request: NextRequest) {
 
       if (logError) {
         console.error('Failed to log recommendation:', logError);
-        // Don't fail the request if logging fails
       }
     }
 

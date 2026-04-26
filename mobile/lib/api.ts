@@ -23,11 +23,15 @@ export async function searchMerchants(query: string): Promise<Merchant[]> {
   return json.data ?? [];
 }
 
-export async function getRecommendations(merchantId: string): Promise<RecommendResponse> {
+export async function getRecommendations(merchantId: string, category?: string | null): Promise<RecommendResponse> {
+  const isOsm = merchantId.startsWith('osm:');
+  const body = isOsm
+    ? { category }
+    : { merchant_id: merchantId, ...(category ? { category } : {}) };
   const res = await fetch(`${BASE_URL}/api/recommend`, {
     method: 'POST',
     headers: await authHeaders(),
-    body: JSON.stringify({ merchant_id: merchantId }),
+    body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error(`Recommend failed: ${res.status}`);
   return res.json();

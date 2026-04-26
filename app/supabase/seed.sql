@@ -73,7 +73,7 @@ ON CONFLICT DO NOTHING;
 -- Capital One Venture X
 INSERT INTO public.reward_rules (card_id, rule_id, categories, earn_rate, earn_type, source_last_verified) VALUES
   ('capital_one_venture_x', '10x_hotels_portal', ARRAY['TRAVEL_HOTELS'::category_enum], 10.0, 'points_multiplier'::earn_type_enum, now()),
-  ('capital_one_venture_x', '10x_car_rental_portal', ARRAY['TRANSIT'::category_enum], 10.0, 'points_multiplier'::earn_type_enum, now()),
+  ('capital_one_venture_x', '10x_car_rental_portal', ARRAY['TRAVEL_PORTAL'::category_enum], 10.0, 'points_multiplier'::earn_type_enum, now()),
   ('capital_one_venture_x', '5x_flights_portal', ARRAY['TRAVEL_AIRLINES'::category_enum], 5.0, 'points_multiplier'::earn_type_enum, now()),
   ('capital_one_venture_x', 'base_2x', ARRAY['GENERAL'::category_enum], 2.0, 'points_multiplier'::earn_type_enum, now())
 ON CONFLICT DO NOTHING;

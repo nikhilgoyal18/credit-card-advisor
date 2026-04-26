@@ -204,29 +204,12 @@ function scoreCard(
   };
 }
 
-/**
- * Get ranked recommendations for a merchant
- * Core entry point
- */
-export async function getRecommendations(
-  merchantId: string,
+async function scoreAllCards(
+  merchant: Merchant,
   userCardIds: string[],
-  asOf: Date = new Date()
+  asOf: Date,
+  supabase: Awaited<ReturnType<typeof createClient>>
 ): Promise<RankedRecommendation[]> {
-  const supabase = await createClient();
-
-  // Fetch merchant
-  const { data: merchant, error: merchantError } = await supabase
-    .from('merchants')
-    .select('*')
-    .eq('id', merchantId)
-    .single();
-
-  if (merchantError || !merchant) {
-    throw new Error(`Merchant not found: ${merchantId}`);
-  }
-
-  // Fetch user cards
   const { data: userCards, error: userCardsError } = await supabase
     .from('user_cards')
     .select('*')
@@ -235,16 +218,12 @@ export async function getRecommendations(
 
   if (userCardsError) throw userCardsError;
 
-  // Filter out disabled cards
   const enabledCardIds = (userCards || [])
     .filter((uc) => !uc.disabled)
     .map((uc) => uc.card_id);
 
-  if (enabledCardIds.length === 0) {
-    return [];
-  }
+  if (enabledCardIds.length === 0) return [];
 
-  // Fetch all cards
   const { data: cards, error: cardsError } = await supabase
     .from('cards')
     .select('*')
@@ -252,7 +231,6 @@ export async function getRecommendations(
 
   if (cardsError) throw cardsError;
 
-  // Fetch all reward rules for these cards
   const { data: rules, error: rulesError } = await supabase
     .from('reward_rules')
     .select('*')
@@ -260,13 +238,11 @@ export async function getRecommendations(
 
   if (rulesError) throw rulesError;
 
-  // Score each card
   const scores: (RankedRecommendation & { cardIndex: number })[] = [];
 
   for (const card of cards || []) {
     const cardRules = (rules || []).filter((r) => r.card_id === card.id);
     const cardIndex = (userCards || []).findIndex((uc) => uc.card_id === card.id);
-
     const scoreResult = scoreCard(card, merchant, cardRules, asOf);
     if (scoreResult) {
       scores.push({
@@ -280,14 +256,57 @@ export async function getRecommendations(
     }
   }
 
-  // Sort by rate (descending), then by card index (ascending for tiebreaker)
-  scores.sort((a, b) => {
-    if (b.effective_rate !== a.effective_rate) {
-      return b.effective_rate - a.effective_rate;
-    }
-    return a.cardIndex - b.cardIndex;
-  });
+  scores.sort((a, b) =>
+    b.effective_rate !== a.effective_rate
+      ? b.effective_rate - a.effective_rate
+      : a.cardIndex - b.cardIndex
+  );
 
-  // Remove cardIndex before returning
   return scores.map(({ cardIndex, ...rest }) => rest);
+}
+
+/**
+ * Get ranked recommendations for a merchant
+ * Core entry point
+ */
+export async function getRecommendations(
+  merchantId: string,
+  userCardIds: string[],
+  asOf: Date = new Date()
+): Promise<RankedRecommendation[]> {
+  const supabase = await createClient();
+
+  const { data: merchant, error: merchantError } = await supabase
+    .from('merchants')
+    .select('*')
+    .eq('id', merchantId)
+    .single();
+
+  if (merchantError || !merchant) {
+    throw new Error(`Merchant not found: ${merchantId}`);
+  }
+
+  return scoreAllCards(merchant, userCardIds, asOf, supabase);
+}
+
+/**
+ * Get ranked recommendations based purely on category (no merchant DB entry required).
+ * Used as a fallback for OSM/nearby merchants not in the database.
+ */
+export async function getRecommendationsByCategory(
+  category: string,
+  userCardIds: string[],
+  asOf: Date = new Date()
+): Promise<RankedRecommendation[]> {
+  const supabase = await createClient();
+
+  const syntheticMerchant: Merchant = {
+    id: 'category_fallback',
+    canonical_name: category.replace(/_/g, ' ').toLowerCase(),
+    aliases: [],
+    primary_category: category,
+    secondary_categories: [],
+  };
+
+  return scoreAllCards(syntheticMerchant, userCardIds, asOf, supabase);
 }

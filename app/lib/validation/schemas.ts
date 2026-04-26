@@ -47,9 +47,13 @@ export const NetworkEnum = z.enum(['visa', 'mastercard', 'amex', 'discover']);
 
 /**
  * POST /api/recommend request
+ * Accepts merchant_id (DB lookup) or category (fallback for unknown merchants)
  */
 export const RecommendRequestSchema = z.object({
-  merchant_id: z.string().min(1, 'merchant_id is required'),
+  merchant_id: z.string().min(1).optional(),
+  category: CategoryEnum.optional(),
+}).refine((d) => d.merchant_id || d.category, {
+  message: 'Either merchant_id or category is required',
 });
 
 export type RecommendRequest = z.infer<typeof RecommendRequestSchema>;

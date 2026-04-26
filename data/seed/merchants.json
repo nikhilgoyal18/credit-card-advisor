@@ -630,5 +630,266 @@
     "secondary_categories": [],
     "mcc_codes": ["7922"],
     "is_online_only": true
+  },
+  {
+    "id": "nordstrom",
+    "canonical_name": "Nordstrom",
+    "aliases": ["Nordstrom Inc", "Nordstrom Rack", "NORDSTROM"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5311"],
+    "is_online_only": false
+  },
+  {
+    "id": "macys",
+    "canonical_name": "Macy's",
+    "aliases": ["Macys", "Macy's Inc", "MACYS"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5311"],
+    "is_online_only": false
+  },
+  {
+    "id": "bloomingdales",
+    "canonical_name": "Bloomingdale's",
+    "aliases": ["Bloomingdales", "BLOOMINGDALES"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5311"],
+    "is_online_only": false
+  },
+  {
+    "id": "neiman_marcus",
+    "canonical_name": "Neiman Marcus",
+    "aliases": ["Neiman Marcus Group", "NEIMANMARCUS"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5311"],
+    "is_online_only": false
+  },
+  {
+    "id": "saks_fifth_avenue",
+    "canonical_name": "Saks Fifth Avenue",
+    "aliases": ["Saks", "Saks Inc", "SAKS"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5311"],
+    "is_online_only": false
+  },
+  {
+    "id": "zara",
+    "canonical_name": "Zara",
+    "aliases": ["Zara USA", "Inditex", "ZARA"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false
+  },
+  {
+    "id": "lululemon",
+    "canonical_name": "Lululemon",
+    "aliases": ["lululemon athletica", "Lululemon Inc", "LULULEMON"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false
+  },
+  {
+    "id": "hm",
+    "canonical_name": "H&M",
+    "aliases": ["H and M", "H&M Group", "HM"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "gap",
+    "canonical_name": "Gap",
+    "aliases": ["Gap Inc", "Gap Stores", "GAP"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "old_navy",
+    "canonical_name": "Old Navy",
+    "aliases": ["Old Navy LLC", "OLDNAVY"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "banana_republic",
+    "canonical_name": "Banana Republic",
+    "aliases": ["Banana Republic LLC", "BANANAREPUBLIC"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "uniqlo",
+    "canonical_name": "Uniqlo",
+    "aliases": ["UNIQLO Co", "Fast Retailing", "UNIQLO"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "forever_21",
+    "canonical_name": "Forever 21",
+    "aliases": ["Forever21", "FOREVER21"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "urban_outfitters",
+    "canonical_name": "Urban Outfitters",
+    "aliases": ["Urban Outfitters Inc", "URBANOUTFITTERS", "UO"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false
+  },
+  {
+    "id": "anthropologie",
+    "canonical_name": "Anthropologie",
+    "aliases": ["Anthropologie Group", "ANTHROPOLOGIE"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false
+  },
+  {
+    "id": "free_people",
+    "canonical_name": "Free People",
+    "aliases": ["Free People LLC", "FREEPEOPLE", "FP"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false
+  },
+  {
+    "id": "express",
+    "canonical_name": "Express",
+    "aliases": ["Express Inc", "EXPRESS"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "tj_maxx",
+    "canonical_name": "TJ Maxx",
+    "aliases": ["TJX", "TJ Maxx Inc", "T.J.Maxx", "TJMAXX"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "marshalls",
+    "canonical_name": "Marshalls",
+    "aliases": ["Marshalls Inc", "MARSHALLS"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "ross",
+    "canonical_name": "Ross Dress for Less",
+    "aliases": ["Ross Stores", "Ross", "ROSS"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5651"],
+    "is_online_only": false
+  },
+  {
+    "id": "nike",
+    "canonical_name": "Nike",
+    "aliases": ["Nike Inc", "Nike Store", "Nike.com", "NIKE"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false
+  },
+  {
+    "id": "adidas",
+    "canonical_name": "Adidas",
+    "aliases": ["Adidas AG", "Adidas Store", "Adidas.com", "ADIDAS"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false
+  },
+  {
+    "id": "foot_locker",
+    "canonical_name": "Foot Locker",
+    "aliases": ["Foot Locker Inc", "FOOTLOCKER"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5661"],
+    "is_online_only": false
+  },
+  {
+    "id": "dsw",
+    "canonical_name": "DSW",
+    "aliases": ["Designer Shoe Warehouse", "DSW Inc", "DSW Shoes"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5661"],
+    "is_online_only": false
+  },
+  {
+    "id": "shein",
+    "canonical_name": "SHEIN",
+    "aliases": ["Shein Group", "SHEIN.com"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": true
+  },
+  {
+    "id": "asos",
+    "canonical_name": "ASOS",
+    "aliases": ["ASOS.com", "ASOS plc"],
+    "primary_category": "DEPARTMENT_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": true
+  },
+  {
+    "id": "verizon",
+    "canonical_name": "Verizon",
+    "aliases": ["Verizon Wireless", "Verizon Communications", "VERIZON"],
+    "primary_category": "PHONE_WIRELESS",
+    "secondary_categories": [],
+    "mcc_codes": ["4814"],
+    "is_online_only": false
+  },
+  {
+    "id": "att",
+    "canonical_name": "AT&T",
+    "aliases": ["AT&T Inc", "AT and T", "ATT"],
+    "primary_category": "PHONE_WIRELESS",
+    "secondary_categories": [],
+    "mcc_codes": ["4814"],
+    "is_online_only": false
+  },
+  {
+    "id": "tmobile",
+    "canonical_name": "T-Mobile",
+    "aliases": ["T Mobile", "T-Mobile USA", "TMOBILE"],
+    "primary_category": "PHONE_WIRELESS",
+    "secondary_categories": [],
+    "mcc_codes": ["4814"],
+    "is_online_only": false
   }
 ]

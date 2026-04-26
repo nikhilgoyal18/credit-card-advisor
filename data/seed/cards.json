@@ -474,7 +474,7 @@
       },
       {
         "rule_id": "5x_car_rental_portal",
-        "categories": ["TRANSIT"],
+        "categories": ["TRAVEL_PORTAL"],
         "earn_rate": 5.0,
         "earn_type": "points_multiplier",
         "notes": "5x on car rentals booked through Capital One Travel portal"

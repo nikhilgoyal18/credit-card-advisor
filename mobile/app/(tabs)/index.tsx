@@ -154,7 +154,7 @@ export default function HomeScreen() {
           renderItem={({ item }) => (
             <Pressable
               style={styles.card}
-              onPress={() => router.push(`/recommend/${item.id}`)}
+              onPress={() => router.push(`/recommend/${item.id}${item.primary_category ? `?category=${item.primary_category}` : ''}`)}
             >
               <Text style={styles.merchantName}>{item.canonical_name}</Text>
               {item.primary_category && (

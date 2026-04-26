@@ -11,6 +11,21 @@ import { fuzzyMatch, calculateRelevance } from '@/lib/merchants/fuzzy';
 
 const MATCH_THRESHOLD = 100;
 
+function osmTagToCategory(tag: string | undefined): string | null {
+  if (!tag) return null;
+  const t = tag.toLowerCase();
+  if (['restaurant','cafe','fast_food','bar','pub','food_court','ice_cream','bakery','deli','biergarten'].includes(t)) return 'DINING';
+  if (['supermarket','convenience','greengrocer','butcher','seafood','fishmonger','confectionery'].includes(t)) return 'GROCERY';
+  if (['clothes','clothing','fashion','boutique','shoes','jewelry','accessories','watches','bag','leather','second_hand','vintage','tailor','fabric','department_store','mall','variety_store'].includes(t)) return 'DEPARTMENT_STORES';
+  if (['fuel'].includes(t)) return 'GAS_STATIONS';
+  if (['pharmacy','chemist'].includes(t)) return 'DRUGSTORES';
+  if (['hardware','garden','flooring','paint','kitchen','bathroom','doityourself'].includes(t)) return 'HOME_IMPROVEMENT';
+  if (['wholesale'].includes(t)) return 'WHOLESALE_CLUBS';
+  if (['cinema','theatre','nightclub','casino','amusement_arcade'].includes(t)) return 'ENTERTAINMENT';
+  if (['hotel','motel','hostel'].includes(t)) return 'TRAVEL_HOTELS';
+  return 'GENERAL';
+}
+
 const BodySchema = z.object({
   merchants: z.array(z.object({
     name: z.string(),
@@ -67,7 +82,7 @@ export async function POST(request: NextRequest) {
         results.push({
           id: `osm:${osm.name.toLowerCase().trim()}`,
           canonical_name: osm.name,
-          primary_category: osm.category ?? null,
+          primary_category: osmTagToCategory(osm.category) ?? 'GENERAL',
           aliases: [],
           has_rewards: false,
         });

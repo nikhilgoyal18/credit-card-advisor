@@ -19,7 +19,7 @@ function splitCaveats(caveats: string[]) {
 }
 
 export default function RecommendScreen() {
-  const { merchantId } = useLocalSearchParams<{ merchantId: string }>();
+  const { merchantId, category } = useLocalSearchParams<{ merchantId: string; category?: string }>();
   const router = useRouter();
   const [data, setData] = useState<RecommendResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -27,11 +27,11 @@ export default function RecommendScreen() {
 
   useEffect(() => {
     if (!merchantId) return;
-    getRecommendations(merchantId)
+    getRecommendations(merchantId, category)
       .then(setData)
       .catch(() => setError('Could not load recommendations.'))
       .finally(() => setLoading(false));
-  }, [merchantId]);
+  }, [merchantId, category]);
 
   if (loading) {
     return (
