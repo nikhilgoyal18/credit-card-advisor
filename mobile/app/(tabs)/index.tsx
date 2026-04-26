@@ -15,17 +15,19 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(false);
   const [locating, setLocating] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [nearbySearched, setNearbySearched] = useState(false);
 
   const handleSearch = useCallback(async (text: string) => {
     setQuery(text);
+    setNearbySearched(false);
     if (text.trim().length < 2) { setResults([]); return; }
     setLoading(true);
     setError(null);
     try {
       const data = await searchMerchants(text.trim());
       setResults(data);
-    } catch {
-      setError('Search failed. Check your connection.');
+    } catch (e: any) {
+      setError(`Search error: ${e?.message ?? e}`);
     } finally {
       setLoading(false);
     }
@@ -41,8 +43,9 @@ export default function HomeScreen() {
       const data = await getNearbyMerchants(loc.coords.latitude, loc.coords.longitude);
       setResults(data);
       setQuery('');
-    } catch {
-      setError('Could not detect nearby merchants.');
+      setNearbySearched(true);
+    } catch (e: any) {
+      setError(`Nearby error: ${e?.message ?? e}`);
     } finally {
       setLocating(false);
     }
@@ -88,9 +91,11 @@ export default function HomeScreen() {
             </Pressable>
           )}
           ListEmptyComponent={
-            query.length === 0 ? (
-              <Text style={styles.hint}>Search a merchant or tap 📍 to find nearby ones</Text>
-            ) : null
+            nearbySearched
+              ? <Text style={styles.hint}>No merchants found nearby. Try a larger radius or search by name.</Text>
+              : query.length === 0
+                ? <Text style={styles.hint}>Search a merchant or tap 📍 to find nearby ones</Text>
+                : null
           }
         />
       )}

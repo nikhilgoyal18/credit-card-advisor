@@ -6,6 +6,8 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+
+export const maxDuration = 60;
 import { createClient } from '@/lib/supabase/server';
 import { NearbyMerchantsQuerySchema, CategoryEnum, type NearbyMerchantResult, type CategoryEstimate } from '@/lib/validation/schemas';
 
