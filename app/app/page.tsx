@@ -37,6 +37,7 @@ const router = useRouter();
   type RadiusValue = typeof RADIUS_OPTIONS[number]['value'];
   const [selectedRadius, setSelectedRadius] = useState<RadiusValue>(200);
   const [lastCoords, setLastCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [debugInfo, setDebugInfo] = useState<string>('');
 
   // Check auth on mount; also restore any saved nearby merchants from this session.
   useEffect(() => {
@@ -211,7 +212,7 @@ out center tags 200;`.trim();
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: `data=${encodeURIComponent(overpassQuery)}`,
       });
-      if (!overpassRes.ok) { setLocationState('error'); return; }
+      if (!overpassRes.ok) { setDebugInfo(`Overpass HTTP ${overpassRes.status}`); setLocationState('error'); return; }
       const osm = await overpassRes.json();
 
       const seen = new Set<string>();
@@ -226,6 +227,7 @@ out center tags 200;`.trim();
         osmMerchants.push({ name, ...(category ? { category } : {}) });
       }
 
+      setDebugInfo(`OSM: ${osm.elements?.length ?? 0} elements → ${osmMerchants.length} named`);
       if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
 
       const matchRes = await fetch('/api/merchants/nearby-match', {
@@ -233,9 +235,10 @@ out center tags 200;`.trim();
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ merchants: osmMerchants.slice(0, 80) }),
       });
-      if (!matchRes.ok) { setLocationState('error'); return; }
+      if (!matchRes.ok) { setDebugInfo(`Match API ${matchRes.status}`); setLocationState('error'); return; }
       const data = await matchRes.json();
       const merchants = data.data ?? [];
+      setDebugInfo(prev => `${prev} → match: ${merchants.length}`);
       setNearbyMerchants(merchants);
       setLocationState(merchants.length > 0 ? 'done' : 'no_match');
       if (merchants.length > 0) {
@@ -415,6 +418,11 @@ out center tags 200;`.trim();
                     <p className="text-xs text-gray-400 mt-0.5">See nearby merchants and your best card</p>
                   </div>
                 </div>
+
+                {/* Debug info */}
+                {debugInfo && (
+                  <p className="text-xs text-gray-400 mb-2 font-mono break-all">{debugInfo}</p>
+                )}
 
                 {/* No-results / timeout notice */}
                 {(locationState === 'no_match' || locationState === 'timed_out') && (
