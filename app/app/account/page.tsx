@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import { Button } from '@/app/components/Button';
+import Link from 'next/link';
 
 export default function AccountPage() {
   const router = useRouter();
@@ -103,6 +104,22 @@ export default function AccountPage() {
               {loading ? 'Updating…' : 'Update Password'}
             </Button>
           </form>
+        </div>
+
+        <div className="mt-4 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-gray-900 mb-1">Sign Out</h2>
+          <p className="text-sm text-gray-500 mb-4">Sign out of your account on this device.</p>
+          <Button
+            variant="ghost"
+            className="w-full text-red-600 hover:bg-red-50"
+            onClick={async () => {
+              const supabase = createClient();
+              await supabase.auth.signOut();
+              router.push('/login');
+            }}
+          >
+            Sign out
+          </Button>
         </div>
       </main>
     </div>
