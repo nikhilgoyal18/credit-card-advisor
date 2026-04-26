@@ -4,7 +4,9 @@ import type { Merchant, RecommendResponse, Card } from './types';
 
 async function authHeaders(): Promise<Record<string, string>> {
   const { data } = await supabase.auth.getSession();
-  const token = data.session?.access_token;
+  // Refresh session if token is missing or expired
+  const session = data.session ?? (await supabase.auth.refreshSession()).data.session;
+  const token = session?.access_token;
   return {
     'Content-Type': 'application/json',
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
@@ -31,9 +33,9 @@ export async function getRecommendations(merchantId: string): Promise<RecommendR
   return res.json();
 }
 
-export async function getNearbyMerchants(lat: number, lng: number): Promise<Merchant[]> {
+export async function getNearbyMerchants(lat: number, lng: number, radius = 1000): Promise<Merchant[]> {
   const res = await fetch(
-    `${BASE_URL}/api/merchants/nearby?lat=${lat}&lng=${lng}`,
+    `${BASE_URL}/api/merchants/nearby?lat=${lat}&lng=${lng}&radius=${radius}`,
     { headers: await authHeaders() }
   );
   if (!res.ok) throw new Error(`Nearby failed: ${res.status}`);

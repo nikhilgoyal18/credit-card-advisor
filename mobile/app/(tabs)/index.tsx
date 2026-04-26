@@ -1,12 +1,20 @@
 import { useState, useCallback } from 'react';
 import {
   View, Text, TextInput, FlatList, Pressable, StyleSheet,
-  ActivityIndicator, SafeAreaView,
+  ActivityIndicator, SafeAreaView, ScrollView,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import * as Location from 'expo-location';
 import { searchMerchants, getNearbyMerchants } from '@/lib/api';
 import type { Merchant } from '@/lib/types';
+
+const RADIUS_OPTIONS = [
+  { label: '200m', value: 200 },
+  { label: '500m', value: 500 },
+  { label: '1km', value: 1000 },
+  { label: '2km', value: 2000 },
+  { label: '5km', value: 5000 },
+];
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -16,6 +24,7 @@ export default function HomeScreen() {
   const [locating, setLocating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [nearbySearched, setNearbySearched] = useState(false);
+  const [radius, setRadius] = useState(1000);
 
   const handleSearch = useCallback(async (text: string) => {
     setQuery(text);
@@ -40,7 +49,7 @@ export default function HomeScreen() {
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') { setError('Location permission denied.'); return; }
       const loc = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
-      const data = await getNearbyMerchants(loc.coords.latitude, loc.coords.longitude);
+      const data = await getNearbyMerchants(loc.coords.latitude, loc.coords.longitude, radius);
       setResults(data);
       setQuery('');
       setNearbySearched(true);
@@ -69,6 +78,23 @@ export default function HomeScreen() {
           }
         </Pressable>
       </View>
+
+      {/* Radius picker — only shown when not doing a text search */}
+      {query.length === 0 && (
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.radiusRow} contentContainerStyle={styles.radiusContent}>
+          {RADIUS_OPTIONS.map((opt) => (
+            <Pressable
+              key={opt.value}
+              style={[styles.radiusChip, radius === opt.value && styles.radiusChipActive]}
+              onPress={() => setRadius(opt.value)}
+            >
+              <Text style={[styles.radiusChipText, radius === opt.value && styles.radiusChipTextActive]}>
+                {opt.label}
+              </Text>
+            </Pressable>
+          ))}
+        </ScrollView>
+      )}
 
       {error && <Text style={styles.error}>{error}</Text>}
 
@@ -125,4 +151,13 @@ const styles = StyleSheet.create({
   category: { fontSize: 13, color: '#64748b', marginTop: 2 },
   hint: { textAlign: 'center', color: '#94a3b8', marginTop: 48, fontSize: 15, paddingHorizontal: 24 },
   error: { color: '#ef4444', paddingHorizontal: 16, marginBottom: 8, fontSize: 14 },
+  radiusRow: { maxHeight: 44 },
+  radiusContent: { paddingHorizontal: 16, paddingBottom: 8, gap: 8, flexDirection: 'row' },
+  radiusChip: {
+    paddingHorizontal: 14, paddingVertical: 6, borderRadius: 20,
+    backgroundColor: '#fff', borderWidth: 1, borderColor: '#e2e8f0',
+  },
+  radiusChipActive: { backgroundColor: '#6366f1', borderColor: '#6366f1' },
+  radiusChipText: { fontSize: 13, fontWeight: '600', color: '#64748b' },
+  radiusChipTextActive: { color: '#fff' },
 });
