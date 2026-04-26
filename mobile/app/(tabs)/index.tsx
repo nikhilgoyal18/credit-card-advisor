@@ -25,6 +25,7 @@ export default function HomeScreen() {
   const [error, setError] = useState<string | null>(null);
   const [nearbySearched, setNearbySearched] = useState(false);
   const [radius, setRadius] = useState(1000);
+  const [lastCoords, setLastCoords] = useState<{ lat: number; lng: number } | null>(null);
 
   const handleSearch = useCallback(async (text: string) => {
     setQuery(text);
@@ -42,14 +43,11 @@ export default function HomeScreen() {
     }
   }, []);
 
-  const handleNearby = async () => {
+  const runNearbySearch = useCallback(async (lat: number, lng: number, r: number) => {
     setLocating(true);
     setError(null);
     try {
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') { setError('Location permission denied.'); return; }
-      const loc = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
-      const data = await getNearbyMerchants(loc.coords.latitude, loc.coords.longitude, radius);
+      const data = await getNearbyMerchants(lat, lng, r);
       setResults(data);
       setQuery('');
       setNearbySearched(true);
@@ -58,6 +56,24 @@ export default function HomeScreen() {
     } finally {
       setLocating(false);
     }
+  }, []);
+
+  const handleNearby = async () => {
+    try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') { setError('Location permission denied.'); return; }
+      const loc = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
+      const coords = { lat: loc.coords.latitude, lng: loc.coords.longitude };
+      setLastCoords(coords);
+      await runNearbySearch(coords.lat, coords.lng, radius);
+    } catch (e: any) {
+      setError(`Location error: ${e?.message ?? e}`);
+    }
+  };
+
+  const handleRadiusChange = (newRadius: number) => {
+    setRadius(newRadius);
+    if (lastCoords) runNearbySearch(lastCoords.lat, lastCoords.lng, newRadius);
   };
 
   return (
@@ -86,7 +102,7 @@ export default function HomeScreen() {
             <Pressable
               key={opt.value}
               style={[styles.radiusChip, radius === opt.value && styles.radiusChipActive]}
-              onPress={() => setRadius(opt.value)}
+              onPress={() => handleRadiusChange(opt.value)}
             >
               <Text style={[styles.radiusChipText, radius === opt.value && styles.radiusChipTextActive]}>
                 {opt.label}
