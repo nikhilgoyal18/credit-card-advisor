@@ -36,6 +36,7 @@ const router = useRouter();
   ] as const;
   type RadiusValue = typeof RADIUS_OPTIONS[number]['value'];
   const [selectedRadius, setSelectedRadius] = useState<RadiusValue>(200);
+  const [lastCoords, setLastCoords] = useState<{ lat: number; lng: number } | null>(null);
 
   // Check auth on mount; also restore any saved nearby merchants from this session.
   useEffect(() => {
@@ -188,6 +189,71 @@ const router = useRouter();
     try { sessionStorage.setItem('recentBannerDismissed', 'true'); } catch { /* unavailable */ }
   };
 
+  const runNearbySearch = async (lat: number, lng: number, radius: number) => {
+    setLocationState('loading');
+    try {
+      const latDelta = radius / 111320;
+      const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
+      const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
+      const overpassQuery = `
+[out:json][timeout:20][bbox:${bbox}];
+(
+  node["shop"];
+  node["amenity"~"restaurant|cafe|fast_food|bar|pharmacy|supermarket|bank|fuel"];
+  node["brand"];
+  way["shop"];
+  way["amenity"~"restaurant|cafe|fast_food|bar|pharmacy|supermarket|bank|fuel"];
+);
+out center tags 200;`.trim();
+
+      const overpassRes = await fetch('https://overpass-api.de/api/interpreter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `data=${encodeURIComponent(overpassQuery)}`,
+      });
+      if (!overpassRes.ok) { setLocationState('error'); return; }
+      const osm = await overpassRes.json();
+
+      const seen = new Set<string>();
+      const osmMerchants: { name: string; category?: string }[] = [];
+      for (const el of osm.elements ?? []) {
+        const name = el.tags?.brand ?? el.tags?.name ?? el.tags?.operator;
+        if (!name) continue;
+        const key = name.toLowerCase().trim();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        const category = el.tags?.amenity ?? el.tags?.shop;
+        osmMerchants.push({ name, ...(category ? { category } : {}) });
+      }
+
+      if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
+
+      const matchRes = await fetch('/api/merchants/nearby-match', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ merchants: osmMerchants.slice(0, 80) }),
+      });
+      if (!matchRes.ok) { setLocationState('error'); return; }
+      const data = await matchRes.json();
+      const merchants = data.data ?? [];
+      setNearbyMerchants(merchants);
+      setLocationState(merchants.length > 0 ? 'done' : 'no_match');
+      if (merchants.length > 0) {
+        try {
+          sessionStorage.setItem('nearbyMerchants', JSON.stringify(merchants));
+          sessionStorage.setItem('nearbyMerchantsAt', Date.now().toString());
+        } catch { /* sessionStorage unavailable */ }
+      }
+    } catch {
+      setLocationState('error');
+    }
+  };
+
+  const handleRadiusChange = async (value: RadiusValue) => {
+    setSelectedRadius(value);
+    if (lastCoords) await runNearbySearch(lastCoords.lat, lastCoords.lng, value);
+  };
+
   const handleDetectLocation = () => {
     setLocationState('requesting');
 
@@ -199,67 +265,9 @@ const router = useRouter();
     navigator.geolocation.getCurrentPosition(
       async ({ coords }) => {
         clearTimeout(permissionTimer);
-        setLocationState('loading');
-        try {
-          // Call Overpass directly from the browser — Vercel's servers are IP-blocked
-          const { lat, lng } = { lat: coords.latitude, lng: coords.longitude };
-          const radius = selectedRadius;
-          const latDelta = radius / 111320;
-          const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
-          const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
-          const overpassQuery = `
-[out:json][timeout:20][bbox:${bbox}];
-(
-  node["shop"];
-  node["amenity"~"restaurant|cafe|fast_food|bar|pharmacy|supermarket|bank|fuel"];
-  node["brand"];
-  way["shop"];
-  way["amenity"~"restaurant|cafe|fast_food|bar|pharmacy|supermarket|bank|fuel"];
-);
-out center tags 200;`.trim();
-
-          const overpassRes = await fetch('https://overpass-api.de/api/interpreter', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `data=${encodeURIComponent(overpassQuery)}`,
-          });
-
-          if (!overpassRes.ok) { setLocationState('error'); return; }
-          const osm = await overpassRes.json();
-
-          const seen = new Set<string>();
-          const osmMerchants: { name: string; category?: string }[] = [];
-          for (const el of osm.elements ?? []) {
-            const name = el.tags?.brand ?? el.tags?.name ?? el.tags?.operator;
-            if (!name) continue;
-            const key = name.toLowerCase().trim();
-            if (seen.has(key)) continue;
-            seen.add(key);
-            const category = el.tags?.amenity ?? el.tags?.shop;
-            osmMerchants.push({ name, ...(category ? { category } : {}) });
-          }
-
-          if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
-
-          const matchRes = await fetch('/api/merchants/nearby-match', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ merchants: osmMerchants.slice(0, 80) }),
-          });
-          if (!matchRes.ok) { setLocationState('error'); return; }
-          const data = await matchRes.json();
-          const merchants = data.data ?? [];
-          setNearbyMerchants(merchants);
-          setLocationState(merchants.length > 0 ? 'done' : 'no_match');
-          if (merchants.length > 0) {
-            try {
-              sessionStorage.setItem('nearbyMerchants', JSON.stringify(merchants));
-              sessionStorage.setItem('nearbyMerchantsAt', Date.now().toString());
-            } catch { /* sessionStorage unavailable */ }
-          }
-        } catch {
-          setLocationState('error');
-        }
+        const { lat, lng } = { lat: coords.latitude, lng: coords.longitude };
+        setLastCoords({ lat, lng });
+        await runNearbySearch(lat, lng, selectedRadius);
       },
       () => {
         clearTimeout(permissionTimer);
@@ -440,7 +448,7 @@ out center tags 200;`.trim();
                   {RADIUS_OPTIONS.map((opt) => (
                     <button
                       key={opt.value}
-                      onClick={() => setSelectedRadius(opt.value)}
+                      onClick={() => handleRadiusChange(opt.value)}
                       className={`flex-1 flex flex-col items-center py-1.5 rounded-lg text-xs font-medium transition-all ${
                         selectedRadius === opt.value
                           ? 'bg-white text-indigo-700 shadow-sm font-semibold'
