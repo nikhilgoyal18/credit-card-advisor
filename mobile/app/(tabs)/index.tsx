@@ -16,26 +16,38 @@ const RADIUS_OPTIONS = [
   { label: '5km', value: 5000 },
 ];
 
+// Module-level cache — survives component remounts during navigation
+const cache = {
+  results: [] as Merchant[],
+  coords: null as { lat: number; lng: number } | null,
+  radius: 1000,
+  nearbySearched: false,
+  query: '',
+};
+
 export default function HomeScreen() {
   const router = useRouter();
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState<Merchant[]>([]);
+  const [query, setQuery] = useState(cache.query);
+  const [results, setResults] = useState<Merchant[]>(cache.results);
   const [loading, setLoading] = useState(false);
   const [locating, setLocating] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [nearbySearched, setNearbySearched] = useState(false);
-  const [radius, setRadius] = useState(1000);
-  const [lastCoords, setLastCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [nearbySearched, setNearbySearched] = useState(cache.nearbySearched);
+  const [radius, setRadius] = useState(cache.radius);
+  const [lastCoords, setLastCoords] = useState(cache.coords);
 
   const handleSearch = useCallback(async (text: string) => {
     setQuery(text);
+    cache.query = text;
     setNearbySearched(false);
-    if (text.trim().length < 2) { setResults([]); return; }
+    cache.nearbySearched = false;
+    if (text.trim().length < 2) { setResults([]); cache.results = []; return; }
     setLoading(true);
     setError(null);
     try {
       const data = await searchMerchants(text.trim());
       setResults(data);
+      cache.results = data;
     } catch (e: any) {
       setError(`Search error: ${e?.message ?? e}`);
     } finally {
@@ -49,8 +61,11 @@ export default function HomeScreen() {
     try {
       const data = await getNearbyMerchants(lat, lng, r);
       setResults(data);
+      cache.results = data;
       setQuery('');
+      cache.query = '';
       setNearbySearched(true);
+      cache.nearbySearched = true;
     } catch (e: any) {
       setError(`Nearby error: ${e?.message ?? e}`);
     } finally {
@@ -65,6 +80,7 @@ export default function HomeScreen() {
       const loc = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
       const coords = { lat: loc.coords.latitude, lng: loc.coords.longitude };
       setLastCoords(coords);
+      cache.coords = coords;
       await runNearbySearch(coords.lat, coords.lng, radius);
     } catch (e: any) {
       setError(`Location error: ${e?.message ?? e}`);
@@ -73,6 +89,7 @@ export default function HomeScreen() {
 
   const handleRadiusChange = (newRadius: number) => {
     setRadius(newRadius);
+    cache.radius = newRadius;
     if (lastCoords) runNearbySearch(lastCoords.lat, lastCoords.lng, newRadius);
   };
 
