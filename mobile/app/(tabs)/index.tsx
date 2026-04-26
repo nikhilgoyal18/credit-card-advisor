@@ -164,7 +164,7 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f8fafc' },
-  searchRow: { flexDirection: 'row', padding: 16, gap: 8 },
+  searchRow: { flexDirection: 'row', padding: 16, gap: 8, paddingBottom: 8 },
   input: {
     flex: 1, backgroundColor: '#fff', borderWidth: 1, borderColor: '#e2e8f0',
     borderRadius: 12, paddingHorizontal: 16, paddingVertical: 12,
@@ -184,10 +184,10 @@ const styles = StyleSheet.create({
   category: { fontSize: 13, color: '#64748b', marginTop: 2 },
   hint: { textAlign: 'center', color: '#94a3b8', marginTop: 48, fontSize: 15, paddingHorizontal: 24 },
   error: { color: '#ef4444', paddingHorizontal: 16, marginBottom: 8, fontSize: 14 },
-  radiusRow: { maxHeight: 44 },
-  radiusContent: { paddingHorizontal: 16, paddingBottom: 8, gap: 8, flexDirection: 'row' },
+  radiusRow: { flexShrink: 0 },
+  radiusContent: { paddingHorizontal: 16, paddingVertical: 8, flexDirection: 'row' },
   radiusChip: {
-    paddingHorizontal: 14, paddingVertical: 6, borderRadius: 20,
+    paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8,
     backgroundColor: '#fff', borderWidth: 1, borderColor: '#e2e8f0',
   },
   radiusChipActive: { backgroundColor: '#6366f1', borderColor: '#6366f1' },
