@@ -79,7 +79,7 @@ export type Recommendation = z.infer<typeof RecommendationSchema>;
 export const RecommendResponseSchema = z.object({
   data: z.array(RecommendationSchema),
   merchant: z.object({
-    id: z.string(),
+    id: z.string().nullable(),
     canonical_name: z.string(),
     primary_category: CategoryEnum,
   }),

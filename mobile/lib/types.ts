@@ -17,7 +17,7 @@ export interface Recommendation {
 
 export interface RecommendResponse {
   data: Recommendation[];
-  merchant: { id: string; name: string; category: string };
+  merchant: { id: string | null; name: string; category: string };
   disclaimer: string;
 }
 
