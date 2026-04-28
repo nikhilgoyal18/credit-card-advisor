@@ -1,4 +1,4 @@
-const CACHE = 'card-advisor-v3';
+const CACHE = 'card-advisor-v4';
 
 const PRECACHE = [
   '/',
