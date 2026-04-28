@@ -193,52 +193,23 @@ const router = useRouter();
   const runNearbySearch = async (lat: number, lng: number, radius: number) => {
     setLocationState('loading');
     try {
-      const latDelta = radius / 111320;
-      const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
-      const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
-      const overpassQuery = `
-[out:json][timeout:20][bbox:${bbox}];
-(
-  node["shop"];
-  node["amenity"~"restaurant|cafe|fast_food|bar|pharmacy|supermarket|bank|fuel"];
-  node["brand"];
-  way["shop"];
-  way["amenity"~"restaurant|cafe|fast_food|bar|pharmacy|supermarket|bank|fuel"];
-);
-out center tags 200;`.trim();
+      const res = await fetch(`/api/merchants/nearby?lat=${lat}&lng=${lng}&radius=${radius}`);
+      if (!res.ok) { setDebugInfo(`Nearby API ${res.status}`); setLocationState('error'); return; }
+      const data = await res.json();
 
-      const overpassRes = await fetch('https://overpass-api.de/api/interpreter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `data=${encodeURIComponent(overpassQuery)}`,
-      });
-      if (!overpassRes.ok) { setDebugInfo(`Overpass HTTP ${overpassRes.status}`); setLocationState('error'); return; }
-      const osm = await overpassRes.json();
-
-      const seen = new Set<string>();
-      const osmMerchants: { name: string; category?: string }[] = [];
-      for (const el of osm.elements ?? []) {
-        const name = el.tags?.brand ?? el.tags?.name ?? el.tags?.operator;
-        if (!name) continue;
-        const key = name.toLowerCase().trim();
-        if (seen.has(key)) continue;
-        seen.add(key);
-        const category = el.tags?.amenity ?? el.tags?.shop;
-        osmMerchants.push({ name, ...(category ? { category } : {}) });
+      if (data.error === 'overpass_unavailable') {
+        setDebugInfo('OSM unavailable — try again later');
+        setLocationState('error');
+        return;
+      }
+      if (data.timed_out) {
+        setDebugInfo('OSM timed out');
+        setLocationState('timed_out');
+        return;
       }
 
-      setDebugInfo(`OSM: ${osm.elements?.length ?? 0} elements → ${osmMerchants.length} named`);
-      if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
-
-      const matchRes = await fetch('/api/merchants/nearby-match', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ merchants: osmMerchants.slice(0, 80) }),
-      });
-      if (!matchRes.ok) { setDebugInfo(`Match API ${matchRes.status}`); setLocationState('error'); return; }
-      const data = await matchRes.json();
       const merchants = data.data ?? [];
-      setDebugInfo(prev => `${prev} → match: ${merchants.length}`);
+      setDebugInfo(`Found: ${merchants.length} merchants`);
       setNearbyMerchants(merchants);
       setLocationState(merchants.length > 0 ? 'done' : 'no_match');
       if (merchants.length > 0) {
