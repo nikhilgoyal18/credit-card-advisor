@@ -252,33 +252,32 @@ out center tags 200;`.trim();
     }
   };
 
-  const handleRadiusChange = async (value: RadiusValue) => {
+  const handleRadiusChange = (value: RadiusValue) => {
     setSelectedRadius(value);
-    if (lastCoords) await runNearbySearch(lastCoords.lat, lastCoords.lng, value);
+    if (lastCoords) {
+      runNearbySearch(lastCoords.lat, lastCoords.lng, value);
+    } else {
+      // No location yet — trigger full location request with new radius
+      handleDetectLocationWithRadius(value);
+    }
   };
 
-  const handleDetectLocation = () => {
+  const handleDetectLocationWithRadius = (radius: number) => {
     setLocationState('requesting');
-
-    // Wall-clock fallback: if the user never responds to the permission
-    // prompt, neither geolocation callback fires. This ensures we don't
-    // get stuck in 'requesting' forever.
     const permissionTimer = setTimeout(() => setLocationState('error'), 15_000);
-
     navigator.geolocation.getCurrentPosition(
       async ({ coords }) => {
         clearTimeout(permissionTimer);
         const { lat, lng } = { lat: coords.latitude, lng: coords.longitude };
         setLastCoords({ lat, lng });
-        await runNearbySearch(lat, lng, selectedRadius);
+        await runNearbySearch(lat, lng, radius);
       },
-      () => {
-        clearTimeout(permissionTimer);
-        setLocationState('error');
-      },
-      { timeout: 8000, maximumAge: 60_000 }
+      () => { clearTimeout(permissionTimer); setLocationState('error'); },
+      { enableHighAccuracy: false, timeout: 10_000 }
     );
   };
+
+  const handleDetectLocation = () => handleDetectLocationWithRadius(selectedRadius);
 
   if (!user) {
     return null;
