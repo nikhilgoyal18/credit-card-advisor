@@ -749,15 +749,72 @@
     "canonical_name": "Expedia",
     "aliases": [
       "Expedia Inc",
+      "Hotels.com",
+      "Vrbo",
       "EXPEDIA"
     ],
-    "primary_category": "TRAVEL_GENERAL",
+    "primary_category": "TRAVEL_PORTAL",
     "secondary_categories": [
       "TRAVEL_HOTELS",
-      "TRAVEL_AIRLINES"
+      "TRAVEL_AIRLINES",
+      "TRAVEL_GENERAL"
     ],
     "mcc_codes": [
-      "7011"
+      "7011",
+      "4722"
+    ],
+    "is_online_only": true,
+    "notes": "OTA that books flights, hotels, and packages. Earns TRAVEL_PORTAL rates on Chase, Capital One, and Amex portal-aware cards."
+  },
+  {
+    "id": "kayak",
+    "canonical_name": "Kayak",
+    "aliases": [
+      "KAYAK Software",
+      "KAYAK"
+    ],
+    "primary_category": "TRAVEL_PORTAL",
+    "secondary_categories": [
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "4722"
+    ],
+    "is_online_only": true
+  },
+  {
+    "id": "priceline",
+    "canonical_name": "Priceline",
+    "aliases": [
+      "Priceline.com",
+      "Booking Holdings",
+      "PRICELINE"
+    ],
+    "primary_category": "TRAVEL_PORTAL",
+    "secondary_categories": [
+      "TRAVEL_HOTELS",
+      "TRAVEL_AIRLINES",
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "4722"
+    ],
+    "is_online_only": true
+  },
+  {
+    "id": "google_flights",
+    "canonical_name": "Google Flights",
+    "aliases": [
+      "Google Travel",
+      "GOOGLEFLIGHTS"
+    ],
+    "primary_category": "TRAVEL_PORTAL",
+    "secondary_categories": [
+      "TRAVEL_AIRLINES",
+      "TRAVEL_GENERAL"
+    ],
+    "mcc_codes": [
+      "4722"
     ],
     "is_online_only": true
   },
@@ -1153,7 +1210,7 @@
       "Inditex",
       "ZARA"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"
@@ -1168,7 +1225,7 @@
       "Lululemon Inc",
       "LULULEMON"
     ],
-    "primary_category": "SPORTS_APPAREL",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"
@@ -1183,7 +1240,7 @@
       "H&M Group",
       "HM"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1198,7 +1255,7 @@
       "Gap Stores",
       "GAP"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1212,7 +1269,7 @@
       "Old Navy LLC",
       "OLDNAVY"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1226,7 +1283,7 @@
       "Banana Republic LLC",
       "BANANAREPUBLIC"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1241,7 +1298,7 @@
       "Fast Retailing",
       "UNIQLO"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1255,7 +1312,7 @@
       "Forever21",
       "FOREVER21"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1270,7 +1327,7 @@
       "URBANOUTFITTERS",
       "UO"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"
@@ -1284,7 +1341,7 @@
       "Anthropologie Group",
       "ANTHROPOLOGIE"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"
@@ -1299,7 +1356,7 @@
       "FREEPEOPLE",
       "FP"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"
@@ -1313,7 +1370,7 @@
       "Express Inc",
       "EXPRESS"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1329,7 +1386,7 @@
       "T.J.Maxx",
       "TJMAXX"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1343,7 +1400,7 @@
       "Marshalls Inc",
       "MARSHALLS"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1358,7 +1415,7 @@
       "Ross",
       "ROSS"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "DEPARTMENT_STORES",
     "secondary_categories": [],
     "mcc_codes": [
       "5651"
@@ -1374,7 +1431,7 @@
       "Nike.com",
       "NIKE"
     ],
-    "primary_category": "SPORTS_APPAREL",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"
@@ -1390,7 +1447,7 @@
       "Adidas.com",
       "ADIDAS"
     ],
-    "primary_category": "DEPARTMENT_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"
@@ -1404,7 +1461,7 @@
       "Foot Locker Inc",
       "FOOTLOCKER"
     ],
-    "primary_category": "SHOE_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5661"
@@ -1419,7 +1476,7 @@
       "DSW Inc",
       "DSW Shoes"
     ],
-    "primary_category": "SHOE_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5661"
@@ -1433,7 +1490,7 @@
       "Shein Group",
       "SHEIN.com"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"
@@ -1447,7 +1504,7 @@
       "ASOS.com",
       "ASOS plc"
     ],
-    "primary_category": "CLOTHING_STORES",
+    "primary_category": "GENERAL",
     "secondary_categories": [],
     "mcc_codes": [
       "5699"

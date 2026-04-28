@@ -6,42 +6,29 @@
     "network": "visa",
     "reward_unit": "cashback_percent",
     "reward_currency": "cashback",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
-        "rule_id": "quarterly_5x",
-        "categories": ["GROCERY", "DINING", "TRAVEL_GENERAL", "STREAMING", "ENTERTAINMENT"],
-        "earn_rate": 5.0,
+        "rule_id": "5x_travel_portal",
+        "categories": [
+          "TRAVEL_PORTAL",
+          "DINING",
+          "DRUGSTORES"
+        ],
+        "earn_rate": 5,
         "earn_type": "cashback_percent",
-        "quarterly_rotating": true,
-        "quarterly_config": {
-          "activation_required": true,
-          "current_quarter_categories": ["GROCERY", "TRAVEL_PORTAL"],
-          "current_quarter_start": "2026-04-01",
-          "current_quarter_end": "2026-06-30"
-        },
-        "notes": "Quarterly rotating categories. Q2 2026 (April-June) typically includes Amazon, Whole Foods, Chase Travel. Requires activation to earn 5%.",
-        "source_url": "https://www.chase.com/personal/credit-cards/freedom-flex",
-        "source_last_verified": "2026-04-10T00:00:00Z"
-      },
-      {
-        "rule_id": "fixed_3x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent",
-        "notes": "Fixed 3% on dining (in addition to or instead of quarterly categories depending on quarter)"
-      },
-      {
-        "rule_id": "fixed_3x_drugstores",
-        "categories": ["DRUGSTORES"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.310Z"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "cashback_percent"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.311Z"
       }
     ]
   },
@@ -52,39 +39,49 @@
     "network": "visa",
     "reward_unit": "points_multiplier",
     "reward_currency": "Ultimate Rewards",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
         "rule_id": "5x_travel_portal",
-        "categories": ["TRAVEL_PORTAL"],
-        "earn_rate": 5.0,
+        "categories": [
+          "TRAVEL_PORTAL"
+        ],
+        "earn_rate": 5,
         "earn_type": "points_multiplier",
-        "notes": "5x on Chase Travel Portal bookings only"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.311Z"
       },
       {
         "rule_id": "3x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
-      },
-      {
-        "rule_id": "3x_streaming",
-        "categories": ["STREAMING"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
-      },
-      {
-        "rule_id": "2x_travel",
-        "categories": ["TRAVEL_GENERAL", "TRAVEL_HOTELS", "TRAVEL_AIRLINES"],
-        "earn_rate": 2.0,
+        "categories": [
+          "DINING",
+          "GROCERY",
+          "STREAMING"
+        ],
+        "earn_rate": 3,
         "earn_type": "points_multiplier",
-        "notes": "2x on all travel (when booked outside Chase Travel Portal)"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.311Z"
       },
       {
-        "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "points_multiplier"
+        "rule_id": "2x_travel_general",
+        "categories": [
+          "TRAVEL_GENERAL"
+        ],
+        "earn_rate": 2,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.311Z"
+      },
+      {
+        "rule_id": "1x_general",
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.311Z"
       }
     ]
   },
@@ -95,33 +92,43 @@
     "network": "amex",
     "reward_unit": "points_multiplier",
     "reward_currency": "Membership Rewards",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
         "rule_id": "4x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 4.0,
+        "categories": [
+          "DINING"
+        ],
+        "earn_rate": 4,
         "earn_type": "points_multiplier"
       },
       {
         "rule_id": "4x_grocery",
-        "categories": ["GROCERY"],
-        "earn_rate": 4.0,
+        "categories": [
+          "GROCERY"
+        ],
+        "earn_rate": 4,
         "earn_type": "points_multiplier",
-        "excluded_categories": ["WHOLESALE_CLUBS"],
+        "excluded_categories": [
+          "WHOLESALE_CLUBS"
+        ],
         "notes": "4x on grocery stores (supermarkets). Explicitly excludes warehouse clubs like Costco and Sam's Club."
       },
       {
         "rule_id": "3x_airlines",
-        "categories": ["TRAVEL_AIRLINES"],
-        "earn_rate": 3.0,
+        "categories": [
+          "TRAVEL_AIRLINES"
+        ],
+        "earn_rate": 3,
         "earn_type": "points_multiplier",
         "notes": "3x on airlines when booked directly with airline, not through travel agency"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
         "earn_type": "points_multiplier"
       }
     ]
@@ -133,26 +140,32 @@
     "network": "amex",
     "reward_unit": "points_multiplier",
     "reward_currency": "Membership Rewards",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
         "rule_id": "5x_airlines_direct",
-        "categories": ["TRAVEL_AIRLINES"],
-        "earn_rate": 5.0,
+        "categories": [
+          "TRAVEL_AIRLINES"
+        ],
+        "earn_rate": 5,
         "earn_type": "points_multiplier",
         "notes": "5x on flights booked directly with airlines"
       },
       {
         "rule_id": "5x_hotels_travel_portal",
-        "categories": ["TRAVEL_HOTELS"],
-        "earn_rate": 5.0,
+        "categories": [
+          "TRAVEL_HOTELS"
+        ],
+        "earn_rate": 5,
         "earn_type": "points_multiplier",
         "notes": "5x on hotels booked through Amex Travel or directly with hotel"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
         "earn_type": "points_multiplier"
       }
     ]
@@ -164,37 +177,54 @@
     "network": "visa",
     "reward_unit": "cashback_percent",
     "reward_currency": "cashback",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
-        "rule_id": "3x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent"
-      },
-      {
-        "rule_id": "3x_entertainment",
-        "categories": ["ENTERTAINMENT"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent"
-      },
-      {
         "rule_id": "3x_grocery",
-        "categories": ["GROCERY"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent"
+        "categories": [
+          "GROCERY",
+          "DINING",
+          "STREAMING",
+          "ENTERTAINMENT"
+        ],
+        "earn_rate": 3,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z",
+        "excluded_categories": [
+          "GROCERY"
+        ]
       },
       {
-        "rule_id": "3x_streaming",
-        "categories": ["STREAMING"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent"
+        "rule_id": "8x_entertainment",
+        "categories": [
+          "ENTERTAINMENT"
+        ],
+        "earn_rate": 8,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
+      },
+      {
+        "rule_id": "5x_travel_portal",
+        "categories": [
+          "TRAVEL_PORTAL",
+          "TRAVEL_HOTELS"
+        ],
+        "earn_rate": 5,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "cashback_percent"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -205,34 +235,28 @@
     "network": "visa",
     "reward_unit": "points_multiplier",
     "reward_currency": "Miles",
-    "base_earn_rate": 2.0,
+    "base_earn_rate": 2,
     "reward_rules": [
       {
-        "rule_id": "10x_hotels_portal",
-        "categories": ["TRAVEL_HOTELS"],
-        "earn_rate": 10.0,
+        "rule_id": "10x_travel_portal",
+        "categories": [
+          "TRAVEL_PORTAL",
+          "TRAVEL_HOTELS"
+        ],
+        "earn_rate": 10,
         "earn_type": "points_multiplier",
-        "notes": "10x on hotels booked through Capital One Travel portal"
-      },
-      {
-        "rule_id": "10x_car_rental_portal",
-        "categories": ["TRANSIT"],
-        "earn_rate": 10.0,
-        "earn_type": "points_multiplier",
-        "notes": "10x on car rentals booked through Capital One Travel portal"
-      },
-      {
-        "rule_id": "5x_flights_portal",
-        "categories": ["TRAVEL_AIRLINES"],
-        "earn_rate": 5.0,
-        "earn_type": "points_multiplier",
-        "notes": "5x on flights booked through Capital One Travel portal"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
         "rule_id": "base_2x",
-        "categories": ["GENERAL"],
-        "earn_rate": 2.0,
-        "earn_type": "points_multiplier"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 2,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -247,28 +271,34 @@
     "reward_rules": [
       {
         "rule_id": "5x_travel_portal",
-        "categories": ["TRAVEL_PORTAL"],
-        "earn_rate": 5.0,
+        "categories": [
+          "TRAVEL_PORTAL"
+        ],
+        "earn_rate": 5,
         "earn_type": "cashback_percent",
-        "notes": "5% on Chase Travel Portal bookings"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
         "rule_id": "3x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent"
-      },
-      {
-        "rule_id": "3x_drugstores",
-        "categories": ["DRUGSTORES"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent"
+        "categories": [
+          "DINING",
+          "DRUGSTORES"
+        ],
+        "earn_rate": 3,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
         "rule_id": "base_1_5x",
-        "categories": ["GENERAL"],
+        "categories": [
+          "GENERAL"
+        ],
         "earn_rate": 1.5,
-        "earn_type": "cashback_percent"
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -279,47 +309,37 @@
     "network": "visa",
     "reward_unit": "points_multiplier",
     "reward_currency": "Ultimate Rewards",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
-        "rule_id": "10x_hotels_portal",
-        "categories": ["TRAVEL_HOTELS"],
-        "earn_rate": 10.0,
+        "rule_id": "8x_travel_portal",
+        "categories": [
+          "TRAVEL_PORTAL"
+        ],
+        "earn_rate": 8,
         "earn_type": "points_multiplier",
-        "notes": "10x on hotels booked through Chase Travel Portal"
-      },
-      {
-        "rule_id": "10x_car_rental_portal",
-        "categories": ["TRANSIT"],
-        "earn_rate": 10.0,
-        "earn_type": "points_multiplier",
-        "notes": "10x on car rentals booked through Chase Travel Portal"
-      },
-      {
-        "rule_id": "5x_flights_portal",
-        "categories": ["TRAVEL_AIRLINES"],
-        "earn_rate": 5.0,
-        "earn_type": "points_multiplier",
-        "notes": "5x on flights booked through Chase Travel Portal"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
         "rule_id": "3x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
-      },
-      {
-        "rule_id": "3x_travel",
-        "categories": ["TRAVEL_GENERAL", "TRAVEL_PORTAL"],
-        "earn_rate": 3.0,
+        "categories": [
+          "DINING"
+        ],
+        "earn_rate": 3,
         "earn_type": "points_multiplier",
-        "notes": "3x on all other travel purchases"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "points_multiplier"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -330,44 +350,50 @@
     "network": "amex",
     "reward_unit": "cashback_percent",
     "reward_currency": "cashback",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
-        "rule_id": "6pct_grocery",
-        "categories": ["GROCERY"],
-        "earn_rate": 6.0,
+        "rule_id": "6x_grocery",
+        "categories": [
+          "GROCERY"
+        ],
+        "earn_rate": 6,
         "earn_type": "cashback_percent",
-        "excluded_categories": ["WHOLESALE_CLUBS"],
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z",
         "spend_limit_amount": 6000,
-        "spend_limit_reset_period": "year",
-        "notes": "6% at US supermarkets up to $6,000/year, then 1%. Excludes warehouse clubs."
+        "spend_limit_reset_period": "year"
       },
       {
-        "rule_id": "6pct_streaming",
-        "categories": ["STREAMING"],
-        "earn_rate": 6.0,
+        "rule_id": "6x_streaming",
+        "categories": [
+          "STREAMING"
+        ],
+        "earn_rate": 6,
         "earn_type": "cashback_percent",
-        "notes": "6% on select US streaming subscriptions"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
-        "rule_id": "3pct_transit",
-        "categories": ["TRANSIT"],
-        "earn_rate": 3.0,
+        "rule_id": "3x_transit",
+        "categories": [
+          "TRANSIT",
+          "GAS_STATIONS"
+        ],
+        "earn_rate": 3,
         "earn_type": "cashback_percent",
-        "notes": "3% on transit including taxis, rideshare, parking, tolls, trains, buses"
-      },
-      {
-        "rule_id": "3pct_gas",
-        "categories": ["GAS_STATIONS"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent",
-        "notes": "3% at US gas stations"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "cashback_percent"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -378,44 +404,39 @@
     "network": "amex",
     "reward_unit": "cashback_percent",
     "reward_currency": "cashback",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
-        "rule_id": "3pct_grocery",
-        "categories": ["GROCERY"],
-        "earn_rate": 3.0,
+        "rule_id": "3x_grocery",
+        "categories": [
+          "GROCERY"
+        ],
+        "earn_rate": 3,
         "earn_type": "cashback_percent",
-        "excluded_categories": ["WHOLESALE_CLUBS"],
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/cash-back",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
+      },
+      {
+        "rule_id": "3x_gas_stations",
+        "categories": [
+          "GAS_STATIONS"
+        ],
+        "earn_rate": 3,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/cash-back",
+        "source_last_verified": "2026-04-28T13:10:51.312Z",
         "spend_limit_amount": 6000,
-        "spend_limit_reset_period": "year",
-        "notes": "3% at US supermarkets up to $6,000/year, then 1%. Excludes warehouse clubs."
-      },
-      {
-        "rule_id": "3pct_online_retail",
-        "categories": ["DEPARTMENT_STORES"],
-        "earn_rate": 3.0,
-        "earn_type": "cashback_percent",
-        "notes": "3% on US online retail purchases"
-      },
-      {
-        "rule_id": "2pct_gas",
-        "categories": ["GAS_STATIONS"],
-        "earn_rate": 2.0,
-        "earn_type": "cashback_percent",
-        "notes": "2% at US gas stations"
-      },
-      {
-        "rule_id": "2pct_transit",
-        "categories": ["TRANSIT"],
-        "earn_rate": 2.0,
-        "earn_type": "cashback_percent",
-        "notes": "2% on transit"
+        "spend_limit_reset_period": "year"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "cashback_percent"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/cash-back",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -426,32 +447,42 @@
     "network": "amex",
     "reward_unit": "points_multiplier",
     "reward_currency": "Membership Rewards",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
         "rule_id": "3x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
+        "categories": [
+          "DINING"
+        ],
+        "earn_rate": 3,
         "earn_type": "points_multiplier"
       },
       {
         "rule_id": "3x_transit",
-        "categories": ["TRANSIT"],
-        "earn_rate": 3.0,
+        "categories": [
+          "TRANSIT"
+        ],
+        "earn_rate": 3,
         "earn_type": "points_multiplier",
         "notes": "3x on transit including rideshare, taxis, trains, buses, ferries, tolls, parking"
       },
       {
         "rule_id": "3x_travel",
-        "categories": ["TRAVEL_GENERAL", "TRAVEL_HOTELS", "TRAVEL_AIRLINES"],
-        "earn_rate": 3.0,
+        "categories": [
+          "TRAVEL_GENERAL",
+          "TRAVEL_HOTELS",
+          "TRAVEL_AIRLINES"
+        ],
+        "earn_rate": 3,
         "earn_type": "points_multiplier",
         "notes": "3x on travel purchases"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
         "earn_type": "points_multiplier"
       }
     ]
@@ -463,27 +494,28 @@
     "network": "visa",
     "reward_unit": "points_multiplier",
     "reward_currency": "Miles",
-    "base_earn_rate": 2.0,
+    "base_earn_rate": 2,
     "reward_rules": [
       {
-        "rule_id": "5x_hotels_portal",
-        "categories": ["TRAVEL_HOTELS"],
-        "earn_rate": 5.0,
+        "rule_id": "2x_general",
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 2,
         "earn_type": "points_multiplier",
-        "notes": "5x on hotels booked through Capital One Travel portal"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
-        "rule_id": "5x_car_rental_portal",
-        "categories": ["TRAVEL_PORTAL"],
-        "earn_rate": 5.0,
+        "rule_id": "5x_travel_portal",
+        "categories": [
+          "TRAVEL_PORTAL",
+          "TRAVEL_HOTELS"
+        ],
+        "earn_rate": 5,
         "earn_type": "points_multiplier",
-        "notes": "5x on car rentals booked through Capital One Travel portal"
-      },
-      {
-        "rule_id": "base_2x",
-        "categories": ["GENERAL"],
-        "earn_rate": 2.0,
-        "earn_type": "points_multiplier"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -494,38 +526,50 @@
     "network": "visa",
     "reward_unit": "cashback_percent",
     "reward_currency": "cashback",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
         "rule_id": "3pct_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
+        "categories": [
+          "DINING"
+        ],
+        "earn_rate": 3,
         "earn_type": "cashback_percent"
       },
       {
         "rule_id": "3pct_entertainment",
-        "categories": ["ENTERTAINMENT"],
-        "earn_rate": 3.0,
+        "categories": [
+          "ENTERTAINMENT"
+        ],
+        "earn_rate": 3,
         "earn_type": "cashback_percent"
       },
       {
         "rule_id": "3pct_grocery",
-        "categories": ["GROCERY"],
-        "earn_rate": 3.0,
+        "categories": [
+          "GROCERY"
+        ],
+        "earn_rate": 3,
         "earn_type": "cashback_percent",
-        "excluded_categories": ["WHOLESALE_CLUBS"],
+        "excluded_categories": [
+          "WHOLESALE_CLUBS"
+        ],
         "notes": "3% at grocery stores, excludes superstores and warehouse clubs"
       },
       {
         "rule_id": "3pct_streaming",
-        "categories": ["STREAMING"],
-        "earn_rate": 3.0,
+        "categories": [
+          "STREAMING"
+        ],
+        "earn_rate": 3,
         "earn_type": "cashback_percent"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
         "earn_type": "cashback_percent"
       }
     ]
@@ -540,10 +584,25 @@
     "base_earn_rate": 1.5,
     "reward_rules": [
       {
-        "rule_id": "base_1_5x",
-        "categories": ["GENERAL"],
+        "rule_id": "1_5x_general",
+        "categories": [
+          "GENERAL"
+        ],
         "earn_rate": 1.5,
-        "earn_type": "cashback_percent"
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/cash-back",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
+      },
+      {
+        "rule_id": "5x_travel_portal",
+        "categories": [
+          "TRAVEL_PORTAL",
+          "TRAVEL_HOTELS"
+        ],
+        "earn_rate": 5,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/cash-back",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -558,19 +617,27 @@
     "reward_rules": [
       {
         "rule_id": "2x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 2.0,
+        "categories": [
+          "DINING"
+        ],
+        "earn_rate": 2,
         "earn_type": "points_multiplier"
       },
       {
         "rule_id": "2x_travel",
-        "categories": ["TRAVEL_GENERAL", "TRAVEL_HOTELS", "TRAVEL_AIRLINES"],
-        "earn_rate": 2.0,
+        "categories": [
+          "TRAVEL_GENERAL",
+          "TRAVEL_HOTELS",
+          "TRAVEL_AIRLINES"
+        ],
+        "earn_rate": 2,
         "earn_type": "points_multiplier"
       },
       {
         "rule_id": "base_1_5x",
-        "categories": ["GENERAL"],
+        "categories": [
+          "GENERAL"
+        ],
         "earn_rate": 1.5,
         "earn_type": "points_multiplier"
       }
@@ -583,29 +650,28 @@
     "network": "visa",
     "reward_unit": "cashback_percent",
     "reward_currency": "cashback",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
-        "rule_id": "3pct_chosen_category",
-        "categories": ["GAS_STATIONS"],
-        "earn_rate": 3.0,
+        "rule_id": "2x_wholesale_clubs",
+        "categories": [
+          "WHOLESALE_CLUBS",
+          "GROCERY"
+        ],
+        "earn_rate": 2,
         "earn_type": "cashback_percent",
-        "notes": "3% on user-chosen category (default: gas stations). Other options: online shopping, dining, travel, drug stores, or home improvement. Must be set in online banking."
-      },
-      {
-        "rule_id": "2pct_grocery_wholesale",
-        "categories": ["GROCERY", "WHOLESALE_CLUBS"],
-        "earn_rate": 2.0,
-        "earn_type": "cashback_percent",
-        "spend_limit_amount": 2500,
-        "spend_limit_reset_period": "quarter",
-        "notes": "2% at grocery stores and wholesale clubs, up to $2,500 combined per quarter"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/cash-back",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "cashback_percent"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/cash-back",
+        "source_last_verified": "2026-04-28T13:10:51.312Z"
       }
     ]
   },
@@ -620,7 +686,9 @@
     "reward_rules": [
       {
         "rule_id": "base_1_5x",
-        "categories": ["GENERAL"],
+        "categories": [
+          "GENERAL"
+        ],
         "earn_rate": 1.5,
         "earn_type": "points_multiplier"
       }
@@ -633,13 +701,17 @@
     "network": "visa",
     "reward_unit": "cashback_percent",
     "reward_currency": "cashback",
-    "base_earn_rate": 2.0,
+    "base_earn_rate": 2,
     "reward_rules": [
       {
-        "rule_id": "base_2x",
-        "categories": ["GENERAL"],
-        "earn_rate": 2.0,
-        "earn_type": "cashback_percent"
+        "rule_id": "2x_general",
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 2,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/rewards",
+        "source_last_verified": "2026-04-28T13:10:51.313Z"
       }
     ]
   },
@@ -650,50 +722,32 @@
     "network": "visa",
     "reward_unit": "points_multiplier",
     "reward_currency": "Points",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
         "rule_id": "3x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
-      },
-      {
-        "rule_id": "3x_travel",
-        "categories": ["TRAVEL_GENERAL", "TRAVEL_HOTELS", "TRAVEL_AIRLINES"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
-      },
-      {
-        "rule_id": "3x_gas",
-        "categories": ["GAS_STATIONS"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
-      },
-      {
-        "rule_id": "3x_transit",
-        "categories": ["TRANSIT"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
-      },
-      {
-        "rule_id": "3x_streaming",
-        "categories": ["STREAMING"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
-      },
-      {
-        "rule_id": "3x_phone",
-        "categories": ["PHONE_WIRELESS"],
-        "earn_rate": 3.0,
+        "categories": [
+          "DINING",
+          "TRAVEL_GENERAL",
+          "GAS_STATIONS",
+          "TRANSIT",
+          "STREAMING",
+          "PHONE_WIRELESS"
+        ],
+        "earn_rate": 3,
         "earn_type": "points_multiplier",
-        "notes": "3x on phone plan payments"
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.313Z"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "points_multiplier"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.313Z"
       }
     ]
   },
@@ -704,31 +758,132 @@
     "network": "visa",
     "reward_unit": "points_multiplier",
     "reward_currency": "Points",
-    "base_earn_rate": 1.0,
+    "base_earn_rate": 1,
     "reward_rules": [
       {
-        "rule_id": "4x_hotels",
-        "categories": ["TRAVEL_HOTELS"],
-        "earn_rate": 4.0,
-        "earn_type": "points_multiplier"
+        "rule_id": "5x_travel_hotels",
+        "categories": [
+          "TRAVEL_HOTELS"
+        ],
+        "earn_rate": 5,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.313Z"
       },
       {
-        "rule_id": "3x_airlines",
-        "categories": ["TRAVEL_AIRLINES"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
+        "rule_id": "4x_travel_airlines",
+        "categories": [
+          "TRAVEL_AIRLINES"
+        ],
+        "earn_rate": 4,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.313Z"
       },
       {
-        "rule_id": "3x_dining",
-        "categories": ["DINING"],
-        "earn_rate": 3.0,
-        "earn_type": "points_multiplier"
+        "rule_id": "3x_travel_general",
+        "categories": [
+          "TRAVEL_GENERAL",
+          "DINING"
+        ],
+        "earn_rate": 3,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.313Z"
       },
       {
         "rule_id": "base_1x",
-        "categories": ["GENERAL"],
-        "earn_rate": 1.0,
-        "earn_type": "points_multiplier"
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "points_multiplier",
+        "source_url": "https://www.nerdwallet.com/credit-cards/best/travel",
+        "source_last_verified": "2026-04-28T13:10:51.313Z"
+      }
+    ]
+  },
+  {
+    "id": "citi_custom_cash",
+    "issuer_id": "citi",
+    "name": "Citi Custom Cash",
+    "network": "mastercard",
+    "reward_unit": "cashback_percent",
+    "reward_currency": "cashback",
+    "base_earn_rate": 1,
+    "reward_rules": [
+      {
+        "rule_id": "5x_top_category",
+        "categories": [
+          "DINING",
+          "GROCERY",
+          "GAS_STATIONS",
+          "TRANSIT",
+          "STREAMING",
+          "DRUGSTORES",
+          "HOME_IMPROVEMENT",
+          "DEPARTMENT_STORES",
+          "FITNESS",
+          "ENTERTAINMENT"
+        ],
+        "earn_rate": 5,
+        "earn_type": "cashback_percent",
+        "spend_limit_amount": 500,
+        "spend_limit_reset_period": "monthly",
+        "notes": "5% on top eligible spend category each billing cycle, up to $500. Automatically applies to whichever eligible category you spend the most in.",
+        "source_url": "https://www.citi.com/credit-cards/citi-custom-cash-credit-card",
+        "source_last_verified": "2026-04-28T00:00:00.000Z"
+      },
+      {
+        "rule_id": "base_1x",
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.citi.com/credit-cards/citi-custom-cash-credit-card",
+        "source_last_verified": "2026-04-28T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "discover_it_cash_back",
+    "issuer_id": "discover",
+    "name": "Discover it Cash Back",
+    "network": "discover",
+    "reward_unit": "cashback_percent",
+    "reward_currency": "cashback",
+    "base_earn_rate": 1,
+    "reward_rules": [
+      {
+        "rule_id": "5x_quarterly_rotating",
+        "categories": [
+          "GROCERY",
+          "GAS_STATIONS",
+          "DINING",
+          "DEPARTMENT_STORES",
+          "ENTERTAINMENT",
+          "HOME_IMPROVEMENT",
+          "TRANSIT"
+        ],
+        "earn_rate": 5,
+        "earn_type": "cashback_percent",
+        "spend_limit_amount": 1500,
+        "spend_limit_reset_period": "quarterly",
+        "quarterly_rotating": true,
+        "notes": "5% on quarterly rotating categories (activation required). Common categories include groceries, gas, restaurants, department stores, Amazon, PayPal.",
+        "source_url": "https://www.discover.com/credit-cards/cash-back/it-card.html",
+        "source_last_verified": "2026-04-28T00:00:00.000Z"
+      },
+      {
+        "rule_id": "base_1x",
+        "categories": [
+          "GENERAL"
+        ],
+        "earn_rate": 1,
+        "earn_type": "cashback_percent",
+        "source_url": "https://www.discover.com/credit-cards/cash-back/it-card.html",
+        "source_last_verified": "2026-04-28T00:00:00.000Z"
       }
     ]
   }

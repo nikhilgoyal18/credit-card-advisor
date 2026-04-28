@@ -4,7 +4,8 @@
   "description": "Daily refresh of credit card reward rates from official sources",
   "type": "module",
   "scripts": {
-    "refresh": "tsx refresh-rewards.ts"
+    "refresh": "tsx refresh-rewards.ts",
+    "scrape": "tsx scrape-rewards.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.43.4"
