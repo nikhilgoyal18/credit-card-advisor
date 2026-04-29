@@ -202,9 +202,12 @@ export async function POST(request: NextRequest) {
     }
     if (unmatchedMap.size > 0) {
       import('@/lib/supabase/service').then(({ createServiceClient }) => {
-        createServiceClient()
-          .rpc('upsert_discovered_merchants', { rows: JSON.stringify([...unmatchedMap.values()]) })
-          .then(() => {}).catch(() => {});
+        void (async () => {
+          try {
+            await createServiceClient()
+              .rpc('upsert_discovered_merchants', { rows: JSON.stringify([...unmatchedMap.values()]) });
+          } catch { /* non-critical */ }
+        })();
       }).catch(() => {});
     }
 
