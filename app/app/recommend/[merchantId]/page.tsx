@@ -32,8 +32,11 @@ export default function RecommendPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const supabase = createClient();
-  const merchantId = params.merchantId as string;
+  const merchantId = decodeURIComponent(params.merchantId as string);
   const isHistoric = searchParams.get('historic') === 'true';
+  const osmCategory = searchParams.get('category');
+  const osmName = searchParams.get('name');
+  const isOsm = merchantId.startsWith('osm:');
 
   const [recommendations, setRecommendations] = useState<RecommendationResponse | null>(null);
   const [historicDate, setHistoricDate] = useState<string | null>(null);
@@ -103,10 +106,13 @@ export default function RecommendPage() {
         }
 
         // Fresh recommendation — call the API (also logs to recommendations table)
+        const body = isOsm && osmCategory
+          ? { category: osmCategory }
+          : { merchant_id: merchantId };
         const response = await fetch('/api/recommend', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ merchant_id: merchantId }),
+          body: JSON.stringify(body),
         });
 
         if (!response.ok) {
@@ -199,7 +205,7 @@ export default function RecommendPage() {
           <button onClick={() => router.back()} className="text-gray-600 hover:text-gray-900">
             ← Back
           </button>
-          <h1 className="text-xl font-bold text-gray-900 flex-1 truncate">{merchant.canonical_name}</h1>
+          <h1 className="text-xl font-bold text-gray-900 flex-1 truncate">{osmName ?? merchant.canonical_name}</h1>
         </div>
       </header>
 
@@ -214,6 +220,16 @@ export default function RecommendPage() {
           </div>
         ) : (
           <>
+            {/* OSM category notice */}
+            {isOsm && osmCategory && (
+              <div className="mb-5 bg-indigo-50 border border-indigo-100 rounded-xl px-4 py-3">
+                <p className="text-xs text-indigo-700 leading-snug">
+                  <span className="font-semibold">{osmName}</span> isn't in our merchant database yet.
+                  Showing best card for <span className="font-semibold">{osmCategory.replace(/_/g, ' ').toLowerCase()}</span> — rewards may vary by exact merchant.
+                </p>
+              </div>
+            )}
+
             {/* Historic view notice */}
             {isHistoric && historicDate && (
               <div className="mb-5 flex items-center justify-between gap-3 bg-amber-50 border border-amber-100 rounded-xl px-4 py-3">

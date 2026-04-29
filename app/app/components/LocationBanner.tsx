@@ -82,13 +82,14 @@ export function LocationBanner({ merchants, onDismiss, onSelect }: LocationBanne
               <ChevronRightIcon className="h-4 w-4 text-gray-200 group-hover:text-indigo-400 transition-colors flex-shrink-0" />
             </button>
           ) : (
-            <div
+            <button
               key={m.id}
-              className="flex items-center gap-3 px-4 py-3.5"
+              onClick={() => onSelect(m.id)}
+              className="w-full flex items-center gap-3 px-4 py-3.5 hover:bg-gray-50 transition-colors text-left group"
             >
               <div className="w-2 h-2 rounded-full flex-shrink-0 mt-0.5 bg-gray-200" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-600 leading-tight">{m.canonical_name}</p>
+                <p className="text-sm font-medium text-gray-600 group-hover:text-gray-900 leading-tight">{m.canonical_name}</p>
                 {m.category_estimate ? (
                   <p className="text-xs mt-0.5">
                     <span className="text-indigo-500 font-semibold">
@@ -104,13 +105,14 @@ export function LocationBanner({ merchants, onDismiss, onSelect }: LocationBanne
                   <p className="text-xs text-gray-400 mt-0.5">No reward data</p>
                 )}
               </div>
-            </div>
+              <ChevronRightIcon className="h-4 w-4 text-gray-200 group-hover:text-gray-400 transition-colors flex-shrink-0" />
+            </button>
           )
         )}
       </div>
 
-      {/* Overflow — only reward-matched merchants shown as chips */}
-      {overflowWithRewards.length > 0 && (
+      {/* Overflow — show when there are extra merchants of either type */}
+      {(overflowWithRewards.length > 0 || overflowOsmTop.length > 0) && (
         expanded ? (
           <div className="border-t border-gray-50 px-4 py-3 flex flex-wrap gap-2">
             {overflowWithRewards.map((m) => (
@@ -124,13 +126,16 @@ export function LocationBanner({ merchants, onDismiss, onSelect }: LocationBanne
             ))}
             {overflowOsmTop.length > 0 && (
               <>
-                <div className="w-full mt-1 mb-0.5">
-                  <p className="text-xs text-gray-400 font-medium">Also nearby — estimated rewards:</p>
-                </div>
+                {overflowWithRewards.length > 0 && (
+                  <div className="w-full mt-1 mb-0.5">
+                    <p className="text-xs text-gray-400 font-medium">Also nearby — estimated rewards:</p>
+                  </div>
+                )}
                 {overflowOsmTop.map((m) => (
-                  <span
+                  <button
                     key={m.id}
-                    className="text-xs px-3 py-1 rounded-full border border-gray-100 text-gray-500 bg-gray-50 cursor-default"
+                    onClick={() => onSelect(m.id)}
+                    className="text-xs px-3 py-1 rounded-full border border-gray-100 text-gray-600 bg-gray-50 hover:bg-gray-100 hover:border-gray-200 transition-colors"
                     title={m.category_estimate
                       ? `Est. ${m.category_estimate.earn_type === 'cashback_percent' ? m.category_estimate.best_rate + '%' : m.category_estimate.best_rate + 'x'} with ${m.category_estimate.card_name}`
                       : 'No reward data'}
@@ -143,7 +148,7 @@ export function LocationBanner({ merchants, onDismiss, onSelect }: LocationBanne
                           : `${m.category_estimate.best_rate}x`}
                       </span>
                     )}
-                  </span>
+                  </button>
                 ))}
                 {overflowOsmHidden > 0 && (
                   <span className="w-full text-xs text-gray-400 mt-1">
@@ -158,7 +163,9 @@ export function LocationBanner({ merchants, onDismiss, onSelect }: LocationBanne
             onClick={() => setExpanded(true)}
             className="w-full py-3 text-xs font-semibold text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50/60 transition-colors border-t border-gray-50"
           >
-            +{overflowWithRewards.length} more with rewards nearby
+            {overflowWithRewards.length > 0
+              ? `+${overflowWithRewards.length} more with rewards · ${overflowOsmTop.length + overflowOsmHidden} others nearby`
+              : `+${overflowOsmTop.length + overflowOsmHidden} more nearby`}
           </button>
         )
       )}

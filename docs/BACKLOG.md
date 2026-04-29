@@ -52,6 +52,13 @@ Status tracking for features built, in progress, and deferred. Updated as develo
 |---------|--------|-------|
 | Connect GitHub to Claude Code | `[ BACKLOG ]` | Needed so the quarterly Chase Freedom Flex cron (trig_01XbXU9pTcjrkaUNxDYmhPMg) can commit category updates automatically. Run `! /web-setup` or install GitHub App at https://claude.ai/code/onboarding?magic=github-app-setup |
 
+## Pending Items — Added 2026-04-29
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| All grey merchants always tappable | `[ BACKLOG ]` | Add `inferred_category` field to `NearbyMerchantResult` (set from `osmTagToCategory` in nearby-match API). In `handleNearbySelect` always navigate to recommend page using `category_estimate?.category ?? inferred_category ?? 'GENERAL'` — remove search-prefill fallback. Every grey merchant goes to recommend page regardless of whether user has cards. Files: `schemas.ts`, `nearby-match/route.ts`, `page.tsx` |
+| Commit & deploy pending local changes | `[ BACKLOG ]` | Several local changes not yet committed: LocationBanner grey merchants now clickable buttons, recommend page OSM category notice, `handleNearbySelect` navigates with category for grey merchants, `discoveries-pending.json` (62 new chain merchants to merge into merchants.json). Run `refresh-rewards.ts` after merging. |
+
 ## Future Enhancements (Backlog)
 
 | Feature | Status | Notes |

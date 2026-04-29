@@ -176,6 +176,13 @@ const router = useRouter();
     if (!merchant) return;
     if (merchant.has_rewards) {
       router.push(`/recommend/${merchantId}`);
+    } else if (merchant.category_estimate) {
+      // OSM-only merchant — use inferred category for full recommendation
+      const params = new URLSearchParams({
+        category: merchant.category_estimate.category,
+        name: merchant.canonical_name,
+      });
+      router.push(`/recommend/${encodeURIComponent(merchantId)}?${params}`);
     } else {
       setLocationState('dismissed');
       setNearbyMerchants([]);
