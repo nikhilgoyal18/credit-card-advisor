@@ -474,6 +474,7 @@ const router = useRouter();
               <div className="mb-5 rounded-2xl border border-red-100 bg-red-50 px-4 py-3.5 text-center">
                 <p className="text-sm font-medium text-red-600">Couldn't access location</p>
                 <p className="text-xs text-red-400 mt-0.5">Try searching above instead</p>
+                {debugInfo && <p className="text-xs text-red-300 mt-1 font-mono break-all">{debugInfo}</p>}
               </div>
             )}
 
