@@ -232,7 +232,9 @@ out center tags ${resultCap};`.trim();
         } catch { /* try next server */ }
       }
 
-      if (!osm) { setDebugInfo('OSM unavailable'); setLocationState('error'); return; }
+      if (!osm) { setDebugInfo(`OSM unavailable | coords: ${lat.toFixed(4)},${lng.toFixed(4)} bbox: ${bbox}`); setLocationState('error'); return; }
+
+      setDebugInfo(`coords: ${lat.toFixed(4)},${lng.toFixed(4)} | bbox: ${bbox} | elements: ${osm.elements?.length ?? 0}`);
 
       const NON_COMMERCIAL = new Set(['parking','bench','waste_basket','toilets','drinking_water',
         'street_lamp','post_box','bus_stop','bus_station','place_of_worship','school','college',
@@ -254,7 +256,7 @@ out center tags ${resultCap};`.trim();
         osmMerchants.push({ name, category: tags['amenity'] ?? tags['shop'] });
       }
 
-      setDebugInfo(`OSM: ${osm.elements?.length ?? 0} elements → ${osmMerchants.length} named`);
+      setDebugInfo(prev => `${prev} | named: ${osmMerchants.length}`);
       if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
 
       const matchRes = await fetch('/api/merchants/nearby-match', {
