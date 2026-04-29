@@ -203,28 +203,15 @@ const router = useRouter();
 
   const runNearbySearch = async (lat: number, lng: number, radius: number) => {
     setLocationState('loading');
+    setDebugInfo(`📍 ${lat.toFixed(5)},${lng.toFixed(5)} r=${radius}m`);
     try {
       const latDelta = radius / 111320;
       const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
       const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
 
-      const overpassTimeout = radius <= 1000 ? 20 : radius <= 5000 ? 30 : 40;
+      const overpassTimeout = radius <= 1000 ? 25 : radius <= 5000 ? 35 : 45;
       const resultCap = radius <= 500 ? 400 : radius <= 2000 ? 800 : 2000;
-      const overpassQuery = `
-[out:json][timeout:${overpassTimeout}][bbox:${bbox}];
-(
-  node["shop"];
-  node["amenity"];
-  node["brand"];
-  way["shop"];
-  way["amenity"];
-  way["brand"];
-  node["tourism"="hotel"];
-  node["tourism"="motel"];
-  node["leisure"="bowling_alley"];
-  node["leisure"="cinema"];
-);
-out center tags ${resultCap};`.trim();
+      const overpassQuery = `[out:json][timeout:${overpassTimeout}];(node["shop"](${bbox});node["amenity"](${bbox});node["brand"](${bbox});way["shop"](${bbox});way["amenity"](${bbox});node["tourism"~"hotel|motel"](${bbox});node["leisure"~"bowling_alley|cinema"](${bbox}););out center tags ${resultCap};`;
 
       const OVERPASS_SERVERS = [
         'https://overpass-api.de/api/interpreter',
@@ -233,9 +220,10 @@ out center tags ${resultCap};`.trim();
       ];
 
       const controller = new AbortController();
-      const fetchTimer = setTimeout(() => controller.abort(), (overpassTimeout + 10) * 1000);
+      const fetchTimer = setTimeout(() => controller.abort(), (overpassTimeout + 15) * 1000);
 
-      let osm: { elements?: { tags?: Record<string, string> }[] } | null = null;
+      let osm: { elements?: { tags?: Record<string, string> }[]; remark?: string } | null = null;
+      let respondingServer = '';
       for (const server of OVERPASS_SERVERS) {
         try {
           const r = await fetch(server, {
@@ -244,7 +232,7 @@ out center tags ${resultCap};`.trim();
             body: `data=${encodeURIComponent(overpassQuery)}`,
             signal: controller.signal,
           });
-          if (r.ok) { osm = await r.json(); break; }
+          if (r.ok) { osm = await r.json(); respondingServer = new URL(server).hostname; break; }
         } catch (e) {
           if (e instanceof Error && e.name === 'AbortError') break;
           /* try next server */
@@ -253,7 +241,13 @@ out center tags ${resultCap};`.trim();
 
       clearTimeout(fetchTimer);
 
-      if (!osm) { setDebugInfo('OSM unavailable'); setLocationState('error'); return; }
+      if (!osm) { setDebugInfo(`OSM unavailable | ${lat.toFixed(4)},${lng.toFixed(4)}`); setLocationState('error'); return; }
+
+      if (osm.remark) {
+        setDebugInfo(`Overpass error: ${osm.remark.slice(0, 120)}`);
+        setLocationState('error');
+        return;
+      }
 
       const NON_COMMERCIAL = new Set(['parking','bench','waste_basket','toilets','drinking_water',
         'street_lamp','post_box','bus_stop','bus_station','place_of_worship','school','college',
@@ -275,7 +269,7 @@ out center tags ${resultCap};`.trim();
         osmMerchants.push({ name, category: tags['amenity'] ?? tags['shop'] });
       }
 
-      setDebugInfo(`${osm.elements?.length ?? 0} nearby places found`);
+      setDebugInfo(`${osm.elements?.length ?? 0} OSM elements via ${respondingServer}`);
       if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
 
       const matchRes = await fetch('/api/merchants/nearby-match', {
