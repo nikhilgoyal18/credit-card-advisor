@@ -193,23 +193,79 @@ const router = useRouter();
   const runNearbySearch = async (lat: number, lng: number, radius: number) => {
     setLocationState('loading');
     try {
-      const res = await fetch(`/api/merchants/nearby?lat=${lat}&lng=${lng}&radius=${radius}`);
-      if (!res.ok) { setDebugInfo(`Nearby API ${res.status}`); setLocationState('error'); return; }
-      const data = await res.json();
+      const latDelta = radius / 111320;
+      const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
+      const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
 
-      if (data.error === 'overpass_unavailable') {
-        setDebugInfo('OSM unavailable — try again later');
-        setLocationState('error');
-        return;
-      }
-      if (data.timed_out) {
-        setDebugInfo('OSM timed out');
-        setLocationState('timed_out');
-        return;
+      const resultCap = radius <= 500 ? 400 : radius <= 2000 ? 800 : 2000;
+      const overpassQuery = `
+[out:json][timeout:20][bbox:${bbox}];
+(
+  node["shop"];
+  node["amenity"];
+  node["brand"];
+  way["shop"];
+  way["amenity"];
+  way["brand"];
+  node["tourism"="hotel"];
+  node["tourism"="motel"];
+  node["leisure"="bowling_alley"];
+  node["leisure"="cinema"];
+);
+out center tags ${resultCap};`.trim();
+
+      const OVERPASS_SERVERS = [
+        'https://overpass-api.de/api/interpreter',
+        'https://overpass.kumi.systems/api/interpreter',
+        'https://overpass.openstreetmap.ru/api/interpreter',
+      ];
+
+      let osm: { elements?: { tags?: Record<string, string> }[] } | null = null;
+      for (const server of OVERPASS_SERVERS) {
+        try {
+          const r = await fetch(server, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `data=${encodeURIComponent(overpassQuery)}`,
+          });
+          if (r.ok) { osm = await r.json(); break; }
+        } catch { /* try next server */ }
       }
 
+      if (!osm) { setDebugInfo('OSM unavailable'); setLocationState('error'); return; }
+
+      const NON_COMMERCIAL = new Set(['parking','bench','waste_basket','toilets','drinking_water',
+        'street_lamp','post_box','bus_stop','bus_station','place_of_worship','school','college',
+        'university','kindergarten','library','community_centre','police','fire_station',
+        'hospital','clinic','charging_station','grave_yard','recycling']);
+
+      const seen = new Set<string>();
+      const osmMerchants: { name: string; category?: string }[] = [];
+      for (const el of osm.elements ?? []) {
+        const tags = el.tags;
+        if (!tags) continue;
+        if (tags['amenity'] && NON_COMMERCIAL.has(tags['amenity'])) continue;
+        if (tags['shop'] === 'vacant' || tags['shop'] === 'no') continue;
+        const name = tags['brand'] ?? tags['name'] ?? tags['operator'];
+        if (!name) continue;
+        const key = name.toLowerCase().trim();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        osmMerchants.push({ name, category: tags['amenity'] ?? tags['shop'] });
+      }
+
+      setDebugInfo(`OSM: ${osm.elements?.length ?? 0} elements → ${osmMerchants.length} named`);
+      if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
+
+      const matchRes = await fetch('/api/merchants/nearby-match', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ merchants: osmMerchants.slice(0, 80) }),
+      });
+      if (!matchRes.ok) { setDebugInfo(prev => `${prev} | match API ${matchRes.status}`); setLocationState('error'); return; }
+      const data = await matchRes.json();
       const merchants = data.data ?? [];
-      setDebugInfo(`Found: ${merchants.length} merchants`);
+      setDebugInfo(prev => `${prev} → ${merchants.length} matched`);
       setNearbyMerchants(merchants);
       setLocationState(merchants.length > 0 ? 'done' : 'no_match');
       if (merchants.length > 0) {
