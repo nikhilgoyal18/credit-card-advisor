@@ -186,6 +186,28 @@ export async function POST(request: NextRequest) {
       return (b.category_estimate?.best_rate ?? 0) - (a.category_estimate?.best_rate ?? 0);
     });
 
+    // Queue unmatched merchants for later AI classification — fire-and-forget
+    const unmatchedMap = new Map<string, { osm_name: string; normalized_name: string; osm_category: string | null }>();
+    for (const osm of osmMerchants) {
+      if (!claimedIds.has(osm.name.toLowerCase().trim())) {
+        const norm = osm.name.toLowerCase().trim();
+        if (!unmatchedMap.has(norm)) {
+          unmatchedMap.set(norm, {
+            osm_name: osm.name,
+            normalized_name: norm,
+            osm_category: osm.category ?? null,
+          });
+        }
+      }
+    }
+    if (unmatchedMap.size > 0) {
+      import('@/lib/supabase/service').then(({ createServiceClient }) => {
+        createServiceClient()
+          .rpc('upsert_discovered_merchants', { rows: JSON.stringify([...unmatchedMap.values()]) })
+          .then(() => {}).catch(() => {});
+      }).catch(() => {});
+    }
+
     return NextResponse.json({ data: results, count: results.length });
   } catch (error) {
     console.error('nearby-match error:', error);
