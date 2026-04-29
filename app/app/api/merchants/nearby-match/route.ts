@@ -84,7 +84,7 @@ const BodySchema = z.object({
   merchants: z.array(z.object({
     name: z.string(),
     category: z.string().optional(),
-  })).max(500),
+  })).max(2000),
 });
 
 export async function POST(request: NextRequest) {

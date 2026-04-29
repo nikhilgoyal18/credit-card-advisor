@@ -184,7 +184,7 @@ export const RecentVisitSchema = z.object({
   merchant_id: z.string(),
   canonical_name: z.string(),
   card_name: z.string(),
-  effective_rate: z.number(),
+  earn_rate: z.number(),
   earn_type: EarnTypeEnum,
   visited_at: z.string(),
 });

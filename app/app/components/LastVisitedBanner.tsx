@@ -59,7 +59,7 @@ export function LastVisitedBanner({ visits, onDismiss, onSelect }: LastVisitedBa
             </div>
 
             <span className="flex-shrink-0 px-2 py-0.5 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-100">
-              {formatRate(visit.effective_rate, visit.earn_type)}
+              {formatRate(visit.earn_rate, visit.earn_type)}
             </span>
 
             <span className="flex-shrink-0 text-xs text-gray-300 w-12 text-right">

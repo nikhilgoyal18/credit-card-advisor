@@ -90,14 +90,18 @@ const router = useRouter();
           const nameMap = new Map(merchantData.map((m) => [m.id, m.canonical_name]));
           const deduped: RecentVisit[] = dedupedRows
             .filter((r) => nameMap.has(r.merchant_id))
-            .map((r) => ({
-              merchant_id: r.merchant_id,
-              canonical_name: nameMap.get(r.merchant_id)!,
-              card_name: r.explanation.split(' earns ')[0],
-              effective_rate: r.effective_rate,
-              earn_type: r.earn_type,
-              visited_at: r.created_at,
-            }));
+            .map((r) => {
+              const match = r.explanation.match(/earns (\d+\.?\d*)(x|%)/);
+              const earn_rate = match ? parseFloat(match[1]) : r.effective_rate;
+              return {
+                merchant_id: r.merchant_id,
+                canonical_name: nameMap.get(r.merchant_id)!,
+                card_name: r.explanation.split(' earns ')[0],
+                earn_rate,
+                earn_type: r.earn_type,
+                visited_at: r.created_at,
+              };
+            });
           setRecentVisits(deduped);
         }
       }
@@ -197,9 +201,10 @@ const router = useRouter();
       const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
       const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
 
+      const overpassTimeout = radius <= 1000 ? 20 : radius <= 5000 ? 30 : 40;
       const resultCap = radius <= 500 ? 400 : radius <= 2000 ? 800 : 2000;
       const overpassQuery = `
-[out:json][timeout:20][bbox:${bbox}];
+[out:json][timeout:${overpassTimeout}][bbox:${bbox}];
 (
   node["shop"];
   node["amenity"];
@@ -220,6 +225,9 @@ out center tags ${resultCap};`.trim();
         'https://overpass.openstreetmap.ru/api/interpreter',
       ];
 
+      const controller = new AbortController();
+      const fetchTimer = setTimeout(() => controller.abort(), (overpassTimeout + 10) * 1000);
+
       let osm: { elements?: { tags?: Record<string, string> }[] } | null = null;
       for (const server of OVERPASS_SERVERS) {
         try {
@@ -227,10 +235,16 @@ out center tags ${resultCap};`.trim();
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `data=${encodeURIComponent(overpassQuery)}`,
+            signal: controller.signal,
           });
           if (r.ok) { osm = await r.json(); break; }
-        } catch { /* try next server */ }
+        } catch (e) {
+          if (e instanceof Error && e.name === 'AbortError') break;
+          /* try next server */
+        }
       }
+
+      clearTimeout(fetchTimer);
 
       if (!osm) { setDebugInfo('OSM unavailable'); setLocationState('error'); return; }
 
