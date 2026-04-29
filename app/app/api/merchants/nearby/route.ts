@@ -293,7 +293,10 @@ out center tags ${resultCap};
         try {
           const r = await fetch(server, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'User-Agent': 'CardAdvisor/1.0 (credit card rewards advisor; contact@cardadvisor.app)',
+            },
             body: `data=${encodeURIComponent(overpassQuery)}`,
             signal: controller.signal,
           });
