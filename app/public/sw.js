@@ -1,15 +1,7 @@
-const CACHE = 'card-advisor-v7';
-
-const PRECACHE = [
-  '/',
-  '/login',
-  '/wallet',
-];
+const CACHE = 'card-advisor-v8';
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting())
-  );
+  e.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener('activate', (e) => {
@@ -23,7 +15,7 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
 
-  // Network-first for API calls — always try to get fresh data
+  // Network-first for API calls
   if (url.pathname.startsWith('/api/')) {
     e.respondWith(
       fetch(e.request).catch(() => new Response(JSON.stringify({ error: 'Offline' }), {
@@ -33,7 +25,15 @@ self.addEventListener('fetch', (e) => {
     return;
   }
 
-  // Cache-first for everything else (app shell, assets)
+  // Network-first for HTML navigation — ensures page code is always fresh
+  if (e.request.mode === 'navigate') {
+    e.respondWith(
+      fetch(e.request).catch(() => caches.match(e.request))
+    );
+    return;
+  }
+
+  // Cache-first for static assets (JS, CSS, images)
   e.respondWith(
     caches.match(e.request).then((cached) => {
       if (cached) return cached;
