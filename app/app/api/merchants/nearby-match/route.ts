@@ -205,7 +205,7 @@ export async function POST(request: NextRequest) {
         void (async () => {
           try {
             const { error } = await createServiceClient()
-              .rpc('upsert_discovered_merchants', { rows: JSON.stringify([...unmatchedMap.values()]) });
+              .rpc('upsert_discovered_merchants', { rows: [...unmatchedMap.values()] });
             if (error) console.error('[discovery-queue] RPC error:', error.message);
             else console.log(`[discovery-queue] queued ${unmatchedMap.size} merchants`);
           } catch (e) {
