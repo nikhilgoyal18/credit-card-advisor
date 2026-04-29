@@ -146,7 +146,8 @@ export async function POST(request: NextRequest) {
     }
 
     const results: object[] = [];
-    const claimedIds = new Set<string>();
+    const claimedDbIds = new Set<string>();
+    const matchedOsmNames = new Set<string>(); // track which OSM names got a DB match
 
     for (const osm of osmMerchants) {
       let bestMatch: (typeof dbMerchants)[0] | null = null;
@@ -157,8 +158,9 @@ export async function POST(request: NextRequest) {
         if (score > bestScore) { bestScore = score; bestMatch = db; }
       }
 
-      if (bestMatch && bestScore >= MATCH_THRESHOLD && !claimedIds.has(bestMatch.id)) {
-        claimedIds.add(bestMatch.id);
+      if (bestMatch && bestScore >= MATCH_THRESHOLD && !claimedDbIds.has(bestMatch.id)) {
+        claimedDbIds.add(bestMatch.id);
+        matchedOsmNames.add(osm.name.toLowerCase().trim());
         results.push({
           id: bestMatch.id,
           canonical_name: bestMatch.canonical_name,
@@ -189,26 +191,28 @@ export async function POST(request: NextRequest) {
     // Queue unmatched merchants for later AI classification — fire-and-forget
     const unmatchedMap = new Map<string, { osm_name: string; normalized_name: string; osm_category: string | null }>();
     for (const osm of osmMerchants) {
-      if (!claimedIds.has(osm.name.toLowerCase().trim())) {
-        const norm = osm.name.toLowerCase().trim();
-        if (!unmatchedMap.has(norm)) {
-          unmatchedMap.set(norm, {
-            osm_name: osm.name,
-            normalized_name: norm,
-            osm_category: osm.category ?? null,
-          });
-        }
+      const norm = osm.name.toLowerCase().trim();
+      if (!matchedOsmNames.has(norm) && !unmatchedMap.has(norm)) {
+        unmatchedMap.set(norm, {
+          osm_name: osm.name,
+          normalized_name: norm,
+          osm_category: osm.category ?? null,
+        });
       }
     }
     if (unmatchedMap.size > 0) {
       import('@/lib/supabase/service').then(({ createServiceClient }) => {
         void (async () => {
           try {
-            await createServiceClient()
+            const { error } = await createServiceClient()
               .rpc('upsert_discovered_merchants', { rows: JSON.stringify([...unmatchedMap.values()]) });
-          } catch { /* non-critical */ }
+            if (error) console.error('[discovery-queue] RPC error:', error.message);
+            else console.log(`[discovery-queue] queued ${unmatchedMap.size} merchants`);
+          } catch (e) {
+            console.error('[discovery-queue] failed:', e);
+          }
         })();
-      }).catch(() => {});
+      }).catch((e) => console.error('[discovery-queue] import failed:', e));
     }
 
     return NextResponse.json({ data: results, count: results.length });
