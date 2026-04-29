@@ -232,9 +232,7 @@ out center tags ${resultCap};`.trim();
         } catch { /* try next server */ }
       }
 
-      if (!osm) { setDebugInfo(`OSM unavailable | coords: ${lat.toFixed(4)},${lng.toFixed(4)} bbox: ${bbox}`); setLocationState('error'); return; }
-
-      setDebugInfo(`coords: ${lat.toFixed(4)},${lng.toFixed(4)} | bbox: ${bbox} | elements: ${osm.elements?.length ?? 0}`);
+      if (!osm) { setDebugInfo('OSM unavailable'); setLocationState('error'); return; }
 
       const NON_COMMERCIAL = new Set(['parking','bench','waste_basket','toilets','drinking_water',
         'street_lamp','post_box','bus_stop','bus_station','place_of_worship','school','college',
@@ -256,18 +254,18 @@ out center tags ${resultCap};`.trim();
         osmMerchants.push({ name, category: tags['amenity'] ?? tags['shop'] });
       }
 
-      setDebugInfo(prev => `${prev} | named: ${osmMerchants.length}`);
+      setDebugInfo(`${osm.elements?.length ?? 0} nearby places found`);
       if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
 
       const matchRes = await fetch('/api/merchants/nearby-match', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ merchants: osmMerchants.slice(0, 80) }),
+        body: JSON.stringify({ merchants: osmMerchants }),
       });
       if (!matchRes.ok) { setDebugInfo(prev => `${prev} | match API ${matchRes.status}`); setLocationState('error'); return; }
       const data = await matchRes.json();
       const merchants = data.data ?? [];
-      setDebugInfo(prev => `${prev} → ${merchants.length} matched`);
+      setDebugInfo(`${merchants.length} merchants nearby`);
       setNearbyMerchants(merchants);
       setLocationState(merchants.length > 0 ? 'done' : 'no_match');
       if (merchants.length > 0) {
@@ -532,7 +530,6 @@ out center tags ${resultCap};`.trim();
               <div className="mb-5 rounded-2xl border border-red-100 bg-red-50 px-4 py-3.5 text-center">
                 <p className="text-sm font-medium text-red-600">Couldn't access location</p>
                 <p className="text-xs text-red-400 mt-0.5">Try searching above instead</p>
-                {debugInfo && <p className="text-xs text-red-300 mt-1 font-mono break-all">{debugInfo}</p>}
               </div>
             )}
 
