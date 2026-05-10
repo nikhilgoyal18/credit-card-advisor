@@ -205,15 +205,73 @@ const router = useRouter();
     setLocationState('loading');
     setDebugInfo(`📍 ${lat.toFixed(5)},${lng.toFixed(5)}`);
     try {
-      const params = new URLSearchParams({ lat: String(lat), lng: String(lng), radius: String(radius) });
-      const res = await fetch(`/api/merchants/nearby?${params}`);
-      if (!res.ok) {
-        setDebugInfo(`API error ${res.status}`);
-        setLocationState('error');
-        return;
+      // Query Overpass from the browser — browser IP and User-Agent are never
+      // blocked by public Overpass servers (unlike server-side AWS/Vercel IPs).
+      const latDelta = radius / 111320;
+      const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
+      const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
+      const overpassTimeout = radius <= 1000 ? 20 : radius <= 5000 ? 30 : 40;
+      const resultCap = radius <= 500 ? 400 : radius <= 2000 ? 800 : 2000;
+      const overpassQuery = `[out:json][timeout:${overpassTimeout}][bbox:${bbox}];(node["shop"];node["amenity"];node["brand"];way["shop"];way["amenity"];node["tourism"="hotel"];node["tourism"="motel"];node["leisure"="bowling_alley"];node["leisure"="cinema"];);out center tags ${resultCap};`;
+
+      const OVERPASS_SERVERS = [
+        'https://overpass-api.de/api/interpreter',
+        'https://overpass.kumi.systems/api/interpreter',
+        'https://overpass.openstreetmap.ru/api/interpreter',
+      ];
+
+      const controller = new AbortController();
+      const abortTimer = setTimeout(() => controller.abort(), (overpassTimeout + 15) * 1000);
+
+      let osm: { elements?: { tags?: Record<string, string> }[]; remark?: string } | null = null;
+      for (const server of OVERPASS_SERVERS) {
+        try {
+          const r = await fetch(server, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `data=${encodeURIComponent(overpassQuery)}`,
+            signal: controller.signal,
+          });
+          if (r.ok) { osm = await r.json(); break; }
+        } catch (e) {
+          if (e instanceof Error && e.name === 'AbortError') break;
+        }
       }
-      const data = await res.json();
-      if (data.timed_out) { setLocationState('timed_out'); return; }
+      clearTimeout(abortTimer);
+
+      if (!osm) { setDebugInfo('OSM unavailable'); setLocationState('error'); return; }
+      if (osm.remark) { setDebugInfo(`Overpass: ${osm.remark.slice(0, 100)}`); setLocationState('error'); return; }
+
+      const NON_COMMERCIAL = new Set(['parking','bench','waste_basket','toilets','drinking_water',
+        'street_lamp','post_box','bus_stop','bus_station','place_of_worship','school','college',
+        'university','kindergarten','library','community_centre','police','fire_station',
+        'hospital','clinic','charging_station','grave_yard','recycling']);
+
+      const seen = new Set<string>();
+      const osmMerchants: { name: string; category?: string }[] = [];
+      for (const el of osm.elements ?? []) {
+        const tags = el.tags;
+        if (!tags) continue;
+        if (tags['amenity'] && NON_COMMERCIAL.has(tags['amenity'])) continue;
+        if (tags['shop'] === 'vacant' || tags['shop'] === 'no') continue;
+        const name = tags['brand'] ?? tags['name'] ?? tags['operator'];
+        if (!name) continue;
+        const key = name.toLowerCase().trim();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        osmMerchants.push({ name, category: tags['amenity'] ?? tags['shop'] });
+      }
+
+      setDebugInfo(`${osm.elements?.length ?? 0} OSM places found`);
+      if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
+
+      const matchRes = await fetch('/api/merchants/nearby-match', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ merchants: osmMerchants }),
+      });
+      if (!matchRes.ok) { setDebugInfo(`match API ${matchRes.status}`); setLocationState('error'); return; }
+      const data = await matchRes.json();
       const merchants = data.data ?? [];
       setDebugInfo(`${merchants.length} merchants nearby`);
       setNearbyMerchants(merchants);
