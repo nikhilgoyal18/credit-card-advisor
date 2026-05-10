@@ -21,7 +21,7 @@ const router = useRouter();
   const [merchants, setMerchants] = useState<MerchantResult[]>([]);
   const [loading, setLoading] = useState(false);
 
-  type LocationState = 'idle' | 'requesting' | 'loading' | 'done' | 'no_match' | 'timed_out' | 'error' | 'dismissed';
+  type LocationState = 'idle' | 'requesting' | 'loading' | 'done' | 'no_match' | 'timed_out' | 'error' | 'osm_error' | 'dismissed';
   const [locationState, setLocationState] = useState<LocationState>('idle');
   const [nearbyMerchants, setNearbyMerchants] = useState<NearbyMerchantResult[]>([]);
   const [recentVisits, setRecentVisits] = useState<RecentVisit[]>([]);
@@ -38,6 +38,12 @@ const router = useRouter();
   const [selectedRadius, setSelectedRadius] = useState<RadiusValue>(200);
   const [lastCoords, setLastCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [debugInfo, setDebugInfo] = useState<string>('');
+  // Cache raw OSM elements in memory so radius-chip changes don't re-hit Overpass.
+  const osmCacheRef = useRef<{
+    lat: number; lng: number; radius: number;
+    elements: { tags?: Record<string, string> }[];
+    ts: number;
+  } | null>(null);
 
   // Check auth on mount; also restore any saved nearby merchants from this session.
   useEffect(() => {
@@ -205,42 +211,62 @@ const router = useRouter();
     setLocationState('loading');
     setDebugInfo(`📍 ${lat.toFixed(5)},${lng.toFixed(5)}`);
     try {
-      // Query Overpass from the browser — browser IP and User-Agent are never
-      // blocked by public Overpass servers (unlike server-side AWS/Vercel IPs).
-      const latDelta = radius / 111320;
-      const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
-      const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
-      const overpassTimeout = radius <= 1000 ? 20 : radius <= 5000 ? 30 : 40;
-      const resultCap = radius <= 500 ? 400 : radius <= 2000 ? 800 : 2000;
-      const overpassQuery = `[out:json][timeout:${overpassTimeout}][bbox:${bbox}];(node["shop"];node["amenity"];node["brand"];way["shop"];way["amenity"];node["tourism"="hotel"];node["tourism"="motel"];node["leisure"="bowling_alley"];node["leisure"="cinema"];);out center tags ${resultCap};`;
+      // Use cached OSM elements if we have a fresh fetch covering this radius
+      // (same coords, cache radius >= requested radius, fetched within 5 min).
+      // This prevents hammering Overpass when the user switches radius chips.
+      const OSM_CACHE_TTL = 5 * 60 * 1000;
+      const cache = osmCacheRef.current;
+      let elements: { tags?: Record<string, string> }[];
 
-      const OVERPASS_SERVERS = [
-        'https://overpass-api.de/api/interpreter',
-        'https://overpass.kumi.systems/api/interpreter',
-        'https://overpass.openstreetmap.ru/api/interpreter',
-      ];
+      if (
+        cache &&
+        Date.now() - cache.ts < OSM_CACHE_TTL &&
+        Math.abs(cache.lat - lat) < 0.0001 &&
+        Math.abs(cache.lng - lng) < 0.0001 &&
+        cache.radius >= radius
+      ) {
+        elements = cache.elements;
+      } else {
+        // Query Overpass from the browser — browser IP and User-Agent are never
+        // blocked by public Overpass servers (unlike server-side AWS/Vercel IPs).
+        const latDelta = radius / 111320;
+        const lngDelta = radius / (111320 * Math.cos((lat * Math.PI) / 180));
+        const bbox = `${lat - latDelta},${lng - lngDelta},${lat + latDelta},${lng + lngDelta}`;
+        const overpassTimeout = radius <= 1000 ? 20 : radius <= 5000 ? 30 : 40;
+        const resultCap = radius <= 500 ? 400 : radius <= 2000 ? 800 : 2000;
+        const overpassQuery = `[out:json][timeout:${overpassTimeout}][bbox:${bbox}];(node["shop"];node["amenity"];node["brand"];way["shop"];way["amenity"];node["tourism"="hotel"];node["tourism"="motel"];node["leisure"="bowling_alley"];node["leisure"="cinema"];);out center tags ${resultCap};`;
 
-      const controller = new AbortController();
-      const abortTimer = setTimeout(() => controller.abort(), (overpassTimeout + 15) * 1000);
+        const OVERPASS_SERVERS = [
+          'https://overpass-api.de/api/interpreter',
+          'https://overpass.kumi.systems/api/interpreter',
+          'https://overpass.openstreetmap.ru/api/interpreter',
+        ];
 
-      let osm: { elements?: { tags?: Record<string, string> }[]; remark?: string } | null = null;
-      for (const server of OVERPASS_SERVERS) {
-        try {
-          const r = await fetch(server, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `data=${encodeURIComponent(overpassQuery)}`,
-            signal: controller.signal,
-          });
-          if (r.ok) { osm = await r.json(); break; }
-        } catch (e) {
-          if (e instanceof Error && e.name === 'AbortError') break;
+        const controller = new AbortController();
+        const abortTimer = setTimeout(() => controller.abort(), (overpassTimeout + 15) * 1000);
+
+        let osm: { elements?: { tags?: Record<string, string> }[]; remark?: string } | null = null;
+        for (const server of OVERPASS_SERVERS) {
+          try {
+            const r = await fetch(server, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: `data=${encodeURIComponent(overpassQuery)}`,
+              signal: controller.signal,
+            });
+            if (r.ok) { osm = await r.json(); break; }
+          } catch (e) {
+            if (e instanceof Error && e.name === 'AbortError') break;
+          }
         }
-      }
-      clearTimeout(abortTimer);
+        clearTimeout(abortTimer);
 
-      if (!osm) { setDebugInfo('OSM unavailable'); setLocationState('error'); return; }
-      if (osm.remark) { setDebugInfo(`Overpass: ${osm.remark.slice(0, 100)}`); setLocationState('error'); return; }
+        if (!osm) { setDebugInfo('OSM busy — try again in a moment'); setLocationState('osm_error'); return; }
+        if (osm.remark) { setDebugInfo(`Overpass: ${osm.remark.slice(0, 80)}`); setLocationState('osm_error'); return; }
+
+        elements = osm.elements ?? [];
+        osmCacheRef.current = { lat, lng, radius, elements, ts: Date.now() };
+      }
 
       const NON_COMMERCIAL = new Set(['parking','bench','waste_basket','toilets','drinking_water',
         'street_lamp','post_box','bus_stop','bus_station','place_of_worship','school','college',
@@ -249,7 +275,7 @@ const router = useRouter();
 
       const seen = new Set<string>();
       const osmMerchants: { name: string; category?: string }[] = [];
-      for (const el of osm.elements ?? []) {
+      for (const el of elements) {
         const tags = el.tags;
         if (!tags) continue;
         if (tags['amenity'] && NON_COMMERCIAL.has(tags['amenity'])) continue;
@@ -262,7 +288,7 @@ const router = useRouter();
         osmMerchants.push({ name, category: tags['amenity'] ?? tags['shop'] });
       }
 
-      setDebugInfo(`${osm.elements?.length ?? 0} OSM places found`);
+      setDebugInfo(`${elements.length} OSM places found`);
       if (osmMerchants.length === 0) { setLocationState('no_match'); return; }
 
       const matchRes = await fetch('/api/merchants/nearby-match', {
@@ -385,6 +411,7 @@ const router = useRouter();
           {locationState === 'no_match' && 'No matching merchants found nearby.'}
           {locationState === 'timed_out' && 'Location scan timed out. Try a smaller radius.'}
           {locationState === 'error' && 'Could not access location'}
+          {locationState === 'osm_error' && 'Map service busy. Please try again.'}
         </div>
 
         {/* ── SEARCH RESULTS (always directly below input when searching) ── */}
@@ -439,7 +466,7 @@ const router = useRouter();
         {searchQuery.trim().length === 0 && (
           <>
             {/* Idle / dismissed / no_match / timed_out → location CTA card */}
-            {(locationState === 'idle' || locationState === 'dismissed' || locationState === 'no_match' || locationState === 'timed_out') && (
+            {(locationState === 'idle' || locationState === 'dismissed' || locationState === 'no_match' || locationState === 'timed_out' || locationState === 'osm_error') && (
               <div className="mb-5 rounded-2xl border border-dashed border-indigo-200 bg-white p-4">
                 <div className="flex items-center gap-2.5 mb-4">
                   <div className="w-8 h-8 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0">
@@ -538,6 +565,19 @@ const router = useRouter();
               <div className="mb-5 rounded-2xl border border-red-100 bg-red-50 px-4 py-3.5 text-center">
                 <p className="text-sm font-medium text-red-600">Couldn't access location</p>
                 <p className="text-xs text-red-400 mt-0.5">Try searching above instead</p>
+              </div>
+            )}
+
+            {locationState === 'osm_error' && (
+              <div className="mb-5 rounded-2xl border border-amber-100 bg-amber-50 px-4 py-3.5 text-center">
+                <p className="text-sm font-medium text-amber-700">Map service busy</p>
+                <p className="text-xs text-amber-500 mt-0.5">Wait a moment and try again</p>
+                <button
+                  onClick={handleDetectLocation}
+                  className="mt-2.5 text-xs font-semibold text-amber-700 underline underline-offset-2"
+                >
+                  Retry
+                </button>
               </div>
             )}
 
