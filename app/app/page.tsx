@@ -309,7 +309,7 @@ const router = useRouter();
         } catch { /* sessionStorage unavailable */ }
       }
     } catch {
-      setLocationState('error');
+      setLocationState('osm_error');
     }
   };
 
@@ -334,7 +334,7 @@ const router = useRouter();
         await runNearbySearch(lat, lng, radius);
       },
       () => { clearTimeout(permissionTimer); setLocationState('error'); },
-      { enableHighAccuracy: false, timeout: 10_000 }
+      { enableHighAccuracy: false, timeout: 20_000, maximumAge: 120_000 }
     );
   };
 

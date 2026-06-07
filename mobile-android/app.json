@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "Card Advisor",
+    "slug": "card-advisor-android",
+    "scheme": "cardadvisor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "platforms": [
+      "android"
+    ],
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.nikhil.cardadvisor.android",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Used to find nearby merchants.",
+          "android": {
+            "locationWhenInUsePermission": "Used to find nearby merchants."
+          }
+        }
+      ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "0a25a1c8-f2e9-48f9-8de6-8f265a396597"
+      }
+    },
+    "owner": "buildwithng"
+  }
+}

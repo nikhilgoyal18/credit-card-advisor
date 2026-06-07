@@ -1,0 +1,2876 @@
+[
+  {
+    "osm_name": "Test Merchant",
+    "normalized_name": "test merchant",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Benton County Courthouse",
+    "normalized_name": "benton county courthouse",
+    "osm_category": "courthouse",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Denny's",
+    "normalized_name": "denny's",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Tropical Smoothie Cafe",
+    "normalized_name": "tropical smoothie cafe",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Fancy Nails",
+    "normalized_name": "fancy nails",
+    "osm_category": "beauty",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Fisher Denture",
+    "normalized_name": "fisher denture",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Velvet Vapor",
+    "normalized_name": "the velvet vapor",
+    "osm_category": "e-cigarette",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Boar's Nest",
+    "normalized_name": "boar's nest",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Sew Good",
+    "normalized_name": "sew good",
+    "osm_category": "dry_cleaning",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bonefish Grill",
+    "normalized_name": "bonefish grill",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Carrabba's Italian Grill",
+    "normalized_name": "carrabba's italian grill",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Slim Chickens",
+    "normalized_name": "slim chickens",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Regions Bank",
+    "normalized_name": "regions bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Uncle Maddio's Pizza",
+    "normalized_name": "uncle maddio's pizza",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Panda Express",
+    "normalized_name": "panda express",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bonner Ortho",
+    "normalized_name": "bonner ortho",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Grub's Bar & Grille",
+    "normalized_name": "grub's bar & grille",
+    "osm_category": "bar",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "First Western",
+    "normalized_name": "first western",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Debbie's Pharmacy",
+    "normalized_name": "debbie's pharmacy",
+    "osm_category": "pharmacy",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "BancorpSouth",
+    "normalized_name": "bancorpsouth",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Legacy National Bank",
+    "normalized_name": "legacy national bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ruth's Chris Steak House",
+    "normalized_name": "ruth's chris steak house",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "DQ Grill & Chill",
+    "normalized_name": "dq grill & chill",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hedberg Alergy",
+    "normalized_name": "hedberg alergy",
+    "osm_category": "doctors",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Furniture Factory Outlet",
+    "normalized_name": "furniture factory outlet",
+    "osm_category": "furniture",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Akin's Natural Foods",
+    "normalized_name": "akin's natural foods",
+    "osm_category": "supermarket",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Vintage Stock",
+    "normalized_name": "vintage stock",
+    "osm_category": "video_games",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pho Kitchen",
+    "normalized_name": "pho kitchen",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Plato's Closet",
+    "normalized_name": "plato's closet",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Mattress King",
+    "normalized_name": "mattress king",
+    "osm_category": "bed",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Freddy's",
+    "normalized_name": "freddy's",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Red Robin",
+    "normalized_name": "red robin",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bank OZK",
+    "normalized_name": "bank ozk",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Quality Inn",
+    "normalized_name": "quality inn",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "DoubleTree",
+    "normalized_name": "doubletree",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Citizens Bank",
+    "normalized_name": "citizens bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pediatrics",
+    "normalized_name": "pediatrics",
+    "osm_category": "doctors",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Fresh Market",
+    "normalized_name": "the fresh market",
+    "osm_category": "supermarket",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Texas Land & Cattle Steak House",
+    "normalized_name": "texas land & cattle steak house",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Brown Orthodontics",
+    "normalized_name": "brown orthodontics",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ozark Comprehensive Dentistry",
+    "normalized_name": "ozark comprehensive dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Dr. Philip A. Woodworth, MD - General Surgery",
+    "normalized_name": "dr. philip a. woodworth, md - general surgery",
+    "osm_category": "doctors",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Highroller Cyclery",
+    "normalized_name": "highroller cyclery",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "England Family Dental",
+    "normalized_name": "england family dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Custom Design Hair",
+    "normalized_name": "custom design hair",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Winterberry Home",
+    "normalized_name": "winterberry home",
+    "osm_category": "interior_decoration",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Fork and Crust Pie Co.",
+    "normalized_name": "fork and crust pie co.",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Parklane Dental",
+    "normalized_name": "parklane dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Derek Brown Orthodontist",
+    "normalized_name": "derek brown orthodontist",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Brent Caple Pediatric Dentistry",
+    "normalized_name": "brent caple pediatric dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Post Net",
+    "normalized_name": "post net",
+    "osm_category": "stationery",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Soho",
+    "normalized_name": "soho",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Simmons First",
+    "normalized_name": "simmons first",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Blakeman's Fine Jewelry",
+    "normalized_name": "blakeman's fine jewelry",
+    "osm_category": "jewelry",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "KNWA News",
+    "normalized_name": "knwa news",
+    "osm_category": "studio",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Lifespring Women's Center",
+    "normalized_name": "lifespring women's center",
+    "osm_category": "doctors",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Driving Academy of Northwest Arkansas, LLC",
+    "normalized_name": "driving academy of northwest arkansas, llc",
+    "osm_category": "driving_school",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "After 5 Grill",
+    "normalized_name": "after 5 grill",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Gears Gaming - Bentonville",
+    "normalized_name": "gears gaming - bentonville",
+    "osm_category": "games",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Shogun",
+    "normalized_name": "shogun",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Braum's",
+    "normalized_name": "braum's",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Happy Days Car Wash",
+    "normalized_name": "happy days car wash",
+    "osm_category": "car_wash",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Zaxby's",
+    "normalized_name": "zaxby's",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Loft",
+    "normalized_name": "loft",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Metro Park Dental Arts",
+    "normalized_name": "metro park dental arts",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Sonic",
+    "normalized_name": "sonic",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Outback Steakhouse",
+    "normalized_name": "outback steakhouse",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Your Total Fitness Shop",
+    "normalized_name": "your total fitness shop",
+    "osm_category": "sports",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Golf Headquarters",
+    "normalized_name": "golf headquarters",
+    "osm_category": "sports",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Office Depot",
+    "normalized_name": "office depot",
+    "osm_category": "stationery",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Merrill",
+    "normalized_name": "merrill",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Benton County Memorial Park",
+    "normalized_name": "benton county memorial park",
+    "osm_category": "crematorium",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Aspen Dental",
+    "normalized_name": "aspen dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Rick's Bakery",
+    "normalized_name": "rick's bakery",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Logan's Roadhouse",
+    "normalized_name": "logan's roadhouse",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Applebee's Neighborhood Grill & Bar",
+    "normalized_name": "applebee's neighborhood grill & bar",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Colton's Steakhouse",
+    "normalized_name": "colton's steakhouse",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Arvest Bank",
+    "normalized_name": "arvest bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Napoli's",
+    "normalized_name": "napoli's",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Barnes & Noble",
+    "normalized_name": "barnes & noble",
+    "osm_category": "books",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Supercuts",
+    "normalized_name": "supercuts",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Men's Wearhouse",
+    "normalized_name": "men's wearhouse",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Firestone",
+    "normalized_name": "firestone",
+    "osm_category": "car_repair",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "First Security Bank",
+    "normalized_name": "first security bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "General & Cosmetic Dentistry",
+    "normalized_name": "general & cosmetic dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "McBeth Orthodontics",
+    "normalized_name": "mcbeth orthodontics",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bost, Inc.",
+    "normalized_name": "bost, inc.",
+    "osm_category": "social_facility",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "OZ Bike Fit",
+    "normalized_name": "oz bike fit",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Westwood Gardens",
+    "normalized_name": "westwood gardens",
+    "osm_category": "garden_centre",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "All About Smiles",
+    "normalized_name": "all about smiles",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The HUB Bike Shop",
+    "normalized_name": "the hub bike shop",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Crepes Paulette",
+    "normalized_name": "crepes paulette",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Phat Tire Rental Shop",
+    "normalized_name": "phat tire rental shop",
+    "osm_category": "bicycle_rental",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Cicis",
+    "normalized_name": "cicis",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hope Dental Professionals",
+    "normalized_name": "hope dental professionals",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Highlands Pharmacy",
+    "normalized_name": "highlands pharmacy",
+    "osm_category": "pharmacy",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Gusano's Pizza",
+    "normalized_name": "gusano's pizza",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Nick Yiannios Dental",
+    "normalized_name": "nick yiannios dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "First National Bank",
+    "normalized_name": "first national bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Kid's Studio",
+    "normalized_name": "the kid's studio",
+    "osm_category": "childcare",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Smile Shoppe Pediatric Dentistry",
+    "normalized_name": "smile shoppe pediatric dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Great Southern Bank",
+    "normalized_name": "great southern bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Wells Fargo",
+    "normalized_name": "wells fargo",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Randolph Lais DDS",
+    "normalized_name": "randolph lais dds",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Microsoft",
+    "normalized_name": "microsoft",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Centennial Bank",
+    "normalized_name": "centennial bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Courtyard",
+    "normalized_name": "courtyard",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bentonville Bicycle Company",
+    "normalized_name": "bentonville bicycle company",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Trailhead Tap",
+    "normalized_name": "trailhead tap",
+    "osm_category": "bar",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ford Dental Care",
+    "normalized_name": "ford dental care",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "OZ Suspension Solutions",
+    "normalized_name": "oz suspension solutions",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Mojo Cycling",
+    "normalized_name": "mojo cycling",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Walton Blvd. Dental",
+    "normalized_name": "walton blvd. dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Iberia Bank",
+    "normalized_name": "iberia bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Strider Bikes",
+    "normalized_name": "strider bikes",
+    "osm_category": "bicycle;baby_goods;outdoor",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Arvest",
+    "normalized_name": "arvest",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Firehouse Subs",
+    "normalized_name": "firehouse subs",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Eddie Bauer",
+    "normalized_name": "eddie bauer",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Mason's",
+    "normalized_name": "mason's",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "JoS. A. Bank",
+    "normalized_name": "jos. a. bank",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "White House Black Market",
+    "normalized_name": "white house black market",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Motherhood Maternity",
+    "normalized_name": "motherhood maternity",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Icing",
+    "normalized_name": "icing",
+    "osm_category": "jewelry",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "CJ Banks",
+    "normalized_name": "cj banks",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Lane Bryant",
+    "normalized_name": "lane bryant",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Christopher & Banks",
+    "normalized_name": "christopher & banks",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bed Bath & Beyond",
+    "normalized_name": "bed bath & beyond",
+    "osm_category": "houseware",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Sephora",
+    "normalized_name": "sephora",
+    "osm_category": "cosmetics",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "P.F. Chang's",
+    "normalized_name": "p.f. chang's",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Joey's Dog Bakery",
+    "normalized_name": "joey's dog bakery",
+    "osm_category": "bakery",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Williams-Sonoma",
+    "normalized_name": "williams-sonoma",
+    "osm_category": "houseware",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Rogers Jewelers",
+    "normalized_name": "rogers jewelers",
+    "osm_category": "jewelry",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Coach",
+    "normalized_name": "coach",
+    "osm_category": "bag",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "MidiCi - Wood Fired Pizza",
+    "normalized_name": "midici - wood fired pizza",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Popdipity Gourmet Popcorn",
+    "normalized_name": "popdipity gourmet popcorn",
+    "osm_category": "confectionery",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Big Orange",
+    "normalized_name": "big orange",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "GameStop",
+    "normalized_name": "gamestop",
+    "osm_category": "video_games",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Kay Jewelers",
+    "normalized_name": "kay jewelers",
+    "osm_category": "jewelry",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Buckle",
+    "normalized_name": "buckle",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "GNC",
+    "normalized_name": "gnc",
+    "osm_category": "nutrition_supplements",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hibbett Sports",
+    "normalized_name": "hibbett sports",
+    "osm_category": "sports",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "VANITY",
+    "normalized_name": "vanity",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Journeys",
+    "normalized_name": "journeys",
+    "osm_category": "shoes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Limited Store",
+    "normalized_name": "limited store",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Candy Craze",
+    "normalized_name": "candy craze",
+    "osm_category": "confectionery",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Melody's Choices",
+    "normalized_name": "melody's choices",
+    "osm_category": "gift",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Shoe Dept",
+    "normalized_name": "shoe dept",
+    "osm_category": "gift",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "University of Arkansas Razorback Shop",
+    "normalized_name": "university of arkansas razorback shop",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Rocky Mountain Chocolate",
+    "normalized_name": "rocky mountain chocolate",
+    "osm_category": "confectionery",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Great American Cookie",
+    "normalized_name": "great american cookie",
+    "osm_category": "confectionery",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Häagen-Dazs",
+    "normalized_name": "häagen-dazs",
+    "osm_category": "ice_cream",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Zales The Diamond Store",
+    "normalized_name": "zales the diamond store",
+    "osm_category": "jewelry",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Sunglass Hut",
+    "normalized_name": "sunglass hut",
+    "osm_category": "optician",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hollister",
+    "normalized_name": "hollister",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Lids",
+    "normalized_name": "lids",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "American Eagle Outfitters",
+    "normalized_name": "american eagle outfitters",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Claire's",
+    "normalized_name": "claire's",
+    "osm_category": "gift",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Stride Rite",
+    "normalized_name": "stride rite",
+    "osm_category": "gift",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Brighton Collections",
+    "normalized_name": "brighton collections",
+    "osm_category": "gift",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "J.Jill",
+    "normalized_name": "j.jill",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Body Shop",
+    "normalized_name": "the body shop",
+    "osm_category": "cosmetics",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Coldwater Creek",
+    "normalized_name": "coldwater creek",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Cache",
+    "normalized_name": "cache",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Victoria's Secret",
+    "normalized_name": "victoria's secret",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Perfumania",
+    "normalized_name": "perfumania",
+    "osm_category": "gift",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Maverik",
+    "normalized_name": "maverik",
+    "osm_category": "fuel",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Kennedy Coffee",
+    "normalized_name": "kennedy coffee",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Arby's",
+    "normalized_name": "arby's",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Dero",
+    "normalized_name": "dero",
+    "osm_category": "bicycle_repair_station",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Donald E. White Auditorium",
+    "normalized_name": "donald e. white auditorium",
+    "osm_category": "theatre",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bariola's Pizza",
+    "normalized_name": "bariola's pizza",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Einstein Bros. Bagels",
+    "normalized_name": "einstein bros. bagels",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Taziki's Mediterranean Cafe",
+    "normalized_name": "taziki's mediterranean cafe",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "211 Cafe",
+    "normalized_name": "211 cafe",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Onyx Coffee Lab",
+    "normalized_name": "onyx coffee lab",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ozark Mountain Bagel Co",
+    "normalized_name": "ozark mountain bagel co",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Wingstop",
+    "normalized_name": "wingstop",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Zoës Kitchen",
+    "normalized_name": "zoës kitchen",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "JJs Grill",
+    "normalized_name": "jjs grill",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "7 Brew Coffee",
+    "normalized_name": "7 brew coffee",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Shoe Carnival",
+    "normalized_name": "shoe carnival",
+    "osm_category": "shoes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "HomeGoods",
+    "normalized_name": "homegoods",
+    "osm_category": "houseware",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Crabby's Seafood Bar and Grill",
+    "normalized_name": "crabby's seafood bar and grill",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Lew's Barbershop",
+    "normalized_name": "lew's barbershop",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Fish City Grill",
+    "normalized_name": "fish city grill",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Mojito's Mexican Grill",
+    "normalized_name": "mojito's mexican grill",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "White Oak Station",
+    "normalized_name": "white oak station",
+    "osm_category": "convenience",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Jimmy John's",
+    "normalized_name": "jimmy john's",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Sprint",
+    "normalized_name": "sprint",
+    "osm_category": "mobile_phone",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Club Tan",
+    "normalized_name": "club tan",
+    "osm_category": "beauty",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Qdoba",
+    "normalized_name": "qdoba",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Nails & Spa",
+    "normalized_name": "nails & spa",
+    "osm_category": "beauty",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "TCBY",
+    "normalized_name": "tcby",
+    "osm_category": "ice_cream",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Sport Clips",
+    "normalized_name": "sport clips",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bonchon Chicken",
+    "normalized_name": "bonchon chicken",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bliss Cupcakes",
+    "normalized_name": "bliss cupcakes",
+    "osm_category": "pastry",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Complete Nutrition",
+    "normalized_name": "complete nutrition",
+    "osm_category": "nutrition_supplements",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Lewis & Clark Outfitters",
+    "normalized_name": "lewis & clark outfitters",
+    "osm_category": "outdoor",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Cold Stone Creamery",
+    "normalized_name": "cold stone creamery",
+    "osm_category": "ice_cream",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bonner Orthodontics",
+    "normalized_name": "bonner orthodontics",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "7 Brew",
+    "normalized_name": "7 brew",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Resthaven Pet Cemetery",
+    "normalized_name": "resthaven pet cemetery",
+    "osm_category": "funeral_directors",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Phone Guys",
+    "normalized_name": "the phone guys",
+    "osm_category": "mobile_phone",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Massage Envy",
+    "normalized_name": "massage envy",
+    "osm_category": "massage",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "State Farm",
+    "normalized_name": "state farm",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ulta Beauty",
+    "normalized_name": "ulta beauty",
+    "osm_category": "cosmetics",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "PetSmart",
+    "normalized_name": "petsmart",
+    "osm_category": "pet",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Havertys",
+    "normalized_name": "havertys",
+    "osm_category": "furniture",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Rouge Salon and Nail Spa",
+    "normalized_name": "rouge salon and nail spa",
+    "osm_category": "beauty",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Joplimo Mattress",
+    "normalized_name": "joplimo mattress",
+    "osm_category": "bed",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "United Federal Credit Union",
+    "normalized_name": "united federal credit union",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Haley Boutique",
+    "normalized_name": "the haley boutique",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Wild Birds Unlimited",
+    "normalized_name": "wild birds unlimited",
+    "osm_category": "pet",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bolder Coffee",
+    "normalized_name": "bolder coffee",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Clothes Mentor",
+    "normalized_name": "clothes mentor",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pigtails & Crewcuts",
+    "normalized_name": "pigtails & crewcuts",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Culpepper Family Dentistry",
+    "normalized_name": "culpepper family dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Adelman Travel",
+    "normalized_name": "adelman travel",
+    "osm_category": "travel_agency",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Theo's",
+    "normalized_name": "theo's",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Intrust Bank",
+    "normalized_name": "intrust bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Jenny Craig",
+    "normalized_name": "jenny craig",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Allstate",
+    "normalized_name": "allstate",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "First Watch",
+    "normalized_name": "first watch",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Imagine Studios",
+    "normalized_name": "imagine studios",
+    "osm_category": "craft",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Marcus D. Black, DDS, PA",
+    "normalized_name": "marcus d. black, dds, pa",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Massage Garage",
+    "normalized_name": "massage garage",
+    "osm_category": "massage",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "CrossFit",
+    "normalized_name": "crossfit",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Crystal Bell-Norton DDS",
+    "normalized_name": "crystal bell-norton dds",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ken Berley",
+    "normalized_name": "ken berley",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Walmart Neighborhood Market",
+    "normalized_name": "walmart neighborhood market",
+    "osm_category": "supermarket",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Nothing Bundt Cakes",
+    "normalized_name": "nothing bundt cakes",
+    "osm_category": "pastry",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Eleven Restaurant",
+    "normalized_name": "eleven restaurant",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hot Topic",
+    "normalized_name": "hot topic",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Finish Line",
+    "normalized_name": "finish line",
+    "osm_category": "sports",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Hive",
+    "normalized_name": "the hive",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pickleman's",
+    "normalized_name": "pickleman's",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Natural State Beer Company",
+    "normalized_name": "natural state beer company",
+    "osm_category": "pub",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "World Food",
+    "normalized_name": "world food",
+    "osm_category": "supermarket",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Louise",
+    "normalized_name": "louise",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pedaler's Pub",
+    "normalized_name": "pedaler's pub",
+    "osm_category": "pub",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The HUB Bike Lounge",
+    "normalized_name": "the hub bike lounge",
+    "osm_category": "pub",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Trash Creamery",
+    "normalized_name": "trash creamery",
+    "osm_category": "ice_cream",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Night Owl Tavern",
+    "normalized_name": "night owl tavern",
+    "osm_category": "pub",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Airship Coffee",
+    "normalized_name": "airship coffee",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Thai Kitchen",
+    "normalized_name": "thai kitchen",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bentonville Public Library",
+    "normalized_name": "bentonville public library",
+    "osm_category": "library_dropoff",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Mojo Rentals",
+    "normalized_name": "mojo rentals",
+    "osm_category": "bicycle_rental",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Main Street Dental",
+    "normalized_name": "main street dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "OZ e-Bikes",
+    "normalized_name": "oz e-bikes",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Campus Bookstore",
+    "normalized_name": "campus bookstore",
+    "osm_category": "books",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Banter by Piercing Pagoda",
+    "normalized_name": "banter by piercing pagoda",
+    "osm_category": "jewelry",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Gearhead Outfitters, Inc",
+    "normalized_name": "gearhead outfitters, inc",
+    "osm_category": "outdoor",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Maurices",
+    "normalized_name": "maurices",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hi-Tea",
+    "normalized_name": "hi-tea",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Torrid",
+    "normalized_name": "torrid",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "JD Sports",
+    "normalized_name": "jd sports",
+    "osm_category": "sports",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "A Cut Above",
+    "normalized_name": "a cut above",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pinnacle Nail Spa",
+    "normalized_name": "pinnacle nail spa",
+    "osm_category": "beauty",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Sleep Number",
+    "normalized_name": "sleep number",
+    "osm_category": "bed",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Little Free Library",
+    "normalized_name": "little free library",
+    "osm_category": "public_bookcase",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "7Brew Coffee",
+    "normalized_name": "7brew coffee",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "BCycle",
+    "normalized_name": "bcycle",
+    "osm_category": "bicycle_rental",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Umai",
+    "normalized_name": "umai",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Home2 Suites",
+    "normalized_name": "home2 suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pinnacle Groves",
+    "normalized_name": "pinnacle groves",
+    "osm_category": "social_facility",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Helen’s Amphitheater",
+    "normalized_name": "helen’s amphitheater",
+    "osm_category": "theatre",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Saffron Indian Cuisine Bar & Grill",
+    "normalized_name": "saffron indian cuisine bar & grill",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Third Place",
+    "normalized_name": "third place",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Phat Tire Bike Shop",
+    "normalized_name": "phat tire bike shop",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Gearhead Experience Center",
+    "normalized_name": "gearhead experience center",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Meteor Bike Shop",
+    "normalized_name": "the meteor bike shop",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Rise And Ride Electric MTB Rental",
+    "normalized_name": "rise and ride electric mtb rental",
+    "osm_category": "bicycle_rental",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bike Shop Joe's",
+    "normalized_name": "bike shop joe's",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Custom Cruzers",
+    "normalized_name": "custom cruzers",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Club Pilates",
+    "normalized_name": "club pilates",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Glam'd Nail Spa",
+    "normalized_name": "glam'd nail spa",
+    "osm_category": "beauty",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Clip Clip Horray",
+    "normalized_name": "clip clip horray",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Jiffy Lube",
+    "normalized_name": "jiffy lube",
+    "osm_category": "car_repair",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Texas de Brazil - Rogers",
+    "normalized_name": "texas de brazil - rogers",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Heros Coffee",
+    "normalized_name": "heros coffee",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Wright's Barbecue",
+    "normalized_name": "wright's barbecue",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Falfurrias Lounge",
+    "normalized_name": "falfurrias lounge",
+    "osm_category": "bar",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Arkanzza",
+    "normalized_name": "arkanzza",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Elia",
+    "normalized_name": "elia",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Burgers Inc",
+    "normalized_name": "burgers inc",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ozark Mountain Bagel",
+    "normalized_name": "ozark mountain bagel",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Juice Logic",
+    "normalized_name": "juice logic",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hello Bowl",
+    "normalized_name": "hello bowl",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pier Poke",
+    "normalized_name": "pier poke",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Carvery",
+    "normalized_name": "the carvery",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Daily Naan",
+    "normalized_name": "daily naan",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bocadito",
+    "normalized_name": "bocadito",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Danger Noodle",
+    "normalized_name": "danger noodle",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Walmart Move Hub",
+    "normalized_name": "walmart move hub",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Connect Cafe",
+    "normalized_name": "connect cafe",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Valvoline",
+    "normalized_name": "valvoline",
+    "osm_category": "car_repair",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Onyx",
+    "normalized_name": "onyx",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Spark Shop",
+    "normalized_name": "spark shop",
+    "osm_category": "gift",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Walmart Radio",
+    "normalized_name": "walmart radio",
+    "osm_category": "studio",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bentonville Bike Company",
+    "normalized_name": "bentonville bike company",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Gearhead Outfitters",
+    "normalized_name": "gearhead outfitters",
+    "osm_category": "outdoor",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Gents Place",
+    "normalized_name": "the gents place",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Jamba",
+    "normalized_name": "jamba",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Flyway",
+    "normalized_name": "flyway",
+    "osm_category": "construction",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Airship",
+    "normalized_name": "airship",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Doyenne Coffee",
+    "normalized_name": "doyenne coffee",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Culver's",
+    "normalized_name": "culver's",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Spokeasy Custom Build & Wheel Studio",
+    "normalized_name": "spokeasy custom build & wheel studio",
+    "osm_category": "bicycle",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Beardedgoat",
+    "normalized_name": "beardedgoat",
+    "osm_category": "outdoor",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hudson / Hawk Barbershop",
+    "normalized_name": "hudson / hawk barbershop",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "US:AR:Bentonville",
+    "normalized_name": "us:ar:bentonville",
+    "osm_category": "bicycle_parking",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "US:AR:Bentonville Public Schools",
+    "normalized_name": "us:ar:bentonville public schools",
+    "osm_category": "bicycle_parking",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Tractor Supply Company",
+    "normalized_name": "tractor supply company",
+    "osm_category": "country_store",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Planet Fitness",
+    "normalized_name": "planet fitness",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Rush Running Co",
+    "normalized_name": "rush running co",
+    "osm_category": "sports",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Carniceria Romero",
+    "normalized_name": "carniceria romero",
+    "osm_category": "butcher",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Drybar",
+    "normalized_name": "drybar",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Potbelly",
+    "normalized_name": "potbelly",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Cellini Nail Lounge",
+    "normalized_name": "cellini nail lounge",
+    "osm_category": "beauty",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Mint Dental Care",
+    "normalized_name": "mint dental care",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "479 Dental Care",
+    "normalized_name": "479 dental care",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Monarch Dental",
+    "normalized_name": "monarch dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Restore Modern Dentistry",
+    "normalized_name": "restore modern dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pinnacle Hills Dental Group",
+    "normalized_name": "pinnacle hills dental group",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Northwest Orthodontics",
+    "normalized_name": "northwest orthodontics",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "McShane Oral & Maxillofacial Surgery",
+    "normalized_name": "mcshane oral & maxillofacial surgery",
+    "osm_category": "doctors",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Galaxy Home Recreation",
+    "normalized_name": "galaxy home recreation",
+    "osm_category": "yes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Rebecca Bryan, DDS & John Curtis, General Dentistry",
+    "normalized_name": "rebecca bryan, dds & john curtis, general dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Centerton Orthodontics",
+    "normalized_name": "centerton orthodontics",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Artistic Smiles NWA",
+    "normalized_name": "artistic smiles nwa",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ozark Dental Implants and Periodontics",
+    "normalized_name": "ozark dental implants and periodontics",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Live + Well Pharmacy",
+    "normalized_name": "live + well pharmacy",
+    "osm_category": "pharmacy",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Heartland Pharmacy",
+    "normalized_name": "heartland pharmacy",
+    "osm_category": "pharmacy",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Block Street Records",
+    "normalized_name": "block street records",
+    "osm_category": "music",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Witching Hour Food Truck",
+    "normalized_name": "the witching hour food truck",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "AutoZone",
+    "normalized_name": "autozone",
+    "osm_category": "car_parts",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Crossroads Liquor",
+    "normalized_name": "crossroads liquor",
+    "osm_category": "alcohol",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "BBQ King",
+    "normalized_name": "bbq king",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Oscar's Awards & Engraving",
+    "normalized_name": "oscar's awards & engraving",
+    "osm_category": "trophy",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Tower Bar",
+    "normalized_name": "tower bar",
+    "osm_category": "bar",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Swig",
+    "normalized_name": "swig",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Sweetgreen",
+    "normalized_name": "sweetgreen",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Buttered Biscuit",
+    "normalized_name": "the buttered biscuit",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "HomeGrown",
+    "normalized_name": "homegrown",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Goodwill",
+    "normalized_name": "goodwill",
+    "osm_category": "charity",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Pastrami Wagon",
+    "normalized_name": "the pastrami wagon",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Markham & Fitz",
+    "normalized_name": "markham & fitz",
+    "osm_category": "chocolate",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Yeyo's El Alma de Mexico",
+    "normalized_name": "yeyo's el alma de mexico",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Co-Op Ramen",
+    "normalized_name": "co-op ramen",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Two Friends Books",
+    "normalized_name": "two friends books",
+    "osm_category": "books",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hillfolk",
+    "normalized_name": "hillfolk",
+    "osm_category": "fabric",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Brightwater",
+    "normalized_name": "brightwater",
+    "osm_category": "cooking_school",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hobby Lobby",
+    "normalized_name": "hobby lobby",
+    "osm_category": "craft",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Clementine's",
+    "normalized_name": "clementine's",
+    "osm_category": "ice_cream",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bentonville Taco and Tamale",
+    "normalized_name": "bentonville taco and tamale",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "HALO by Cabin Red A Salon",
+    "normalized_name": "halo by cabin red a salon",
+    "osm_category": "hairdresser",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Un Deux Trois Cafe",
+    "normalized_name": "un deux trois cafe",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Acropolis Greek & Mediteranean Restaurant",
+    "normalized_name": "acropolis greek & mediteranean restaurant",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Econo Lodge",
+    "normalized_name": "econo lodge",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Days Inn",
+    "normalized_name": "days inn",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Holiday Inn Express",
+    "normalized_name": "holiday inn express",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Lin's Garden",
+    "normalized_name": "lin's garden",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "SpringHill Suites",
+    "normalized_name": "springhill suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Super 8",
+    "normalized_name": "super 8",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Village Inn",
+    "normalized_name": "village inn",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pottery Barn",
+    "normalized_name": "pottery barn",
+    "osm_category": "furniture",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Children's Place",
+    "normalized_name": "the children's place",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Gymboree",
+    "normalized_name": "gymboree",
+    "osm_category": "clothes",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Build-A-Bear Workshop",
+    "normalized_name": "build-a-bear workshop",
+    "osm_category": "toys",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Discovery Store",
+    "normalized_name": "the discovery store",
+    "osm_category": "gift",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Dillard's",
+    "normalized_name": "dillard's",
+    "osm_category": "department_store",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pinnacle Hills Promenade",
+    "normalized_name": "pinnacle hills promenade",
+    "osm_category": "mall",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Dave & Buster's",
+    "normalized_name": "dave & buster's",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "JCPenney",
+    "normalized_name": "jcpenney",
+    "osm_category": "department_store",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Malco Pinnacle Hills Cinema",
+    "normalized_name": "malco pinnacle hills cinema",
+    "osm_category": "cinema",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Embassy Suites",
+    "normalized_name": "embassy suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bass Pro Shops",
+    "normalized_name": "bass pro shops",
+    "osm_category": "outdoor",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hyatt Place",
+    "normalized_name": "hyatt place",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Cracker Barrel",
+    "normalized_name": "cracker barrel",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Habitat for Humanity ReStore",
+    "normalized_name": "habitat for humanity restore",
+    "osm_category": "charity",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Harps",
+    "normalized_name": "harps",
+    "osm_category": "supermarket",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Kum & Go",
+    "normalized_name": "kum & go",
+    "osm_category": "convenience",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Rogers Towne Cinema",
+    "normalized_name": "rogers towne cinema",
+    "osm_category": "cinema",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Abuelo's",
+    "normalized_name": "abuelo's",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hampton",
+    "normalized_name": "hampton",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Foster's Pint & Plate",
+    "normalized_name": "foster's pint & plate",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Spiritueux Wine & Liquors",
+    "normalized_name": "spiritueux wine & liquors",
+    "osm_category": "alcohol",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Las Palmas",
+    "normalized_name": "las palmas",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Tulip Tree Shelter",
+    "normalized_name": "tulip tree shelter",
+    "osm_category": "shelter",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "North Forest Shelter",
+    "normalized_name": "north forest shelter",
+    "osm_category": "shelter",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Skylight Cinemas 5",
+    "normalized_name": "skylight cinemas 5",
+    "osm_category": "cinema",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Belk",
+    "normalized_name": "belk",
+    "osm_category": "department_store",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Dollar Tree",
+    "normalized_name": "dollar tree",
+    "osm_category": "variety_store",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Kohl's",
+    "normalized_name": "kohl's",
+    "osm_category": "department_store",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Petco",
+    "normalized_name": "petco",
+    "osm_category": "pet",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Staples",
+    "normalized_name": "staples",
+    "osm_category": "stationery",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Johnny Carino's",
+    "normalized_name": "johnny carino's",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "On The Border",
+    "normalized_name": "on the border",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "8th Street Market",
+    "normalized_name": "8th street market",
+    "osm_category": "mall",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Momentary",
+    "normalized_name": "the momentary",
+    "osm_category": "arts_centre",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Tusk & Trotter",
+    "normalized_name": "tusk & trotter",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Botanical at 8th & A",
+    "normalized_name": "botanical at 8th & a",
+    "osm_category": "bar",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Heroes Coffee",
+    "normalized_name": "heroes coffee",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Table on 6th",
+    "normalized_name": "table on 6th",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Blu Fish House",
+    "normalized_name": "blu fish house",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Brothers Meethouse",
+    "normalized_name": "brothers meethouse",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Meteor",
+    "normalized_name": "the meteor",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Record",
+    "normalized_name": "the record",
+    "osm_category": "events_venue",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "My Village Pediatric Dentistry",
+    "normalized_name": "my village pediatric dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Casey's General Store",
+    "normalized_name": "casey's general store",
+    "osm_category": "convenience",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Barber",
+    "normalized_name": "the barber",
+    "osm_category": "bar",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Scotch & Soda",
+    "normalized_name": "scotch & soda",
+    "osm_category": "bar",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "8th & Plate",
+    "normalized_name": "8th & plate",
+    "osm_category": "food_court",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Trailside Dental",
+    "normalized_name": "trailside dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "La Quinta Inn & Suites",
+    "normalized_name": "la quinta inn & suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Arkansas Music Pavilion",
+    "normalized_name": "arkansas music pavilion",
+    "osm_category": "theatre",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hilton Garden Inn",
+    "normalized_name": "hilton garden inn",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Hyatt House",
+    "normalized_name": "hyatt house",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Staybridge Suites",
+    "normalized_name": "staybridge suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Country Inn & Suites",
+    "normalized_name": "country inn & suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Homewood Suites",
+    "normalized_name": "homewood suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Comfort Suites",
+    "normalized_name": "comfort suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Aloft",
+    "normalized_name": "aloft",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Candlewood Suites",
+    "normalized_name": "candlewood suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Fairfield Inn",
+    "normalized_name": "fairfield inn",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Residence Inn",
+    "normalized_name": "residence inn",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "The Preacher's Son",
+    "normalized_name": "the preacher's son",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Arend Arts Center",
+    "normalized_name": "arend arts center",
+    "osm_category": "theatre",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Topgolf",
+    "normalized_name": "topgolf",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Murphy USA",
+    "normalized_name": "murphy usa",
+    "osm_category": "fuel",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "TownePlace Suites",
+    "normalized_name": "towneplace suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Element",
+    "normalized_name": "element",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Atlanta Bread",
+    "normalized_name": "atlanta bread",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "IHOP",
+    "normalized_name": "ihop",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Waffle House",
+    "normalized_name": "waffle house",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Diamond Car Wash",
+    "normalized_name": "diamond car wash",
+    "osm_category": "car_wash",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "LongHorn Steakhouse",
+    "normalized_name": "longhorn steakhouse",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "AC Hotel",
+    "normalized_name": "ac hotel",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bentonville Family Dentistry/Safari Smiles",
+    "normalized_name": "bentonville family dentistry/safari smiles",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Motto",
+    "normalized_name": "motto",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Take 5",
+    "normalized_name": "take 5",
+    "osm_category": "car_repair",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Best Western Plus",
+    "normalized_name": "best western plus",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Chuck E. Cheese",
+    "normalized_name": "chuck e. cheese",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "HomeTowne Studios",
+    "normalized_name": "hometowne studios",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Little Squiggles Children’s Enrichment Center",
+    "normalized_name": "little squiggles children’s enrichment center",
+    "osm_category": "childcare",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "United Bank",
+    "normalized_name": "united bank",
+    "osm_category": "bank",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Comfort Inn",
+    "normalized_name": "comfort inn",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Microtel Inn & Suites",
+    "normalized_name": "microtel inn & suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Smokin' Joes Ribhouse",
+    "normalized_name": "smokin' joes ribhouse",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "WoodSpring Suites",
+    "normalized_name": "woodspring suites",
+    "osm_category": null,
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Cadillac",
+    "normalized_name": "cadillac",
+    "osm_category": "car",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Holman Family Dentistry",
+    "normalized_name": "holman family dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Whataburger",
+    "normalized_name": "whataburger",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Raising Cane's",
+    "normalized_name": "raising cane's",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Bright Ridge Dental",
+    "normalized_name": "bright ridge dental",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ramo d'Olivo",
+    "normalized_name": "ramo d'olivo",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Integrated Dentistry",
+    "normalized_name": "integrated dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Twin Peaks",
+    "normalized_name": "twin peaks",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Splash Car Wash & 10-Minute Oil Change",
+    "normalized_name": "splash car wash & 10-minute oil change",
+    "osm_category": "car_wash",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Airship at the Pumphouse",
+    "normalized_name": "airship at the pumphouse",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Krispy Kreme",
+    "normalized_name": "krispy kreme",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Wisener, Cooper & Fergus, DDS",
+    "normalized_name": "wisener, cooper & fergus, dds",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Best Friends Animal Sanctuary",
+    "normalized_name": "best friends animal sanctuary",
+    "osm_category": "animal_shelter",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Moe's Southwest Grill",
+    "normalized_name": "moe's southwest grill",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Volkswagen",
+    "normalized_name": "volkswagen",
+    "osm_category": "car",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Pediatric Dental Associates and Orthodontics",
+    "normalized_name": "pediatric dental associates and orthodontics",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Food Truck Court",
+    "normalized_name": "food truck court",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Tooth Squad Pediatric Dentistry",
+    "normalized_name": "tooth squad pediatric dentistry",
+    "osm_category": "dentist",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ace Hardware",
+    "normalized_name": "ace hardware",
+    "osm_category": "doityourself",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Newk’s Eatery",
+    "normalized_name": "newk’s eatery",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Infiniti",
+    "normalized_name": "infiniti",
+    "osm_category": "car",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Onyx Coffee at Bud's Preserve",
+    "normalized_name": "onyx coffee at bud's preserve",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Archie’s Sandwichery",
+    "normalized_name": "archie’s sandwichery",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "O'Reilly Auto Parts",
+    "normalized_name": "o'reilly auto parts",
+    "osm_category": "car_parts",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "7-Brew",
+    "normalized_name": "7-brew",
+    "osm_category": "cafe",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Muse Fresh Burgers",
+    "normalized_name": "muse fresh burgers",
+    "osm_category": "fast_food",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Ankle & Foot Centers of Mid-America",
+    "normalized_name": "ankle & foot centers of mid-america",
+    "osm_category": "doctors",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Andy's Frozen Custard",
+    "normalized_name": "andy's frozen custard",
+    "osm_category": "ice_cream",
+    "seen_count": 1
+  },
+  {
+    "osm_name": "Tavola Trattoria",
+    "normalized_name": "tavola trattoria",
+    "osm_category": "restaurant",
+    "seen_count": 1
+  }
+]

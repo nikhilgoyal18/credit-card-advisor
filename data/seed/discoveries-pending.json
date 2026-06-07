@@ -1,0 +1,622 @@
+[
+  {
+    "id": "dennys",
+    "canonical_name": "Denny's",
+    "aliases": ["Dennys", "Denny's Restaurant", "Denny's Diner"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "24-hour diner chain"
+  },
+  {
+    "id": "bonefish_grill",
+    "canonical_name": "Bonefish Grill",
+    "aliases": ["Bonefish"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Bloomin' Brands seafood chain"
+  },
+  {
+    "id": "carrabbas_italian_grill",
+    "canonical_name": "Carrabba's Italian Grill",
+    "aliases": ["Carrabbas", "Carrabba's"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Bloomin' Brands Italian chain"
+  },
+  {
+    "id": "ruths_chris_steak_house",
+    "canonical_name": "Ruth's Chris Steak House",
+    "aliases": ["Ruth's Chris", "Ruths Chris"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Upscale steakhouse chain"
+  },
+  {
+    "id": "red_robin",
+    "canonical_name": "Red Robin",
+    "aliases": ["Red Robin Gourmet Burgers"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Gourmet burger chain"
+  },
+  {
+    "id": "outback_steakhouse",
+    "canonical_name": "Outback Steakhouse",
+    "aliases": ["Outback"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Bloomin' Brands Australian-themed steakhouse"
+  },
+  {
+    "id": "pf_changs",
+    "canonical_name": "P.F. Chang's",
+    "aliases": ["PF Changs", "P.F. Chang's China Bistro"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Asian bistro chain"
+  },
+  {
+    "id": "cracker_barrel",
+    "canonical_name": "Cracker Barrel",
+    "aliases": ["Cracker Barrel Old Country Store"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Country cooking restaurant with retail store"
+  },
+  {
+    "id": "ihop",
+    "canonical_name": "IHOP",
+    "aliases": ["International House of Pancakes", "iHop"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Pancake and breakfast chain"
+  },
+  {
+    "id": "waffle_house",
+    "canonical_name": "Waffle House",
+    "aliases": [],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "24-hour diner, Southeast US"
+  },
+  {
+    "id": "longhorn_steakhouse",
+    "canonical_name": "LongHorn Steakhouse",
+    "aliases": ["Longhorn Steakhouse", "LongHorn"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Darden Restaurants steakhouse chain"
+  },
+  {
+    "id": "panda_express",
+    "canonical_name": "Panda Express",
+    "aliases": ["Panda"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Fast food Chinese-American chain"
+  },
+  {
+    "id": "sonic_drive_in",
+    "canonical_name": "Sonic Drive-In",
+    "aliases": ["Sonic", "SONIC"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Drive-in fast food chain"
+  },
+  {
+    "id": "arbys",
+    "canonical_name": "Arby's",
+    "aliases": ["Arbys", "Arby's Restaurant"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Fast food chain known for roast beef"
+  },
+  {
+    "id": "wingstop",
+    "canonical_name": "Wingstop",
+    "aliases": [],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Chicken wings fast food chain"
+  },
+  {
+    "id": "jimmy_johns",
+    "canonical_name": "Jimmy John's",
+    "aliases": ["Jimmy Johns", "Jimmy John's Gourmet Sandwiches"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Sandwich fast food chain"
+  },
+  {
+    "id": "qdoba",
+    "canonical_name": "Qdoba Mexican Eats",
+    "aliases": ["Qdoba", "QDOBA"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Fast casual Mexican chain"
+  },
+  {
+    "id": "culvers",
+    "canonical_name": "Culver's",
+    "aliases": ["Culvers"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Midwest fast food, known for butterburgers"
+  },
+  {
+    "id": "sweetgreen",
+    "canonical_name": "Sweetgreen",
+    "aliases": [],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Fast casual salad chain"
+  },
+  {
+    "id": "whataburger",
+    "canonical_name": "Whataburger",
+    "aliases": [],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Regional burger chain, Texas/South"
+  },
+  {
+    "id": "raising_canes",
+    "canonical_name": "Raising Cane's",
+    "aliases": ["Raising Cane's Chicken Fingers", "Canes"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Chicken fingers fast food chain"
+  },
+  {
+    "id": "krispy_kreme",
+    "canonical_name": "Krispy Kreme",
+    "aliases": ["Krispy Kreme Doughnuts"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Doughnut and coffee chain"
+  },
+  {
+    "id": "moes_southwest_grill",
+    "canonical_name": "Moe's Southwest Grill",
+    "aliases": ["Moe's", "Moes"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Fast casual Mexican chain"
+  },
+  {
+    "id": "firehouse_subs",
+    "canonical_name": "Firehouse Subs",
+    "aliases": [],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Sandwich chain"
+  },
+  {
+    "id": "first_watch",
+    "canonical_name": "First Watch",
+    "aliases": [],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Daytime breakfast/brunch chain"
+  },
+  {
+    "id": "logans_roadhouse",
+    "canonical_name": "Logan's Roadhouse",
+    "aliases": ["Logans Roadhouse", "Logan's"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Casual steakhouse chain"
+  },
+  {
+    "id": "on_the_border",
+    "canonical_name": "On The Border",
+    "aliases": ["On The Border Mexican Grill & Cantina"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Tex-Mex chain"
+  },
+  {
+    "id": "potbelly",
+    "canonical_name": "Potbelly Sandwich Works",
+    "aliases": ["Potbelly", "Potbelly Sandwich Shop"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Sandwich and soup fast casual chain"
+  },
+  {
+    "id": "village_inn",
+    "canonical_name": "Village Inn",
+    "aliases": [],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Family diner chain, Midwest/West"
+  },
+  {
+    "id": "tropical_smoothie_cafe",
+    "canonical_name": "Tropical Smoothie Cafe",
+    "aliases": ["Tropical Smoothie"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Smoothie and food fast casual chain"
+  },
+  {
+    "id": "dairy_queen",
+    "canonical_name": "Dairy Queen",
+    "aliases": ["DQ", "DQ Grill & Chill", "Dairy Queen Grill & Chill"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Ice cream and fast food chain"
+  },
+  {
+    "id": "freddys",
+    "canonical_name": "Freddy's Frozen Custard & Steakburgers",
+    "aliases": ["Freddy's", "Freddys"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Fast food chain, Midwest"
+  },
+  {
+    "id": "zaxbys",
+    "canonical_name": "Zaxby's",
+    "aliases": ["Zaxbys"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Chicken fast food chain, Southeast US"
+  },
+  {
+    "id": "slim_chickens",
+    "canonical_name": "Slim Chickens",
+    "aliases": [],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Chicken fast casual chain"
+  },
+  {
+    "id": "einstein_bros_bagels",
+    "canonical_name": "Einstein Bros. Bagels",
+    "aliases": ["Einstein Bros", "Einstein Bagels", "Einstein Noah"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Bagel cafe chain"
+  },
+  {
+    "id": "7_brew_coffee",
+    "canonical_name": "7 Brew Coffee",
+    "aliases": ["7Brew", "7-Brew", "7 Brew", "7Brew Coffee"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5814"],
+    "is_online_only": false,
+    "notes": "Drive-through coffee chain, Midwest/South"
+  },
+  {
+    "id": "cold_stone_creamery",
+    "canonical_name": "Cold Stone Creamery",
+    "aliases": ["Cold Stone"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Ice cream chain"
+  },
+  {
+    "id": "tcby",
+    "canonical_name": "TCBY",
+    "aliases": ["The Country's Best Yogurt"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Frozen yogurt chain"
+  },
+  {
+    "id": "andys_frozen_custard",
+    "canonical_name": "Andy's Frozen Custard",
+    "aliases": ["Andy's"],
+    "primary_category": "DINING",
+    "secondary_categories": [],
+    "mcc_codes": ["5812"],
+    "is_online_only": false,
+    "notes": "Regional frozen custard chain, Midwest/South"
+  },
+  {
+    "id": "dave_and_busters",
+    "canonical_name": "Dave & Buster's",
+    "aliases": ["Dave and Busters", "D&B"],
+    "primary_category": "ENTERTAINMENT",
+    "secondary_categories": ["DINING"],
+    "mcc_codes": ["7993"],
+    "is_online_only": false,
+    "notes": "Entertainment/arcade restaurant chain"
+  },
+  {
+    "id": "loft",
+    "canonical_name": "LOFT",
+    "aliases": ["Ann Taylor Loft", "Ann Taylor LOFT"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5621"],
+    "is_online_only": false,
+    "notes": "Women's clothing chain, Ascena Retail Group"
+  },
+  {
+    "id": "mens_wearhouse",
+    "canonical_name": "Men's Wearhouse",
+    "aliases": ["Mens Wearhouse", "Men's Warehouse"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5611"],
+    "is_online_only": false,
+    "notes": "Men's suit and formalwear chain"
+  },
+  {
+    "id": "eddie_bauer",
+    "canonical_name": "Eddie Bauer",
+    "aliases": [],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": ["SPORTS_APPAREL"],
+    "mcc_codes": ["5699"],
+    "is_online_only": false,
+    "notes": "Outdoor clothing and gear chain"
+  },
+  {
+    "id": "jos_a_bank",
+    "canonical_name": "JoS. A. Bank",
+    "aliases": ["Jos A Bank", "Joseph A Bank"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5611"],
+    "is_online_only": false,
+    "notes": "Men's suits and clothing chain"
+  },
+  {
+    "id": "white_house_black_market",
+    "canonical_name": "White House Black Market",
+    "aliases": ["WHBM"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5621"],
+    "is_online_only": false,
+    "notes": "Women's clothing chain, Chico's FAS"
+  },
+  {
+    "id": "lane_bryant",
+    "canonical_name": "Lane Bryant",
+    "aliases": [],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5621"],
+    "is_online_only": false,
+    "notes": "Plus-size women's clothing chain"
+  },
+  {
+    "id": "buckle",
+    "canonical_name": "Buckle",
+    "aliases": ["The Buckle"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false,
+    "notes": "Casual clothing chain"
+  },
+  {
+    "id": "hollister",
+    "canonical_name": "Hollister Co.",
+    "aliases": ["Hollister", "HCO"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false,
+    "notes": "Abercrombie & Fitch teen clothing brand"
+  },
+  {
+    "id": "american_eagle_outfitters",
+    "canonical_name": "American Eagle Outfitters",
+    "aliases": ["American Eagle", "AEO", "AE"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false,
+    "notes": "Casual clothing chain"
+  },
+  {
+    "id": "victorias_secret",
+    "canonical_name": "Victoria's Secret",
+    "aliases": ["Victorias Secret", "VS"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5621"],
+    "is_online_only": false,
+    "notes": "Lingerie and women's clothing chain"
+  },
+  {
+    "id": "hot_topic",
+    "canonical_name": "Hot Topic",
+    "aliases": [],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false,
+    "notes": "Pop culture and alternative clothing chain"
+  },
+  {
+    "id": "maurices",
+    "canonical_name": "Maurices",
+    "aliases": ["Maurice's"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5621"],
+    "is_online_only": false,
+    "notes": "Women's clothing chain, small-town markets"
+  },
+  {
+    "id": "torrid",
+    "canonical_name": "Torrid",
+    "aliases": [],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5621"],
+    "is_online_only": false,
+    "notes": "Plus-size women's clothing chain"
+  },
+  {
+    "id": "the_childrens_place",
+    "canonical_name": "The Children's Place",
+    "aliases": ["Children's Place", "Childrens Place"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5641"],
+    "is_online_only": false,
+    "notes": "Children's clothing chain"
+  },
+  {
+    "id": "platos_closet",
+    "canonical_name": "Plato's Closet",
+    "aliases": ["Platos Closet"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5699"],
+    "is_online_only": false,
+    "notes": "Teen resale clothing chain"
+  },
+  {
+    "id": "hibbett_sports",
+    "canonical_name": "Hibbett Sports",
+    "aliases": ["Hibbett"],
+    "primary_category": "SPORTS_APPAREL",
+    "secondary_categories": [],
+    "mcc_codes": ["5941"],
+    "is_online_only": false,
+    "notes": "Sporting goods chain, small-town markets"
+  },
+  {
+    "id": "finish_line",
+    "canonical_name": "Finish Line",
+    "aliases": ["The Finish Line"],
+    "primary_category": "SHOE_STORES",
+    "secondary_categories": ["SPORTS_APPAREL"],
+    "mcc_codes": ["5661"],
+    "is_online_only": false,
+    "notes": "Athletic footwear chain, now part of JD Sports"
+  },
+  {
+    "id": "jd_sports",
+    "canonical_name": "JD Sports",
+    "aliases": ["JD"],
+    "primary_category": "SPORTS_APPAREL",
+    "secondary_categories": ["SHOE_STORES"],
+    "mcc_codes": ["5941"],
+    "is_online_only": false,
+    "notes": "UK-origin athletic sportswear chain"
+  },
+  {
+    "id": "bass_pro_shops",
+    "canonical_name": "Bass Pro Shops",
+    "aliases": ["Bass Pro"],
+    "primary_category": "SPORTS_APPAREL",
+    "secondary_categories": [],
+    "mcc_codes": ["5941"],
+    "is_online_only": false,
+    "notes": "Outdoor sporting goods chain, merged with Cabela's"
+  },
+  {
+    "id": "the_fresh_market",
+    "canonical_name": "The Fresh Market",
+    "aliases": ["Fresh Market"],
+    "primary_category": "GROCERY",
+    "secondary_categories": [],
+    "mcc_codes": ["5411"],
+    "is_online_only": false,
+    "notes": "Specialty grocery chain"
+  },
+  {
+    "id": "kay_jewelers",
+    "canonical_name": "Kay Jewelers",
+    "aliases": ["Kay", "Kay Jewelers Outlet"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5944"],
+    "is_online_only": false,
+    "notes": "Jewelry chain, Signet Jewelers"
+  },
+  {
+    "id": "zales",
+    "canonical_name": "Zales",
+    "aliases": ["Zales The Diamond Store", "Zale's"],
+    "primary_category": "CLOTHING_STORES",
+    "secondary_categories": [],
+    "mcc_codes": ["5944"],
+    "is_online_only": false,
+    "notes": "Jewelry chain, Signet Jewelers"
+  }
+]
